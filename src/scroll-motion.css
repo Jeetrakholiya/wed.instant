@@ -1,0 +1,22 @@
+/* Continuous scroll-driven transforms should track the finger directly. */
+.motion-ready .hero-photo img,
+.motion-ready .hero-content,
+.motion-ready .hero-festoon,
+.motion-ready .photo-stack .photo-frame,
+.motion-ready .collage-floral,
+.motion-ready .photo-interlude img,
+.motion-ready .letter-section .letter,
+.motion-ready .letter-floral,
+.motion-ready .scroll-copy {
+  transition-property: none;
+}
+
+/* Keep section entrances gentle while scroll-linked text motion stays direct. */
+.motion-ready .scroll-copy {
+  transition: opacity 180ms ease-out;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .scroll-copy { transition: none !important; }
+}

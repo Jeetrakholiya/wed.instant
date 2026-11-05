@@ -1,0 +1,157 @@
+/* One material language: plum silk, warm deckled paper, restrained metal. */
+.collage,
+.letter-section,
+.blessings {
+  background-color: #43172b;
+  background-image:
+    linear-gradient(115deg, #160b1740, transparent 32% 70%, #13081152),
+    radial-gradient(ellipse at 50% 35%, #e2b86b12, transparent 65%),
+    url('/assets/brocade.webp');
+  background-size: cover, cover, 760px auto;
+  background-repeat: no-repeat, no-repeat, repeat;
+  box-shadow: inset 0 16px 36px #17091355, inset 0 -14px 32px #17091342;
+}
+
+.collage { background-position: center, center, 36% 42%; }
+.letter-section { background-position: center, center, 68% 38%; }
+.blessings { background-position: center, center, 52% 58%; }
+
+.letter,
+.paper-panel,
+.event-card,
+.note-paper {
+  background-color: #f4ead8;
+  background-image:
+    linear-gradient(135deg, #fff9e64a, transparent 37%, #77573810 100%),
+    url('/assets/paper.webp');
+  background-size: cover, cover;
+  background-blend-mode: normal, multiply;
+  border-color: #bea477;
+  box-shadow:
+    inset 0 1px 0 #fff8e5b0,
+    inset 0 -2px 4px #79583b17,
+    0 4px 0 #a2825d,
+    0 20px 36px #1c0c1680;
+}
+
+.event-1,
+.event-3 {
+  background-color: #65263e;
+  background-image:
+    linear-gradient(135deg, #f3d29612, transparent 42%, #13071138),
+    url('/assets/brocade.webp');
+  background-size: cover, 570px auto;
+  background-blend-mode: normal, normal;
+  box-shadow:
+    inset 0 1px 0 #f4dca466,
+    inset 0 -2px 4px #14091255,
+    0 4px 0 #77513b,
+    0 22px 38px #1b0a1488;
+}
+
+.letter-inner:before,
+.letter-inner:after {
+  width: 42px;
+  height: 42px;
+  opacity: .56;
+  filter: none;
+  mix-blend-mode: normal;
+  background:
+    radial-gradient(circle at 8px 8px, #b5915d 0 1px, transparent 1.7px),
+    linear-gradient(135deg, transparent 46%, #b5915d 48% 50%, transparent 52%) 2px 2px / 13px 13px no-repeat,
+    linear-gradient(45deg, transparent 46%, #b5915d 48% 50%, transparent 52%) 8px 8px / 13px 13px no-repeat,
+    linear-gradient(135deg, transparent 46%, #b5915d 48% 50%, transparent 52%) 14px 14px / 13px 13px no-repeat;
+}
+
+.letter-envelope {
+  background-image:
+    linear-gradient(150deg, #e0bd7c20, transparent 38%, #1709138b),
+    url('/assets/brocade.webp');
+  background-size: cover, 540px auto;
+  border-top: 1px solid #f0d69a;
+  box-shadow:
+    inset 0 1px 0 #f5d99a8c,
+    inset 0 9px 18px #210d1f66,
+    0 5px 0 #79523d,
+    0 18px 30px #130711a8;
+}
+
+/* Metallic thread is a fine transition seam; lace only appears at softer joins. */
+.section-join.join-piping {
+  height: 10px;
+  margin: -1px 0;
+  background-color: #42162b;
+  background-size: auto 27px;
+  background-position: center;
+  box-shadow: 0 2px 5px #17081266;
+  opacity: .9;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5% 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5% 95%, transparent);
+}
+
+.photo-interlude + .section-join.join-piping {
+  height: 13px;
+  background: url('/assets/cotton-lace.webp') center / auto 31px repeat-x;
+  filter: drop-shadow(0 3px 4px #20101a66);
+  opacity: .88;
+}
+
+.section-join.join-lace {
+  height: 16px;
+  background-size: auto 31px;
+  background-position: center;
+  opacity: .88;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4% 96%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 4% 96%, transparent);
+}
+
+/* A varied floral rhythm keeps the event suite from looking stamped out. */
+.event-card:nth-child(even) .event-floral {
+  content: url('/assets/rose-spray.webp');
+  width: 70px;
+  right: 8px;
+  left: auto;
+  bottom: -6px;
+  opacity: .54;
+  transform: rotate(5deg);
+  filter: drop-shadow(0 5px 8px #27121c55);
+}
+
+.event-card:nth-child(odd) .event-floral {
+  width: 96px;
+  right: -10px;
+  left: auto;
+  bottom: -12px;
+  opacity: .58;
+  transform: rotate(12deg);
+  filter: drop-shadow(0 6px 8px #27121c55);
+}
+
+.event-card.in-view .event-floral { transform: rotate(7deg); }
+.event-card:nth-child(even).in-view .event-floral { transform: rotate(1deg); }
+
+.collage-floral,
+.letter-floral,
+.note-floral,
+.closing-floral {
+  filter: drop-shadow(0 9px 10px #180b1370) drop-shadow(0 1px 1px #f3d49a33);
+}
+
+.peacock {
+  filter: drop-shadow(0 12px 13px #10050cb0) drop-shadow(0 0 2px #d4b16c66);
+}
+
+@media (max-width: 700px) {
+  .collage,
+  .letter-section,
+  .blessings { background-size: cover, cover, 560px auto; }
+  .section-join.join-piping { height: 8px; background-size: auto 23px; }
+  .photo-interlude + .section-join.join-piping { height: 11px; background-size: auto 27px; }
+  .section-join.join-lace { height: 13px; background-size: auto 27px; }
+  .event-card:nth-child(even) .event-floral { width: 58px; right: 8px; }
+  .event-card:nth-child(odd) .event-floral { width: 82px; right: -8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-card .event-floral { transition: none !important; }
+}

@@ -1,0 +1,38 @@
+/* The visible trims are real textile assets, not a generic color band. */
+.section-join.join-piping{height:24px;margin:-5px 0;background:url('/assets/woven-zari.webp') center/auto 36px repeat-x;box-shadow:0 -5px 12px #13040d80,0 7px 12px #13040d80;filter:none}
+.section-join.join-piping:before{display:none}
+.section-join.join-lace{height:38px;margin:-5px 0;background:url('/assets/cotton-lace.webp') center/auto 49px repeat-x;box-shadow:0 5px 9px #2b11245e;filter:none}
+.section-join.join-lace:before{display:none}
+.letter-section+.section-join.join-piping{height:18px;margin:-4px 0;background:url('/assets/woven-zari.webp') center/auto 27px repeat-x;box-shadow:0 -4px 9px #18070d8c,0 5px 10px #18070d8c}
+.countdown+.section-join.join-lace{background:url('/assets/cotton-lace.webp') center/auto 49px repeat-x}
+.events+.section-join.join-piping,.note+.section-join.join-piping{background:url('/assets/woven-zari.webp') center/auto 36px repeat-x}
+/* The glyph on the invitation rendered as a malformed symbol on Windows. */
+.letter:before,.letter:after{content:'';width:35px;height:35px;box-shadow:none;border-color:#b99969;opacity:.68;pointer-events:none}
+.letter:before{top:26px;left:26px;border-top:1px solid;border-left:1px solid}
+.letter:after{bottom:26px;right:26px;border-bottom:1px solid;border-right:1px solid;transform:none}
+.letter-inner>.flower{display:block;width:17px;height:17px;margin:0 auto 1.5rem;border:1px solid #b69057;background:radial-gradient(circle,#c9a668 0 2px,transparent 3px);transform:rotate(45deg);font-size:0;line-height:0}
+.letter-inner{position:relative;isolation:isolate}
+.letter-inner:before,.letter-inner:after{content:'';position:absolute;width:66px;height:58px;background:url('/assets/floral-corner.webp') center/contain no-repeat;filter:grayscale(1) sepia(1) saturate(.55);mix-blend-mode:multiply;opacity:.15;pointer-events:none;z-index:0}
+.letter-inner>*{position:relative;z-index:1}
+.letter-inner:before{left:10px;bottom:3px;transform:rotate(-18deg)}
+.letter-inner:after{right:13px;top:18px;transform:rotate(160deg)}
+.letter-section:after{background-image:url('/assets/floral-corner.webp');width:min(24vw,210px);height:230px;right:-30px;bottom:12%;opacity:.74;transform:rotate(16deg)}
+.letter-section:before{opacity:.65}
+/* Different layer travel makes movement legible while the text plane stays steady. */
+.hero-photo img{transform:translate3d(0,calc(var(--hero-progress,0) * 68px),0) scale(1.11)}
+.hero-content{transform:translate3d(0,calc(var(--hero-progress,0) * -25px),0)}
+.hero-festoon{transform:translate3d(-50%,calc(var(--hero-progress,0) * -38px),0) rotate(-1deg)}
+.photo-stack .frame-one,.photo-stack .frame-one.in-view{transform:translate3d(calc(0px - var(--photo-sway,0px)),calc(0px - var(--collage-drift,0px)),42px) rotate(-6deg) scale(var(--photo-scale,1))}
+.photo-stack .frame-two,.photo-stack .frame-two.in-view{transform:translate3d(var(--photo-sway,0px),calc(-110px + var(--collage-drift,0px)),65px) rotate(10deg) scale(var(--photo-scale,1))}
+.photo-stack .frame-three,.photo-stack .frame-three.in-view{transform:translate3d(calc(var(--photo-sway,0px) * .65),calc(-110px - var(--collage-drift,0px)),25px) rotate(-8deg) scale(var(--photo-scale,1))}
+.photo-frame img,.motion-ready .collage:not(.in-view) .photo-frame img,.motion-ready .collage.in-view .photo-frame img{filter:saturate(.94) contrast(1.04);transition:none}
+.photo-interlude img{inset:-90px 0;height:calc(100% + 180px);transform:translate3d(0,var(--interlude-pan,0px),0) scale(1.04)}
+.photo-interlude p{z-index:2;text-shadow:0 3px 17px #10050bf2}
+@media(max-width:700px){
+ .section-join.join-piping{height:23px;background-size:auto 34px}
+ .section-join.join-lace,.countdown+.section-join.join-lace{height:36px;background-size:auto 47px}
+ .letter-section+.section-join.join-piping{height:17px;background-size:auto 26px}
+ .letter-section:after{width:145px;height:160px;right:-53px;bottom:13%;opacity:.66}
+ .letter-section .letter,.letter-section .letter.in-view{transform:translate3d(0,calc(115px - var(--card-rise,0px)),40px) rotateX(var(--card-tilt,7deg)) scale(var(--card-scale,.93))}
+}
+@media(prefers-reduced-motion:reduce){.hero-photo img,.hero-content,.hero-festoon,.photo-stack .photo-frame,.photo-interlude img,.letter-section .letter{transform:none!important;will-change:auto}}

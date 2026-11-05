@@ -1,0 +1,156 @@
+/* Photographic royal sleeve and card; wedding copy remains live HTML above the art. */
+.letter-section {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  isolation:isolate;
+  overflow:hidden;
+  height:116svh;
+  min-height:900px;
+  padding:4.5rem 1rem 2.5rem;
+  background:
+    radial-gradient(ellipse at 50% 46%,rgba(137,67,77,.28),transparent 58%),
+    linear-gradient(180deg,rgba(45,13,30,.2),rgba(37,11,27,.56)),
+    url('/assets/brocade.webp') center top/720px auto repeat;
+}
+.letter-section::before,.letter-section::after { display:none !important; }
+.letter-section>.eyebrow {
+  position:relative;
+  z-index:4;
+  margin:0 0 1rem;
+  color:#f0dbb5;
+  font:700 .68rem/1.2 'DM Sans',sans-serif;
+  letter-spacing:.26em;
+  text-shadow:0 2px 12px #1c0714;
+}
+.letter-wrap {
+  position:relative !important;
+  top:auto !important;
+  z-index:1;
+  width:min(100%,460px);
+  max-width:460px !important;
+  height:clamp(660px,180vw,780px);
+  margin:0 auto;
+  padding:0;
+  perspective:1400px;
+  transform-style:preserve-3d;
+  filter:none !important;
+}
+/* Keep the open back flap hidden; only the physical front pocket belongs beneath the card. */
+.letter-wrap::before {
+  display:none !important;
+}
+.letter-section .letter {
+  position:absolute;
+  z-index:2;
+  left:50%;
+  bottom:90px;
+  width:87%;
+  aspect-ratio:970/1509;
+  padding:0;
+  border:0;
+  background:url('/assets/royal-invitation-card.webp') center/100% 100% no-repeat;
+  box-shadow:none;
+  transform:translate3d(-50%,calc(40px - var(--card-rise,0px)),36px) rotateX(var(--card-tilt,9deg)) scale(var(--card-scale,.96)) !important;
+  transform-origin:50% 100%;
+  transform-style:preserve-3d;
+  backface-visibility:hidden;
+  transition:transform .12s linear;
+  will-change:transform;
+}
+.letter-section .letter::before,.letter-section .letter::after { content:none !important; display:none !important; }
+.letter-section .letter-inner {
+  position:absolute;
+  inset:0;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  min-height:0 !important;
+  height:100%;
+  padding:19% 10% 8%;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:#593844;
+  line-height:1.42;
+  text-align:center;
+  isolation:isolate;
+}
+.letter-section .letter-inner::before,.letter-section .letter-inner::after { display:none !important; content:none !important; }
+.letter-section .letter-inner>.flower { display:none !important; }
+.letter-section .letter-inner>p {
+  max-width:30ch;
+  margin:.3rem auto .5rem;
+  color:#61444a;
+  font:500 clamp(.78rem,3.6vw,.9rem)/1.42 'Playfair Display',Georgia,serif;
+  text-wrap:balance;
+}
+.letter-section .letter h2 {
+  max-width:9ch;
+  margin:.35rem auto .55rem;
+  color:#783d55;
+  font:500 clamp(1.9rem,8.2vw,2.65rem)/1.05 'Playfair Display',Georgia,serif;
+  letter-spacing:-.045em;
+  text-wrap:balance;
+}
+.letter-section .letter h2 span { display:block; margin:.14rem auto; color:#b18441; font-size:.42em; line-height:1; }
+.letter-section .letter-date {
+  margin:.45rem 0 .58rem;
+  color:#725149;
+  font:600 .68rem/1.7 'DM Sans',sans-serif;
+  letter-spacing:.13em;
+}
+.letter-section .letter strong { color:#573543; font:700 .78rem/1.4 'DM Sans',sans-serif; letter-spacing:.035em; }
+.letter-section .letter small { display:block; max-width:30ch; margin:.18rem auto .1rem; color:#755a50; font:500 .68rem/1.4 'DM Sans',sans-serif; }
+.letter-section .letter a,.letter-section .letter .map-disabled { margin-top:.4rem; color:#7a4d47; font-size:.58rem; letter-spacing:.08em; }
+/* The same sleeve photograph, clipped to its front panel, creates the pocket overlap. */
+.letter-envelope {
+  position:absolute;
+  z-index:3;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:clamp(210px,52vw,260px);
+  border:0;
+  clip-path:polygon(0 5%,50% 32%,100% 5%,100% 100%,0 100%);
+  background:url('/assets/royal-envelope-pocket.webp') center/100% 100% no-repeat;
+  box-shadow:none;
+  transform:translateZ(48px);
+  pointer-events:none;
+}
+.letter-envelope::before,.letter-envelope::after { content:none !important; display:none !important; }
+.letter-section .letter-floral { display:none !important; }
+.letter-section+.section-join.join-piping {
+  position:relative;
+  z-index:2;
+  height:15px;
+  margin-top:-1px;
+  background:url('/assets/woven-zari.webp') center/auto 11px repeat-x,#371326;
+  box-shadow:0 -5px 12px #16070f77,0 6px 12px #16070f77;
+}
+@media(min-width:701px) {
+  .letter-section { height:112svh; min-height:940px; padding-top:5rem; }
+  .letter-wrap { width:min(88vw,460px); height:760px; }
+  .letter-section .letter { width:87%; bottom:92px; }
+}
+@media(max-width:700px) {
+  .letter-section { height:116svh; min-height:900px; padding:4rem .85rem 2rem; }
+  .letter-section>.eyebrow { margin-bottom:.8rem; }
+  .letter-wrap { width:min(100%,420px); height:clamp(660px,180vw,760px); }
+  .letter-section .letter { width:87%; bottom:90px; }
+  .letter-section .letter-inner { padding:19% 9% 7%; }
+}
+@media(max-width:380px) {
+  .letter-section .letter-inner { padding-inline:8%; }
+  .letter-section .letter h2 { font-size:clamp(1.8rem,7.6vw,2.25rem); }
+  .letter-section .letter-inner>p { font-size:.75rem; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .letter-wrap { perspective:none; transform-style:flat; }
+  .letter-section .letter,.letter-section .letter.in-view { transform:translateX(-50%) !important; transition:none !important; will-change:auto; }
+  .letter-envelope { transform:none !important; transition:none !important; will-change:auto; }
+}
+body:not(.motion-ready) .letter-section .letter { transform:translateX(-50%) !important; }

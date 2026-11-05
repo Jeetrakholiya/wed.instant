@@ -1,0 +1,81 @@
+/* A paper invitation framed by two brocade leaves, then uncovered on tap. */
+.cover{background:#2b0a19 url('/assets/brocade.webp') center/700px auto;isolation:isolate}
+.cover:before,.cover:after{display:none}
+.cover-pattern{z-index:0;background:radial-gradient(ellipse at 50% 42%,#8e583d6e,transparent 59%),url('/assets/brocade.webp') center/700px auto;filter:brightness(.7)}
+.cover-paper{position:absolute;z-index:2;top:11%;left:50%;width:min(73%,520px);height:min(69svh,630px);transform:translateX(-50%) rotateX(0);transform-origin:50% 80%;background:#f2e4cb url('/assets/paper.webp') center/cover;border:1px solid #c7ab7c;box-shadow:0 0 0 8px #e9d4aa55,0 0 0 10px #6b452c,0 19px 0 #7a4c30,0 40px 60px #0b030bcc;display:grid;place-items:center}
+.cover-paper:before{content:'';position:absolute;inset:13px;border:1px solid #af895b;box-shadow:inset 0 0 0 5px #fff8e777;pointer-events:none}
+.cover-paper-inner{display:flex;align-items:center;flex-direction:column;justify-content:center;text-align:center;gap:1.1rem;width:100%;height:100%;padding:3rem 1.15rem 5rem;color:#743b50;text-shadow:0 1px 0 #fff9e8}
+.cover-paper-kicker,.cover-paper-date{font:700 .62rem/1.6 'DM Sans',sans-serif;letter-spacing:.22em;color:#8e674c}
+.cover-paper-names{display:flex;flex-direction:column;font:italic 500 clamp(2.5rem,5vw,4.6rem)/1.05 'Playfair Display',serif;letter-spacing:-.055em;text-wrap:balance}
+.cover-paper-names i{font:400 1.5rem 'Great Vibes',cursive;color:#a47d45;line-height:1.2}
+.cover-flap,.cover-flap.left,.cover-flap.right{top:0;width:24%;height:100%;border:0;border-radius:0;background:linear-gradient(90deg,#1c0716a3,transparent 25% 75%,#170713a3),url('/assets/brocade.webp') center/600px auto;box-shadow:0 0 30px #130510bd,inset 0 0 0 1px #d3aa6973;transform:none;transform-origin:center;backface-visibility:visible}
+.cover-flap.left{left:0;border-right:3px solid #b58b56;box-shadow:7px 0 13px #130510ac,inset -5px 0 0 #6b3d3688}
+.cover-flap.right{right:0;border-left:3px solid #b58b56;box-shadow:-7px 0 13px #130510ac,inset 5px 0 0 #6b3d3688}
+.cover-flap:before{background:linear-gradient(90deg,#ffdf9b0d,#18081245);opacity:.9}
+.cover-garland{position:absolute;z-index:5;top:2%;left:50%;width:min(85%,760px);height:auto;transform:translateX(-50%);pointer-events:none;filter:drop-shadow(0 10px 9px #10040a9c)}
+.cover .seal{position:absolute;left:50%;top:59%;margin-left:-62px;z-index:7;width:124px;height:124px;border-width:4px;box-shadow:0 0 0 5px #6d1b35,0 0 0 9px #c19455,0 0 0 12px #4b1329,0 8px 0 #4a1726,0 19px 24px #160711a9,inset 0 0 0 4px #a05b55,inset 0 0 0 6px #e1bb7f}
+.cover-prompt{top:calc(59% + 140px);z-index:7;color:#fbe8c8;text-shadow:0 2px 8px #10040d;font-size:.66rem}
+.skip{z-index:9}
+.peacock-pair{z-index:6!important}
+.peacock{top:auto;bottom:3%;width:min(31vw,350px);filter:drop-shadow(0 13px 8px #10040abd)}
+.peacock-left{left:2%;transform:rotate(-3deg)}.peacock-right{right:2%;transform:rotate(3deg)}
+.cover.is-opening{animation:royal-cover-release 2.5s ease both}
+.cover.is-opening .cover-flap.left{animation:brocade-left-open 2.25s cubic-bezier(.2,.75,.18,1) both}
+.cover.is-opening .cover-flap.right{animation:brocade-right-open 2.25s cubic-bezier(.2,.75,.18,1) both}
+.cover.is-opening .cover-paper{animation:paper-unfold 2.45s cubic-bezier(.2,.76,.15,1) both}
+.cover.is-opening .seal{animation:seal-release 1.5s cubic-bezier(.2,.7,.18,1) both}
+.cover.is-opening .cover-garland{animation:garland-rise 2.1s ease both}
+.cover.is-opening .peacock-left{animation:bird-left-open 2.35s cubic-bezier(.2,.72,.17,1) both}
+.cover.is-opening .peacock-right{animation:bird-right-open 2.35s cubic-bezier(.2,.72,.17,1) both}
+@keyframes royal-cover-release{0%,69%{opacity:1}100%{opacity:0}}
+@keyframes brocade-left-open{0%,15%{transform:translateX(0)}65%{transform:translateX(-65%)}100%{transform:translateX(-125%)}}
+@keyframes brocade-right-open{0%,15%{transform:translateX(0)}65%{transform:translateX(65%)}100%{transform:translateX(125%)}}
+@keyframes paper-unfold{0%,18%{transform:translateX(-50%) translateY(0) rotateX(0) scale(1);filter:blur(0)}58%{transform:translateX(-50%) translateY(-25px) rotateX(-4deg) scale(1.045);filter:blur(0)}100%{transform:translateX(-50%) translateY(-85px) rotateX(-10deg) scale(1.12);filter:blur(5px);opacity:0}}
+@keyframes seal-release{0%,13%{transform:translateY(0) rotate(0) scale(1);opacity:1}40%{transform:translateY(-18px) rotate(-8deg) scale(1.15);opacity:1}100%{transform:translateY(-75px) rotate(-18deg) scale(1.3);opacity:0}}
+@keyframes garland-rise{0%,30%{transform:translateX(-50%) translateY(0);opacity:1}100%{transform:translateX(-50%) translateY(-45px);opacity:0}}
+@keyframes bird-left-open{0%,18%{transform:translateY(0) rotate(-3deg);opacity:1}48%{transform:translateY(-9px) rotate(1deg);opacity:1}100%{transform:translate(-35px,18px) rotate(-10deg);opacity:0}}
+@keyframes bird-right-open{0%,18%{transform:translateY(0) rotate(3deg);opacity:1}48%{transform:translateY(-9px) rotate(-1deg);opacity:1}100%{transform:translate(35px,18px) rotate(10deg);opacity:0}}
+.cover.is-opening~main .hero-photo img{animation:hero-arrives 2.7s ease-out both}
+@keyframes hero-arrives{0%,45%{filter:blur(8px) saturate(.8);transform:scale(1.1)}100%{filter:blur(0) saturate(1);transform:scale(1)}}
+/* Fabric hems replace the repeated bright zigzag bands. */
+.section-join.join-piping,.section-join.join-lace{height:15px;margin:0;background:linear-gradient(180deg,#1b0813a9 0 2px,#a3774a 3px,#d7b380 4px,#6d3e38 5px,#32101e 7px,#25101e 100%);box-shadow:0 -7px 14px #13040c77,0 8px 14px #13040c8c;filter:none}
+.section-join.join-piping:before,.section-join.join-lace:before{content:'';position:absolute;inset:7px 0 3px;background:repeating-linear-gradient(90deg,#c49b685e 0 3px,transparent 3px 8px);opacity:.75;filter:none}
+.events+.section-join.join-piping,.note+.section-join.join-piping{background:linear-gradient(#d9c19f,#8d6870 24%,#461b2f 70%,#220b1a)}
+.letter-section+.section-join.join-piping{height:25px;background:linear-gradient(180deg,#48152a,#2d0d20 54%,#1c0918);box-shadow:0 -14px 20px #2108189e,0 12px 20px #16070f91}
+.letter-section+.section-join.join-piping:before{background:none}
+.letter-envelope:after{display:none}.letter-envelope{left:0;width:100%;height:112px;border:0;clip-path:polygon(0 16%,50% 0,100% 16%,100% 100%,0 100%);background:linear-gradient(180deg,#743b4a8a,#21091ae8),url('/assets/brocade.webp') center/550px auto;box-shadow:inset 0 6px 0 #d8b77b91,inset 0 -7px 10px #13040e77,0 16px 31px #13040ec7}
+.letter-envelope:before{height:4px;background:linear-gradient(90deg,transparent,#dfba83 20% 80%,transparent);box-shadow:0 2px 5px #1b0810a3}
+.motion-ready .letter-section:not(.in-view) .letter-inner,.motion-ready .letter-section.in-view .letter-inner{filter:none}
+.letter-floral{display:none}
+.letter-section{position:relative;isolation:isolate}
+.letter-section:before,.letter-section:after{content:'';position:absolute;width:min(25vw,170px);height:220px;background:url('/assets/rose-spray.webp') center/contain no-repeat;opacity:.58;pointer-events:none;z-index:0;filter:drop-shadow(0 11px 9px #12040e9c)}
+.letter-section:before{left:-35px;top:25%;transform:rotate(-22deg)}.letter-section:after{right:-35px;bottom:10%;transform:scaleX(-1) rotate(-22deg)}
+.letter-section>.eyebrow,.letter-wrap{position:relative;z-index:1}
+/* Scroll layers use only compositor transforms; text remains on a steady plane. */
+.hero-photo img{transform:translate3d(0,calc(var(--hero-progress,0) * 28px),0) scale(1.06);transform-origin:center;will-change:transform}
+.hero-content{transform:translate3d(0,calc(var(--hero-progress,0) * -18px),0)}
+.hero-festoon{animation:none;transform:translate3d(-50%,calc(var(--hero-progress,0) * -24px),0) rotate(-1deg)}
+.photo-interlude img{transform:translate3d(0,var(--interlude-pan,0px),0) scale(1.06)}
+.photo-interlude p{transform:translate3d(0,calc((1 - var(--interlude-progress,0)) * 16px),0)}
+.collage .section-kicker{position:relative;z-index:2}
+.photo-stack .photo-frame{will-change:transform}
+.letter-section .letter{will-change:transform}
+@media(max-width:700px){
+ .cover-paper{top:12%;width:76%;height:66svh}
+ .cover-paper-inner{padding:2rem .8rem 6rem;gap:1rem}
+ .cover-paper-names{font-size:clamp(2.35rem,10vw,3.5rem)}
+ .cover-paper-kicker,.cover-paper-date{font-size:.52rem;letter-spacing:.17em}
+ .cover-flap,.cover-flap.left,.cover-flap.right{width:19%;background-size:auto,500px auto}
+ .cover-garland{width:102%;top:1%}
+ .cover .seal{top:56%;width:108px;height:108px;margin-left:-54px}
+ .cover-prompt{top:calc(56% + 122px);font-size:.62rem}
+ .peacock{width:43vw;bottom:6%}.peacock-left{left:2%}.peacock-right{right:2%}
+ .letter-section:before,.letter-section:after{width:100px;opacity:.45}
+ .letter-section:before{left:-48px;top:19%}.letter-section:after{right:-52px;bottom:5%}
+ .letter-section .letter,.letter-section .letter.in-view{transform:translate3d(0,calc(100px - var(--card-rise,0px)),40px) rotateX(var(--card-tilt,7deg)) scale(var(--card-scale,.93))}
+}
+@media(prefers-reduced-motion:reduce){
+ .cover.is-opening,.cover.is-opening .cover-flap,.cover.is-opening .cover-paper,.cover.is-opening .seal,.cover.is-opening .cover-garland,.cover.is-opening .peacock{animation:none!important}
+ .hero-photo img,.hero-content,.hero-festoon,.photo-interlude img,.photo-interlude p{transform:none!important;will-change:auto}
+ .letter-section{height:auto;min-height:0}
+}

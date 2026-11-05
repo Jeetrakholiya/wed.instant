@@ -1,0 +1,129 @@
+/* Baraat layers: palace atmosphere, groom's elephant, and individually moving guests. */
+.photo-interlude.baraat-scene {
+  --baraat-ink:#3d1e2a;
+  position:relative;
+  display:grid;
+  align-content:start;
+  justify-items:center;
+  height:clamp(650px,88svh,900px);
+  min-height:650px;
+  overflow:hidden;
+  isolation:isolate;
+  border-block:1px solid #d0ae70;
+  background:#5a2637;
+  padding:clamp(92px,16vh,150px) 20px 0;
+  text-align:center;
+}
+.photo-interlude.baraat-scene::before { z-index:5; inset:12px; pointer-events:none; border:1px solid #f3d9a987; border-radius:48% 48% 0 0 / 8% 8% 0 0; box-shadow:inset 0 0 0 5px #32162216; }
+.photo-interlude.baraat-scene::after { display:none; }
+.photo-interlude.baraat-scene .baraat-backdrop {
+  position:absolute !important; z-index:0 !important; inset:-3% 0 !important;
+  width:100% !important; height:106% !important;
+  object-fit:cover !important; object-position:center 52% !important;
+  transform:translate3d(0,var(--interlude-pan,0px),0) scale(1.04) !important;
+  filter:saturate(.88) brightness(.92) !important; will-change:transform;
+}
+.photo-interlude.baraat-scene .interlude-shade {
+  position:absolute; z-index:1; inset:0;
+  background:linear-gradient(180deg,rgba(255,235,205,.34),rgba(255,235,205,.12) 26%,rgba(53,20,34,.04) 50%,rgba(43,17,29,.42) 100%);
+}
+.baraat-message {
+  position:relative; z-index:4;
+  width:min(calc(100% - 38px),370px);
+  margin:clamp(108px,15svh,145px) auto 0;
+  padding:17px 22px 20px;
+  border:1px solid #a77a3c;
+  outline:1px solid #fff5dfb8;
+  outline-offset:-6px;
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.76),transparent 58%),
+    repeating-linear-gradient(0deg,rgba(112,78,48,.018) 0 1px,transparent 1px 4px),
+    linear-gradient(145deg,rgba(255,247,231,.98),rgba(244,224,197,.97));
+  box-shadow:0 14px 34px #2b101f4a,inset 0 0 22px #bd965139;
+  text-align:center;
+  color:var(--baraat-ink);
+  backdrop-filter:blur(2px);
+}
+.baraat-message::before,.baraat-message::after { content:'✦'; position:absolute; top:48%; color:#a47c3b; font-size:10px; }
+.baraat-message::before { left:12px; }
+.baraat-message::after { right:12px; }
+.baraat-cavalcade { position:absolute; z-index:2; inset:auto 0 0; height:54%; pointer-events:none; }
+.baraat-elephant {
+  position:absolute !important; z-index:5 !important; display:block;
+  width:min(90vw,780px) !important; height:auto !important;
+  inset:auto auto 1% 0 !important; object-fit:contain !important;
+  transform:translate3d(var(--elephant-shift,0px),0,0) !important;
+  filter:drop-shadow(0 18px 22px rgba(35,13,22,.35)) !important; will-change:transform;
+}
+.baraati-line { position:absolute; z-index:1; inset:auto 0 0; height:49%; }
+.baraati {
+  position:absolute !important; z-index:1 !important; display:block;
+  inset:auto auto 0 var(--marcher-x) !important;
+  width:auto !important; height:var(--marcher-height) !important; max-width:none;
+  object-fit:contain !important; object-position:center bottom !important;
+  transform:translate3d(var(--marcher-shift,0px),var(--marcher-rise,0px),0) !important;
+  filter:drop-shadow(0 6px 9px rgba(35,13,22,.3)) brightness(.9) saturate(.92) !important; will-change:transform;
+}
+.baraati-1 { --marcher-x:0%; --marcher-height:83%; }
+.baraati-2 { --marcher-x:18%; --marcher-height:100%; }
+.baraati-3 { --marcher-x:38%; --marcher-height:87%; }
+.baraati-4 { --marcher-x:59%; --marcher-height:96%; }
+.baraati-5 { --marcher-x:79%; --marcher-height:91%; }
+.photo-interlude.baraat-scene .baraat-kicker {
+  position:relative; z-index:3; display:block; margin:0 0 7px;
+  color:#91652f; font:700 .65rem/1.2 'DM Sans',sans-serif; letter-spacing:.24em;
+}
+.photo-interlude.baraat-scene .baraat-title {
+  margin:0 0 7px;
+  color:#5b2c3d;
+  font:500 clamp(1.45rem,6.3vw,1.9rem)/1.13 'Playfair Display',Georgia,serif;
+  text-wrap:balance;
+}
+.photo-interlude.baraat-scene .baraat-caption {
+  position:relative; z-index:3; width:min(100%,34ch); margin:0 auto; padding:0 3px;
+  color:#583a39; font:500 clamp(.9rem,3.9vw,1.02rem)/1.48 'DM Sans',sans-serif;
+  letter-spacing:.005em; text-shadow:none; text-wrap:balance;
+  transform:none !important;
+}
+.baraat-petals { position:absolute; z-index:4; inset:0; overflow:hidden; pointer-events:none; }
+.baraat-petal {
+  position:absolute; top:-14px; left:var(--petal-x); width:7px; height:11px;
+  border-radius:80% 15% 75% 20%; background:linear-gradient(135deg,#f9dd9a,#b77948 74%);
+  opacity:.62; box-shadow:0 1px 4px #5a263766;
+  animation:baraat-fall var(--petal-duration) linear var(--petal-delay) infinite;
+}
+@keyframes baraat-fall { to { transform:translate3d(var(--petal-drift),105svh,0) rotate(330deg); opacity:.06; } }
+@media(min-width:701px) {
+  .photo-interlude.baraat-scene { height:clamp(700px,88svh,940px); padding-top:0; }
+  .baraat-message { width:min(calc(100% - 56px),520px); margin-top:clamp(125px,16svh,174px); padding:22px 34px 24px; }
+  .photo-interlude.baraat-scene .baraat-title { font-size:clamp(1.8rem,3vw,2.25rem); }
+  .baraat-cavalcade { height:58%; }
+  .baraati-line { height:44%; }
+  .baraat-elephant { width:min(62vw,740px) !important; left:4% !important; }
+  .baraati-1 { --marcher-x:8%; }
+  .baraati-2 { --marcher-x:25%; }
+  .baraati-3 { --marcher-x:43%; }
+  .baraati-4 { --marcher-x:61%; }
+  .baraati-5 { --marcher-x:79%; }
+  .photo-interlude.baraat-scene .baraat-caption { font-size:1.05rem; }
+}
+@media(max-width:390px) {
+  .photo-interlude.baraat-scene { height:82svh; min-height:610px; padding-top:0; }
+  .baraat-message { width:calc(100% - 34px); margin-top:108px; padding:16px 19px 18px; }
+  .photo-interlude.baraat-scene .baraat-title { font-size:clamp(1.42rem,6vw,1.7rem); }
+  .photo-interlude.baraat-scene .baraat-caption { font-size:.91rem; line-height:1.48; }
+  .baraat-elephant { width:100vw !important; left:-2% !important; }
+  .baraat-cavalcade { height:50%; }
+  .baraati-1 { --marcher-x:-4%; --marcher-height:86%; }
+  .baraati-2 { --marcher-x:15%; --marcher-height:98%; }
+  .baraati-3 { --marcher-x:36%; --marcher-height:90%; }
+  .baraati-4 { --marcher-x:57%; --marcher-height:96%; }
+  .baraati-5 { --marcher-x:77%; --marcher-height:92%; }
+  .photo-interlude.baraat-scene::before { inset:9px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .baraat-petal { display:none; animation:none; }
+  .baraat-backdrop,.baraat-elephant,.baraati,.baraat-message,.photo-interlude.baraat-scene .baraat-caption {
+    transform:none !important; transition:none !important; will-change:auto;
+  }
+}

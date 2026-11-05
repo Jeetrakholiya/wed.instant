@@ -1,0 +1,31 @@
+/* Restore the full woven and lace borders that gave the first version its character. */
+.section-join.join-piping,.events+.section-join.join-piping,.note+.section-join.join-piping{height:42px;margin:-8px 0;background:url('/assets/woven-zari.webp') center/auto 65px repeat-x;box-shadow:0 -8px 18px #1707138c,0 10px 18px #17071396}
+.letter-section+.section-join.join-piping{height:36px;margin:-7px 0;background:url('/assets/woven-zari.webp') center/auto 54px repeat-x;box-shadow:0 -7px 16px #1707138a,0 9px 16px #1707139c}
+.section-join.join-lace,.countdown+.section-join.join-lace{height:47px;margin:-7px 0;background:url('/assets/cotton-lace.webp') center/auto 66px repeat-x;box-shadow:0 7px 11px #2a10196e}
+/* Put the full floral artwork back on physical edges, outside the readable copy. */
+.letter-floral{display:block;position:absolute;z-index:6;width:230px;right:-86px;bottom:-40px;opacity:.98;transform:translate3d(0,calc(0px - var(--flower-rise,0px)),90px) rotate(8deg);filter:drop-shadow(0 15px 13px #160712a8)}
+.collage-floral{width:260px;left:-70px;bottom:-35px;opacity:.95}
+.event-floral{opacity:.85;filter:drop-shadow(0 8px 8px #1b081483)}
+.event-2 .event-floral{display:block}
+.note-floral{opacity:.85}
+/* Text enters once, then follows the finger on its own restrained depth plane. */
+.motion-ready .scroll-copy{opacity:1;transform:translate3d(0,var(--text-shift,0px),0);transition:opacity .6s ease,filter .6s ease;will-change:transform}
+.motion-ready .scroll-copy:not(.in-view){opacity:.9;filter:none}
+.motion-ready .scroll-copy.in-view{opacity:1;filter:none}
+/* Two celebration sheets rise out of fabric covers as their cards are scrolled into view. */
+.event-pocket{position:relative;width:100%;max-width:540px;margin:0 auto;padding-bottom:58px;isolation:isolate}
+.event-pocket .event-card,.event-pocket .event-card.in-view{position:relative;z-index:2;margin:0;transform:translate3d(0,calc(38px - var(--pocket-rise,0px)),0);transition:opacity .6s ease;will-change:transform}
+.event-pocket:before{content:'';position:absolute;left:2%;right:2%;bottom:22px;height:110px;background:#391225 url('/assets/brocade.webp') center/450px auto;box-shadow:0 13px 25px #3b1b2b80;z-index:1}
+.event-pocket:after{content:'';position:absolute;z-index:3;bottom:0;left:-2%;right:-2%;height:64px;background-image:url('/assets/woven-zari.webp'),linear-gradient(175deg,#633249a8,#2b0c20dd),url('/assets/brocade.webp');background-size:auto 22px,cover,500px auto;background-position:center -7px,center,center;background-repeat:repeat-x,no-repeat,repeat;border-top:2px solid #d1a365;box-shadow:inset 0 5px 0 #8d6d53,0 -11px 17px #2c0d216e,0 13px 18px #56354461;clip-path:polygon(0 11%,50% 0,100% 11%,100% 100%,0 100%);pointer-events:none}
+.event-pocket .event-card .map-disabled,.event-pocket .event-card a{position:relative;z-index:4}
+@media(max-width:700px){
+ .section-join.join-piping,.events+.section-join.join-piping,.note+.section-join.join-piping{height:35px;background-size:auto 54px}
+ .letter-section+.section-join.join-piping{height:31px;background-size:auto 47px}
+ .section-join.join-lace,.countdown+.section-join.join-lace{height:42px;background-size:auto 60px}
+ .letter-floral{width:190px;right:-61px;bottom:-35px}
+ .collage-floral{width:190px;left:-56px;bottom:-13px}
+ .event-floral{width:155px;opacity:.9}
+ .event-pocket{padding-bottom:48px}
+ .event-pocket:after{height:58px;left:-1%;right:-1%}
+}
+@media(prefers-reduced-motion:reduce){.motion-ready .scroll-copy,.motion-ready .scroll-copy:not(.in-view),.event-pocket .event-card,.event-pocket .event-card.in-view{opacity:1!important;filter:none!important;transform:none!important;transition:none!important;will-change:auto}}

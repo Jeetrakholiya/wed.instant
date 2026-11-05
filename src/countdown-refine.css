@@ -1,0 +1,212 @@
+/* A card-free “golden hour” moment, on the same blush zari fabric as celebrations. */
+.invite .countdown {
+  position: relative;
+  min-height: 0;
+  padding: clamp(3.8rem, 10vw, 6rem) 1rem;
+  overflow: visible;
+  color: #563949;
+  background-color: #c9a89b;
+  background-image:
+    linear-gradient(180deg, rgb(241 223 207 / 20%), rgb(217 194 179 / 16%)),
+    url('/assets/events-blush-zari-tile.webp');
+  background-position: center top, center top;
+  background-size: 100% 100%, min(100vw, 620px) min(100vw, 620px);
+  background-repeat: no-repeat, repeat;
+  box-shadow: none;
+}
+
+.invite .countdown::before,
+.invite .countdown::after {
+  content: none !important;
+  display: none !important;
+}
+
+.countdown-stage {
+  position: relative;
+  width: min(100%, 570px);
+  margin: 0 auto;
+  padding: 0 0 1rem;
+  text-align: center;
+}
+
+.countdown-stage .section-kicker {
+  margin: 0 auto .7rem;
+  color: #906e49;
+  font: 700 .65rem/1.5 'DM Sans', sans-serif;
+  letter-spacing: .27em;
+  text-transform: uppercase;
+}
+
+.countdown-stage h2 {
+  max-width: 14ch;
+  margin: 0 auto 1.1rem;
+  color: #713c50;
+  font: italic 500 clamp(2.25rem, 8vw, 3.25rem)/1.12 'Playfair Display', serif;
+  text-wrap: balance;
+}
+
+.countdown-stage #countdown {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: .35rem .5rem;
+  max-width: 420px;
+  margin: .4rem auto 1.2rem;
+}
+
+.countdown-stage #countdown > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .28rem;
+  width: clamp(72px, 21vw, 94px);
+  aspect-ratio: 1;
+  min-width: 0;
+  padding: .5rem .25rem;
+  color: #64394e;
+  background:
+    radial-gradient(ellipse at 28% 18%, rgb(255 251 236 / 95%), rgb(239 221 196 / 88%) 73%, rgb(226 203 171 / 90%));
+  border: 1px solid #bb965e;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 3px rgb(255 250 233 / 72%),
+    inset 0 0 0 5px rgb(186 145 83 / 37%),
+    0 3px 0 #a77a49,
+    0 8px 14px rgb(78 43 49 / 18%);
+}
+
+.countdown-stage #countdown > .countdown-days {
+  grid-column: 1 / -1;
+  width: clamp(210px, 61vw, 270px);
+  padding: 0;
+  overflow: visible;
+  color: #61354a;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.countdown-stage .countdown-dial-art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 9px rgb(53 31 34 / 22%));
+  animation: dial-breathe 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.countdown-stage #countdown strong {
+  position: relative;
+  z-index: 1;
+  color: #71364b;
+  font: 500 clamp(1.6rem, 6vw, 2.25rem)/1 'Playfair Display', serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-stage #countdown .countdown-days strong {
+  font-size: clamp(3.2rem, 11vw, 4.8rem);
+  text-shadow: 0 1px 0 #fff6e5;
+}
+
+.countdown-stage #countdown small {
+  position: relative;
+  z-index: 1;
+  color: #8a694b;
+  font: 700 .51rem/1.35 'DM Sans', sans-serif;
+  letter-spacing: .12em;
+}
+
+.countdown-stage #countdown .countdown-days small {
+  color: #77543d;
+  font-size: .61rem;
+  letter-spacing: .21em;
+}
+
+.countdown-stage .countdown-date {
+  margin: 1.1rem auto .2rem;
+  color: #60434d;
+  font: 500 .94rem/1.55 'Playfair Display', serif;
+  letter-spacing: .035em;
+  text-wrap: balance;
+}
+
+.countdown-stage .countdown-zone {
+  display: block;
+  margin: 0 auto .85rem;
+  color: #94775d;
+  font: 600 .62rem/1.5 'DM Sans', sans-serif;
+  letter-spacing: .07em;
+}
+
+.countdown-stage .countdown-calendar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: .55rem .25rem;
+  color: #71364b;
+  border: 0;
+  border-bottom: 1px solid #a77a49;
+  background: transparent;
+  font: 700 .64rem/1.4 'DM Sans', sans-serif;
+  letter-spacing: .12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.countdown-stage .countdown-calendar:hover {
+  color: #9b623a;
+  border-color: #9b623a;
+}
+
+.countdown-stage .countdown-calendar:focus-visible {
+  outline: 2px solid #713448;
+  outline-offset: 4px;
+}
+
+.countdown-stage .countdown-calendar[aria-disabled="true"] {
+  opacity: .56;
+  pointer-events: none;
+}
+
+.countdown-stage #countdown .celebrate {
+  grid-column: 1 / -1;
+  margin: 1rem auto;
+  color: #713c50;
+  font: italic 500 1.45rem/1.4 'Playfair Display', serif;
+}
+
+.events + .section-join.join-piping {
+  background-image: url('/assets/woven-zari.webp'), linear-gradient(#c9a89b, #c9a89b);
+}
+
+.countdown + .section-join.join-lace {
+  background-image: url('/assets/cotton-lace.webp'), linear-gradient(180deg, #c9a89b 0 50%, #e7d2c6 50%);
+}
+
+@keyframes dial-breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@media (max-width: 390px) {
+  .invite .countdown { padding-right: .8rem; padding-left: .8rem; }
+  .countdown-stage #countdown { gap: .3rem; }
+  .countdown-stage #countdown > div:not(.countdown-days) { width: 72px; }
+  .countdown-stage #countdown > .countdown-days { width: min(61vw, 242px); }
+  .countdown-stage #countdown .countdown-days strong { font-size: clamp(3rem, 10.5vw, 4.2rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .countdown-stage .countdown-dial-art { animation: none; }
+  .countdown-stage .countdown-calendar { transition: none; }
+}

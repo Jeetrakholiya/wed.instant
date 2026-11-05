@@ -1,0 +1,355 @@
+/* Entrance-only envelope composition. Keep this file last in the invitation cascade. */
+.cover {
+  isolation: isolate;
+  overflow: hidden;
+  perspective: 1500px;
+  background: #26101b url('/assets/brocade.webp') center / 700px auto;
+}
+
+.cover-pattern {
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 50% 42%, #9b73402b, transparent 56%),
+    linear-gradient(90deg, #16091388, transparent 18% 82%, #16091388),
+    url('/assets/brocade.webp') center / 620px auto;
+  filter: brightness(.67) saturate(.88);
+}
+
+/* Envelope back sits behind the card; the V-shaped face sits in front of it. */
+.cover:before,
+.cover:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(94%, 480px);
+  height: min(39svh, 360px);
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.cover:before {
+  z-index: 1;
+  clip-path: polygon(0 0, 50% 35%, 100% 0, 100% 100%, 0 100%);
+  background:
+    linear-gradient(145deg, #8b544733, #321124a8 60%),
+    url('/assets/brocade.webp') center / 520px auto;
+  border: 1px solid #d1ae7180;
+  filter: drop-shadow(0 -9px 18px #12050c8c);
+}
+
+.cover:after {
+  z-index: 4;
+  width: min(92%, 468px);
+  height: min(38svh, 350px);
+  clip-path: polygon(0 0, 50% 43%, 100% 0, 100% 100%, 0 100%);
+  background:
+    linear-gradient(155deg, #9a665150, #4a1b32a8 52%, #281020e8),
+    url('/assets/brocade.webp') center / 500px auto;
+  filter: drop-shadow(0 14px 20px #11050b9c);
+}
+
+.cover-paper {
+  z-index: 2;
+  top: 8%;
+  width: min(82%, 520px);
+  height: min(65svh, 600px);
+  transform: translateX(-50%) translateZ(0);
+  transform-origin: 50% 88%;
+  background-color: #f4ead8;
+  background-image:
+    linear-gradient(115deg, #fff9e780, transparent 36%, #7351390c 70%),
+    url('/assets/paper.webp');
+  border-color: #d5bd91;
+  box-shadow:
+    0 0 0 4px #d8c19a55,
+    0 0 0 7px #694630,
+    0 3px 0 #e1cda9,
+    0 10px 0 #825c3c,
+    0 15px 0 #3d271d,
+    0 30px 48px #0b030bd9;
+  backface-visibility: hidden;
+}
+
+.cover-paper-inner { padding-bottom: 4.8rem; }
+
+.cover-flap,
+.cover-flap.left,
+.cover-flap.right {
+  z-index: 5;
+  top: auto;
+  bottom: 0;
+  width: 50%;
+  height: min(38svh, 350px);
+  border: 0;
+  border-radius: 0;
+  transform: translateZ(10px);
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  backface-visibility: hidden;
+  background:
+    linear-gradient(150deg, #f1d9a611, transparent 28% 70%, #10050c40),
+    url('/assets/brocade.webp') center / 500px auto;
+  box-shadow: inset 0 1px 0 #e7c99466, inset 0 0 24px #17081455;
+  transition: none;
+}
+
+.cover-flap.left {
+  left: 0;
+  clip-path: polygon(0 0, 100% 43%, 100% 100%, 0 100%);
+  border-right: 0;
+}
+
+.cover-flap.right {
+  right: 0;
+  left: auto;
+  clip-path: polygon(0 43%, 100% 0, 100% 100%, 0 100%);
+  border-left: 0;
+}
+
+.cover-flap.left:before,
+.cover-flap.right:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #fff2d514, transparent 35%, #16071044);
+  pointer-events: none;
+}
+
+/* A fine, irregular metallic stitch follows each folded envelope edge. */
+.cover-flap.left:after,
+.cover-flap.right:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .84;
+  background: repeating-linear-gradient(90deg, #e4c17c 0 2px, #9d7145 2px 3px, #f0d99d 3px 4px, transparent 4px 7px);
+}
+
+.cover-flap.left:after {
+  clip-path: polygon(0 0, 100% 42%, 100% 43%, 0 1%);
+}
+
+.cover-flap.right:after {
+  clip-path: polygon(0 42%, 100% 0, 100% 1%, 0 43%);
+}
+
+.cover .seal {
+  z-index: 7;
+  top: 72%;
+  width: 98px;
+  height: 98px;
+  margin-left: -49px;
+  border-color: #e4c47f;
+  background: radial-gradient(circle at 34% 25%, #a83d50 0, #791d37 44%, #471329 82%);
+  box-shadow:
+    0 0 0 4px #4b1d34,
+    0 0 0 7px #ba965d,
+    0 0 0 10px #42152b,
+    0 5px 0 #351022,
+    0 16px 25px #13060fb8,
+    inset 0 1px 0 #f5d89d,
+    inset 0 0 0 4px #a65b58,
+    inset 0 0 0 6px #ddb773;
+  transform-style: preserve-3d;
+}
+
+.cover .seal:before {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px solid #e9ca8a77;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cover .seal:after {
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: 21px;
+  width: 34px;
+  height: 15px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #fff0c95c, transparent);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.cover-prompt {
+  z-index: 7;
+  top: calc(72% + 112px);
+  color: #f7e6c8;
+  font-size: .58rem;
+  letter-spacing: .19em;
+  text-shadow: 0 2px 10px #1a0613;
+}
+
+.cover-garland {
+  z-index: 6;
+  top: 1%;
+  width: min(100%, 760px);
+  filter: drop-shadow(0 8px 8px #10040a99);
+}
+
+.peacock-pair {
+  z-index: 6 !important;
+  pointer-events: none;
+}
+
+.peacock {
+  z-index: 6;
+  top: auto;
+  bottom: 5%;
+  width: min(39vw, 190px);
+  filter: drop-shadow(0 9px 7px #10060dbb) drop-shadow(0 0 1px #d0a86766);
+}
+
+.peacock-left { left: 1%; }
+.peacock-right { right: 1%; }
+
+.skip {
+  z-index: 9;
+  border-color: #dfbd8066;
+  background: #210d1ac9;
+  color: #fff0d3;
+  padding: .65rem .8rem;
+  backdrop-filter: blur(8px);
+}
+
+.cover.is-opening {
+  animation: envelope-fade-away 2.45s cubic-bezier(.4, 0, .2, 1) both;
+}
+
+.cover.is-opening:before {
+  animation: envelope-back-release 2.3s cubic-bezier(.2, .75, .18, 1) both;
+}
+
+.cover.is-opening .cover-paper {
+  animation: card-emerge 2.35s cubic-bezier(.2, .76, .15, 1) both;
+}
+
+.cover.is-opening:after {
+  animation: envelope-front-release 2.2s cubic-bezier(.2, .75, .18, 1) both;
+}
+
+.cover.is-opening .cover-flap.left {
+  animation: left-envelope-wing 2.2s cubic-bezier(.18, .78, .18, 1) both;
+}
+
+.cover.is-opening .cover-flap.right {
+  animation: right-envelope-wing 2.2s cubic-bezier(.18, .78, .18, 1) both;
+}
+
+.cover.is-opening .seal {
+  animation: wax-seal-release 1.5s cubic-bezier(.2, .8, .18, 1) both;
+}
+
+.cover.is-opening .cover-garland {
+  animation: garland-release 2.05s ease both;
+}
+
+.cover.is-opening .peacock-left {
+  animation: peacock-left-release 2.2s cubic-bezier(.2, .72, .17, 1) both;
+}
+
+.cover.is-opening .peacock-right {
+  animation: peacock-right-release 2.2s cubic-bezier(.2, .72, .17, 1) both;
+}
+
+.cover.is-opening .cover-prompt { opacity: 0; transition: opacity .22s ease; }
+.cover.is-opening ~ main .hero-photo img { animation: hero-arrives 2.6s ease-out both; }
+.cover.opened { visibility: hidden; opacity: 0; pointer-events: none; }
+.cover.opened .cover-flap.left { transform: translateX(-112%) rotateY(-32deg); }
+.cover.opened .cover-flap.right { transform: translateX(112%) rotateY(32deg); }
+.cover.skip-motion,
+.cover.skip-motion * { animation: none !important; transition: none !important; }
+
+@keyframes envelope-back-release {
+  0%, 18% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(28px) scale(.98); opacity: 0; }
+}
+
+@keyframes envelope-front-release {
+  0%, 18% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(54px) scale(.97); opacity: 0; }
+}
+
+@keyframes card-emerge {
+  0%, 14% { transform: translateX(-50%) translateY(0) translateZ(0) rotateX(0) scale(1); filter: blur(0); opacity: 1; }
+  46% { transform: translateX(-50%) translateY(-18px) translateZ(46px) rotateX(-3deg) scale(1.035); filter: blur(0); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(-74px) translateZ(100px) rotateX(-7deg) scale(1.08); filter: blur(3px); opacity: 0; }
+}
+
+@keyframes left-envelope-wing {
+  0%, 16% { transform: translateZ(10px) translateX(0) rotateY(0) rotateX(0); opacity: 1; }
+  40% { transform: translateZ(34px) translateX(-7%) rotateY(-16deg) rotateX(3deg); opacity: 1; }
+  100% { transform: translateZ(45px) translateX(-112%) rotateY(-36deg) rotateX(4deg); opacity: 0; }
+}
+
+@keyframes right-envelope-wing {
+  0%, 16% { transform: translateZ(10px) translateX(0) rotateY(0) rotateX(0); opacity: 1; }
+  40% { transform: translateZ(34px) translateX(7%) rotateY(16deg) rotateX(3deg); opacity: 1; }
+  100% { transform: translateZ(45px) translateX(112%) rotateY(36deg) rotateX(4deg); opacity: 0; }
+}
+
+@keyframes wax-seal-release {
+  0%, 16% { transform: scale(1); opacity: 1; }
+  30% { transform: translateY(3px) scale(.92); opacity: 1; }
+  50% { transform: translateY(-15px) rotateY(22deg) rotateZ(-7deg) scale(1.12); opacity: 1; }
+  100% { transform: translateY(-74px) rotateY(44deg) rotateZ(-14deg) scale(1.22); opacity: 0; filter: blur(3px); }
+}
+
+@keyframes garland-release {
+  0%, 25% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(-40px); opacity: 0; }
+}
+
+@keyframes peacock-left-release {
+  0%, 18% { transform: rotate(-3deg) translateY(0); opacity: 1; }
+  42% { transform: rotate(1deg) translateY(-10px) scale(1.025); opacity: 1; }
+  100% { transform: rotate(-10deg) translate(-40px, 25px) scale(.94); opacity: 0; }
+}
+
+@keyframes peacock-right-release {
+  0%, 18% { transform: rotate(3deg) translateY(0); opacity: 1; }
+  42% { transform: rotate(-1deg) translateY(-10px) scale(1.025); opacity: 1; }
+  100% { transform: rotate(10deg) translate(40px, 25px) scale(.94); opacity: 0; }
+}
+
+@keyframes envelope-fade-away {
+  0%, 70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media (max-width: 700px) {
+  .cover-paper { top: 8%; width: 82%; height: min(65svh, 600px); }
+  .cover-paper-inner { padding: 2rem .9rem 4.9rem; gap: .9rem; }
+  .cover-paper-names { font-size: clamp(2.25rem, 9.5vw, 3.35rem); }
+  .cover:before { width: 94%; height: min(39svh, 350px); }
+  .cover:after { width: 92%; height: min(38svh, 340px); }
+  .cover-flap,
+  .cover-flap.left,
+  .cover-flap.right { width: 50%; height: min(38svh, 340px); }
+  .cover .seal { top: 72%; width: 98px; height: 98px; margin-left: -49px; }
+  .cover-prompt { top: calc(72% + 112px); font-size: .56rem; letter-spacing: .17em; }
+  .cover-garland { top: 1%; width: min(100%, 760px); }
+  .peacock { bottom: 5%; width: min(39vw, 190px); }
+  .peacock-left { left: 1%; }
+  .peacock-right { right: 1%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover.is-opening,
+  .cover.is-opening:before,
+  .cover.is-opening:after,
+  .cover.is-opening .cover-paper,
+  .cover.is-opening .cover-flap,
+  .cover.is-opening .seal,
+  .cover.is-opening .cover-garland,
+  .cover.is-opening .peacock { animation: none !important; }
+  .cover.is-opening .cover-prompt { opacity: 1; }
+  .cover.is-opening ~ main .hero-photo img { animation: none !important; filter: none !important; transform: none !important; }
+}

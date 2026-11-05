@@ -1,0 +1,62 @@
+/* Final art direction: restrained type, section-specific botanical placement. */
+.invite h1,.invite h2,.invite h3{font-synthesis:none}
+.invite .eyebrow,.invite .section-kicker{font-size:clamp(.7rem,1.1vw,.82rem);letter-spacing:.28em;line-height:1.7}
+.hero h1,.collage h2,.letter h2,.closing h2{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;letter-spacing:-.055em;line-height:1.12}
+.hero h1{font-size:clamp(3.3rem,7vw,7rem);max-width:12ch;margin:1rem auto;text-wrap:balance}
+.hero h1 span,.letter h2 span{font-style:normal;font-size:.45em;letter-spacing:0}
+.collage h2{font-size:clamp(2.8rem,6vw,5.5rem);max-width:18ch;margin:2.5rem auto .75rem;text-wrap:balance}
+.letter h2{font-size:clamp(2.6rem,4.5vw,4.2rem);margin:1.3rem auto;max-width:12ch}
+.paper-panel h2,.events h2,.note h2,.blessings h2{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;letter-spacing:-.045em;line-height:1.12}
+.paper-panel h2{font-size:clamp(2.8rem,5vw,4.4rem)}
+.events h2{font-size:clamp(2.8rem,5vw,4.5rem)}
+.blessings h2{font-size:clamp(2.4rem,4vw,3.45rem);max-width:15ch;margin-inline:auto}
+.note h2{font-size:clamp(2.45rem,4vw,3.6rem);max-width:15ch;margin-inline:auto}
+.event-card h3{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(2.8rem,5vw,4.4rem);letter-spacing:-.04em;line-height:1.15;margin:.7rem 0 1.1rem}
+.event-card p{font-size:.82rem;line-height:1.8;letter-spacing:.12em}
+.event-card small{font-size:1.1rem;line-height:1.4}
+.event-card .map-disabled{font-size:.67rem;line-height:1.5;letter-spacing:.02em}
+.paper-panel dt{font-size:.72rem;font-weight:700}.paper-panel dd{font-size:1.15rem;line-height:1.65}
+.note-paper p{font-size:1.12rem;line-height:1.9}.note-paper strong{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(1.4rem,3vw,2.2rem);line-height:1.35}
+.closing h2{font-size:clamp(2.5rem,5vw,5rem);max-width:20ch;margin-inline:auto;line-height:1.15}
+.cover:after{display:none}.cover .peacock-pair{position:absolute;z-index:4;inset:0;pointer-events:none;filter:drop-shadow(0 18px 15px #10070eb8)}
+.peacock{position:absolute;display:block;width:min(31vw,410px);height:auto;top:45%;opacity:.98;filter:drop-shadow(0 7px 5px #1d0a17b8);transform-origin:50% 85%}
+.peacock-left{left:5%;transform:translate3d(0,0,28px) rotate(-3deg)}.peacock-right{right:5%;transform:translate3d(0,0,28px) rotate(3deg)}
+.cover.is-opening .peacock-left{animation:peacock-part-left 2.05s cubic-bezier(.18,.7,.19,1) both}.cover.is-opening .peacock-right{animation:peacock-part-right 2.05s cubic-bezier(.18,.7,.19,1) both}
+@keyframes peacock-part-left{0%,20%{transform:translate3d(0,0,28px) rotate(-3deg);filter:blur(0)}45%{transform:translate3d(-7px,-12px,42px) rotate(-1deg);filter:blur(0)}100%{transform:translate3d(-90px,26px,-15px) rotate(-12deg);filter:blur(3px);opacity:0}}
+@keyframes peacock-part-right{0%,20%{transform:translate3d(0,0,28px) rotate(3deg);filter:blur(0)}45%{transform:translate3d(7px,-12px,42px) rotate(1deg);filter:blur(0)}100%{transform:translate3d(90px,26px,-15px) rotate(12deg);filter:blur(3px);opacity:0}}
+.cover-prompt{top:calc(50% + 118px);font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.18em}
+/* Each surface gets a different treatment: spray, stitched edge, paper corners, or garland. */
+.collage-floral{width:clamp(170px,20vw,300px);left:-4%;bottom:1%;transform:translate3d(0,calc(0px - var(--collage-drift,0px)),60px) rotate(-19deg);opacity:.85}
+.letter-floral{width:clamp(150px,16vw,235px);right:-16%;bottom:-4%;transform:translate3d(0,calc(0px - var(--flower-rise,0px)),100px) rotate(17deg)}
+.event-card{padding-inline:clamp(1.3rem,4vw,3rem)}
+.event-floral{width:clamp(100px,12vw,150px);right:-4%;bottom:-7%;opacity:.62;transform:rotate(22deg) scale(.85)}
+.event-1 .event-floral{left:-4%;right:auto;bottom:-9%;transform:scaleX(-1) rotate(20deg) scale(.8)}
+.event-2 .event-floral{right:-7%;bottom:-10%;transform:rotate(32deg) scale(.75)}
+.event-2 .event-floral{display:none}
+.event-3 .event-floral{left:-5%;right:auto;bottom:-8%;transform:scaleX(-1) rotate(8deg) scale(.75)}
+.event-card.in-view .event-floral{transform:rotate(16deg) scale(.92)}
+.event-1.in-view .event-floral,.event-3.in-view .event-floral{transform:scaleX(-1) rotate(10deg) scale(.84)}
+.event-card>*:not(.event-floral){position:relative;z-index:2}
+.note-floral{width:clamp(125px,15vw,200px);left:-11%;bottom:-12%;transform:rotate(-24deg);opacity:.75}
+.closing-floral{width:clamp(170px,22vw,300px);right:-5%;bottom:-7%;transform:rotate(16deg)}
+.blessing-festoon{top:-75px;width:95%}
+.events-festoon{max-width:550px;margin-top:2rem;margin-bottom:0}
+.letter-section{padding-bottom:3rem}.letter-wrap{max-width:540px}.letter-inner{padding-inline:clamp(1.3rem,4vw,3rem);line-height:1.75}
+.letter-envelope{height:clamp(150px,19vw,215px)}
+.details .paper-panel{padding-block:4rem}.details .paper-panel dl{gap:.75rem}
+.photo-interlude p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(2.1rem,5vw,4.2rem);line-height:1.22;max-width:20ch;text-wrap:balance}
+@media(max-width:700px){
+ .peacock{width:53vw;top:43%}.peacock-left{left:-13%}.peacock-right{right:-13%}
+ .cover-prompt{top:calc(50% + 107px);font-size:.62rem}
+ .hero h1{font-size:clamp(3.25rem,14vw,4.7rem);max-width:9ch}.hero-content{padding-inline:1.25rem}
+ .collage{padding-bottom:5rem}.collage h2{font-size:clamp(2.6rem,11vw,3.5rem);max-width:10ch;margin-top:1.2rem}
+ .collage-floral{width:155px;left:-58px;bottom:-8px;opacity:.62}
+ .letter-section{height:125svh;min-height:990px;padding-top:5rem;padding-bottom:0}.letter-wrap{top:1svh;max-width:min(88vw,440px)}
+ .letter h2{font-size:clamp(2.4rem,10vw,3.4rem)}.letter-floral{width:135px;right:-44px;bottom:-34px;opacity:.76}
+ .event-card{min-height:365px;padding-top:4.8rem;padding-bottom:3.5rem}
+ .event-card h3{font-size:clamp(2.9rem,12vw,4rem)}.event-floral{width:105px;right:-24px;bottom:-32px;opacity:.48}.event-1 .event-floral,.event-3 .event-floral{left:-25px}
+ .events-festoon{width:105%;margin-left:-2.5%;margin-bottom:1rem}.blessing-festoon{width:108%;top:-36px}
+ .note-paper{padding-inline:1.6rem}.note-floral{width:115px;left:-38px;bottom:-50px}
+ .closing-floral{width:170px;right:-48px;bottom:-40px}.photo-interlude p{font-size:clamp(2rem,8vw,3rem);margin-bottom:3.5rem}
+}
+@media(prefers-reduced-motion:reduce){.peacock,.cover.is-opening .peacock{animation:none!important;transform:none!important;filter:none!important}.letter-section{height:auto;min-height:0}.letter-wrap{position:relative}}

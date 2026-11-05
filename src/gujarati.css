@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Noto+Serif+Gujarati:wght@400;500;600;700&display=swap');
+
+/* Gujarati uses connected syllables; English tracking and display faces do not apply. */
+.invite[data-locale="gu"] {
+  --gu-serif: 'Noto Serif Gujarati', 'Nirmala UI', serif;
+  --gu-sans: 'Noto Sans Gujarati', 'Nirmala UI', sans-serif;
+  font-family: var(--gu-sans);
+  line-height: 1.8;
+  font-synthesis: none;
+}
+.invite[data-locale="gu"] :is(h1,h2,h3,.cover-paper-names,.mandala,.event-card h3,.paper-panel h2) {
+  font-family: var(--gu-serif);
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.invite[data-locale="gu"] :is(p,span,small,strong,dt,dd,a,button,.section-kicker,.eyebrow,.cover-paper-kicker,.cover-paper-date,.scroll-cue,.event-card p,.event-card small,.countdown-date,.countdown-zone,.countdown-calendar) {
+  font-family: var(--gu-sans);
+  letter-spacing: 0;
+  line-height: 1.8;
+  text-transform: none;
+}
+.invite[data-locale="gu"] .hero h1 { max-width: 12ch; font-size: clamp(2.25rem, 9.5vw, 4.5rem); }
+.invite[data-locale="gu"] .cover-paper-names { font-size: clamp(2rem, 9vw, 3.7rem); }
+.invite[data-locale="gu"] .cover-paper-kicker,.invite[data-locale="gu"] .cover-paper-date { font-size: .78rem; }
+.invite[data-locale="gu"] .letter-inner > p,
+.invite[data-locale="gu"] .letter-inner small,
+.invite[data-locale="gu"] .letter-inner strong,
+.invite[data-locale="gu"] .letter-date { line-height: 1.9; }
+.invite[data-locale="gu"] .letter h2 { font-size: clamp(2rem, 8.5vw, 3.4rem); }
+.invite[data-locale="gu"] .details dt { font-size: .9rem; }
+.invite[data-locale="gu"] .details dd { line-height: 1.9; }
+.invite[data-locale="gu"] .event-card h3 { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+.invite[data-locale="gu"] .event-card p { font-size: .88rem; }
+.invite[data-locale="gu"] .count-grid small { font-size: .67rem; }
+.invite[data-locale="gu"] .note-paper p { line-height: 2; }
+.invite[data-locale="gu"] .closing h2 { overflow-wrap: anywhere; }
+.invite[data-locale="gu"] .demo { letter-spacing: 0; white-space: normal; }
+.invite[data-locale="gu"] .cover-prompt { font-size: .76rem; }
+
+.gu-catalog { min-height: 100vh; color: #4a2638; background:#f5ecdf; font-family:'Noto Sans Gujarati','Nirmala UI',sans-serif; }
+.gu-catalog * { box-sizing:border-box; }
+.gu-catalog-nav { min-height:76px; padding:1rem clamp(1rem,5vw,4rem); display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #d9c5aa; }
+.gu-catalog-nav .brand,.gu-catalog-footer>a { color:#642940; font:500 1.5rem 'Playfair Display',serif; text-decoration:none; }
+.gu-catalog-nav .brand em,.gu-catalog-footer em { color:#b48243; }
+.gu-catalog-nav>a:last-child { color:#684955; font-size:.8rem; text-decoration:none; }
+.gu-catalog-hero { padding:clamp(3.5rem,9vw,7rem) 1.25rem 3.5rem; text-align:center; background:radial-gradient(ellipse at 50% 0,#fffaf0,#f5ecdf 70%); }
+.gu-catalog-hero>span,.gu-template-tag { color:#a57843; font-size:.72rem; }
+.gu-catalog-hero h1 { margin:1.25rem 0; font:500 clamp(2.8rem,9vw,5.2rem)/1.5 'Noto Serif Gujarati','Nirmala UI',serif; }
+.gu-catalog-hero h1 em { color:#9b6e4c; font-style:normal; }
+.gu-catalog-hero p { max-width:620px; margin:0 auto 1.7rem; color:#725f60; line-height:2; }
+.gu-catalog-button { display:inline-flex; gap:.7rem; align-items:center; padding:.85rem 1.2rem; background:#672b43; color:#fff5e8; text-decoration:none; border:1px solid #c59c64; box-shadow:0 8px 20px #54233a26; }
+.gu-catalog-button span { color:#e9c582; }
+.gu-template-list { padding:1rem clamp(1rem,6vw,5rem) 6rem; }
+.gu-template-card { max-width:1000px; margin:auto; display:grid; grid-template-columns:minmax(260px,.85fr) 1fr; align-items:center; gap:clamp(2rem,6vw,5rem); padding:clamp(1.25rem,4vw,3rem); background:#fbf5e9; border:1px solid #decba8; box-shadow:0 24px 70px #5535461c; }
+.gu-template-preview { min-height:490px; padding:3rem 1.2rem; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; text-align:center; color:#f8e8cb; background:linear-gradient(#4216299c,#421629a8),url('/assets/brocade.webp') center/cover; border:7px double #c6a267; box-shadow:0 20px 40px #2f112733; }
+.gu-template-preview:before { content:''; position:absolute; inset:14px; border:1px solid #e2c58a; pointer-events:none; }
+.gu-preview-ornament { color:#e6c182; font-size:2rem; }
+.gu-template-preview small { margin-top:1rem; color:#f0d5ac; }
+.gu-template-preview h2 { margin:1rem 0; font:500 clamp(1.8rem,4vw,2.4rem)/1.6 'Noto Serif Gujarati','Nirmala UI',serif; }
+.gu-template-preview h2 i { font:1rem 'Playfair Display',serif; color:#e4bf7e; }
+.gu-preview-date,.gu-preview-venue { color:#f1dfc7; font-size:.9rem; line-height:1.8; }
+.gu-preview-line { width:60%; height:1px; margin:1.3rem; background:#d1aa69; }
+.gu-template-copy h2 { margin:.5rem 0; color:#6b2d45; font:500 2.5rem 'Playfair Display',serif; }
+.gu-template-copy p { max-width:46ch; color:#75636a; line-height:2; }
+.gu-template-copy .gu-catalog-button { margin-top:1rem; }
+.gu-catalog-footer { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1.5rem clamp(1rem,5vw,4rem); background:#eadbc7; color:#725b60; font-size:.8rem; }
+@media(max-width:700px) { .gu-template-card { grid-template-columns:1fr; max-width:520px; gap:1.5rem; } .gu-template-preview { min-height:410px; } .gu-template-copy { padding:.3rem .25rem 1rem; } .gu-catalog-footer { flex-wrap:wrap; } }
+@media(prefers-reduced-motion:reduce) { .gu-catalog * { scroll-behavior:auto!important; } }
