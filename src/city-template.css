@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@400;500;600;700&family=Rasa:wght@400;500;600;700&display=swap');
+.city-invite { --ink:#482938; --rose:#8b4158; --gold:#98683e; --paper:#fff2dc; color:var(--ink); background:#bd8c98; font-family:'Hind Vadodara','Nirmala UI',sans-serif; overflow:hidden; }
+.city-invite *, .city-invite *::before, .city-invite *::after { box-sizing:border-box; }
+.city-invite :is(h1,h2,h3) { font-family:'Rasa','Nirmala UI',serif; font-weight:500; line-height:1.22; text-wrap:balance; }
+.city-home { position:fixed; z-index:20; top:1rem; left:1rem; display:grid; place-items:center; width:43px; height:43px; border:1px solid #fff3d8ab; border-radius:50%; background:#4f2d48b9; color:#fff4e4; font-size:1.65rem; text-decoration:none; backdrop-filter:blur(8px); }
+.city-demo { position:absolute; z-index:20; top:1rem; right:1rem; max-width:190px; margin:0; padding:.55rem .75rem; border-radius:30px; background:#4f2d48c9; color:#fff4e4; font-size:.7rem; line-height:1.3; text-align:center; backdrop-filter:blur(8px); }
+.city-hero { position:relative; display:flex; align-items:flex-start; justify-content:center; min-height:100svh; padding:clamp(6.5rem,17svh,11rem) 1.5rem 5rem; background:#b98caa url('/assets/city/mobile-city-impasto-background.webp') center bottom/cover no-repeat; text-align:center; isolation:isolate; }
+.city-hero::after { content:''; position:absolute; z-index:-1; inset:0; background:linear-gradient(180deg,#3d23421c 0,#3d234200 50%,#54334328 100%); }
+.city-hero-copy { position:relative; z-index:2; width:min(100%,28rem); padding:1rem 0; color:#fff0d5; text-shadow:0 2px 12px #42223f8c; }
+.city-hero-copy p { margin:.45rem 0; font-size:1rem; }
+.city-kicker { font-size:.78rem; font-weight:700; letter-spacing:.03em; }
+.city-hero h1 { display:flex; flex-direction:column; gap:0; margin:1.2rem 0 .7rem; font-size:clamp(4.5rem,20vw,7.2rem); line-height:.95; }
+.city-hero h1 span { color:#ffe0b6; font-size:.34em; line-height:1.15; }
+.city-hero .city-date { display:inline-block; padding:.28rem 1.2rem; border-top:1px solid #ffdfb999; border-bottom:1px solid #ffdfb999; font-size:1.12rem; }
+.city-hero-floral { position:absolute; z-index:1; top:-1rem; left:-2.5rem; width:min(47vw,260px); pointer-events:none; }
+.city-birds { position:absolute; right:3%; top:31%; width:clamp(80px,22vw,150px); opacity:.76; pointer-events:none; }
+.city-scroll-hint { position:absolute; bottom:1.25rem; left:50%; transform:translateX(-50%); color:#fff1db; font-size:.85rem; text-shadow:0 1px 8px #452234; }
+.city-invitation { padding:5rem 1rem; background:linear-gradient(#e2b6a7,#d79896 45%,#b77c88); }
+.city-invitation-art { position:relative; width:min(100%,450px); min-height:670px; margin:auto; }
+.city-invitation-art>img { position:absolute; inset:0; width:100%; height:100%; object-fit:fill; filter:drop-shadow(0 16px 25px #4b2d3980); }
+.city-invitation-copy { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; width:72%; min-height:610px; margin:auto; padding:8rem .35rem 4rem; text-align:center; color:#fff3dc; text-shadow:0 2px 10px #472734bd; }
+.city-invitation-copy>span { font-size:.76rem; }
+.city-invitation h2 { margin:1rem 0; font-size:clamp(2.8rem,10vw,4rem); }
+.city-invitation p { margin:.25rem 0 1rem; font-size:clamp(.95rem,3.5vw,1.08rem); line-height:1.75; }
+.city-invitation strong { font:500 clamp(1.8rem,7vw,2.6rem)/1.2 'Rasa',serif; }
+.city-invitation strong i { font-size:.55em; font-style:normal; }
+.city-invitation small { margin-top:.8rem; font-size:.85rem; }
+.city-events { padding:5rem 1rem 6rem; background:linear-gradient(#f2d3be,#edbfab 48%,#d697a0); text-align:center; }
+.city-events>.city-kicker { color:var(--rose); }
+.city-events h2 { margin:.35rem auto 0; color:#71354f; font-size:clamp(2.8rem,10vw,4.5rem); }
+.city-events-intro { margin:.2rem auto 2.4rem; color:#6f4551; }
+.city-event-list { display:grid; gap:1.8rem; width:min(100%,650px); margin:auto; }
+.city-event { position:relative; display:flex; align-items:center; min-height:390px; padding:2.1rem 1.3rem 1.4rem; overflow:hidden; border:1px solid #c9946f; border-radius:160px 160px 10px 10px; background:linear-gradient(145deg,#fff6e9f5,#f5ded2f0),url('/assets/city/mobile-city-impasto-background.webp') center/cover; box-shadow:0 5px 0 #bd8c7180,0 20px 35px #713f5140,inset 0 0 0 7px #fff7e880; }
+.city-event::after { content:''; position:absolute; inset:13px; border:1px solid #c49b79; border-radius:145px 145px 5px 5px; pointer-events:none; }
+.city-event-index { position:absolute; top:1.45rem; left:50%; transform:translateX(-50%); color:#9b6871; font-size:.8rem; }
+.city-event>img { position:absolute; width:47%; max-height:170px; object-fit:contain; pointer-events:none; }
+.city-event-flowers>img { left:-8%; bottom:-4%; transform:rotate(13deg); }
+.city-event-lanterns>img { right:-8%; top:0; width:50%; opacity:.85; }
+.city-event-car>img { left:-4%; bottom:0; width:54%; }
+.city-event-arch>img { right:-7%; bottom:-5%; width:42%; max-height:240px; }
+.city-event-copy { position:relative; z-index:1; width:100%; padding:2rem 0 1rem; }
+.city-event h3 { margin:.2rem 0; color:#773951; font-size:clamp(2.8rem,11vw,4.2rem); }
+.city-event-copy>p { max-width:23ch; margin:0 auto 1.2rem; color:#60444b; font-size:.93rem; line-height:1.6; }
+.city-event dl { display:grid; gap:.38rem; margin:0 auto; }
+.city-event dl>div { display:flex; flex-wrap:wrap; justify-content:center; gap:.3rem; }
+.city-event dt { color:#956044; font-size:.8rem; font-weight:700; }
+.city-event dt::after { content:' ·'; }
+.city-event dd { margin:0; color:#543947; font-size:.9rem; font-weight:600; }
+.city-note { position:relative; min-height:480px; padding:8rem 1.5rem 5rem; background:#6d4564 url('/assets/city/city-sunset-background.webp') center 62%/cover no-repeat; color:#fff2dc; text-align:center; }
+.city-note>img { position:absolute; top:0; left:50%; transform:translateX(-50%); width:min(100%,600px); }
+.city-note>div { position:relative; width:min(100%,32rem); margin:4rem auto 0; }
+.city-note h2,.city-closing h2 { margin:.2rem 0 1rem; font-size:clamp(3rem,11vw,4.5rem); }
+.city-note p:not(.city-kicker) { font-size:1.07rem; line-height:1.8; }
+.city-note strong { font:500 2rem 'Rasa',serif; }
+.city-closing { padding:5rem 1.3rem 4rem; background:linear-gradient(#facbaa88,#552c48a8),url('/assets/city/mobile-city-impasto-background.webp') center bottom/cover; color:#fff4e4; text-align:center; text-shadow:0 2px 10px #3f203d80; }
+.city-closing>img { display:block; width:min(88%,450px); margin:0 auto 1.8rem; filter:drop-shadow(0 14px 14px #4425335c); }
+.city-closing p { margin:.4rem auto; }
+.city-families { font-size:.9rem; }
+.city-closing small { display:block; margin-top:2rem; font-size:.72rem; }
+@media(max-width:420px) { .city-hero { background-position:center bottom; } .city-invitation-art { min-height:590px; } .city-invitation-copy { min-height:550px; padding-top:7rem; } .city-event { min-height:370px; } .city-event>img { opacity:.68; } }
+@media(prefers-reduced-motion:reduce) { .city-invite *, .city-invite *::before, .city-invite *::after { scroll-behavior:auto!important; } }

@@ -1,37 +1,48 @@
 import type { Wedding } from './wedding';
 
-// Gujarati draft copy for layout review. This is demonstration text, not customer content.
+// Filled from the Gujarati invitation PDF supplied for this template review.
 export const weddingGujarati: Wedding = {
   schemaVersion: 1,
   templateId: 'heirloom',
   isDemo: true,
-  personOne: 'નામ એક',
-  personTwo: 'નામ બે',
-  dateLocal: '2027-02-14T18:00:00',
-  dateLabel: '૧૪ ફેબ્રુઆરી ૨૦૨૭',
+  locale: 'gu',
+  ganeshInvocation: '॥ શ્રી ગણેશાય નમઃ ॥',
+  familyContacts: [
+    { name: 'શ્રી રમેશભાઈ પોપટભાઈ રૂડકિયા', phone: '૯૬૮૭૨ ૪૨૨૦૬', relation: 'આમંત્રણકર્તા' },
+    { name: 'શ્રી રાહુલભાઈ રમેશભાઈ રૂડકિયા', phone: '૮૧૪૧૩ ૨૨૨૮૫', relation: 'આમંત્રણકર્તા' }
+  ],
+  invitationAddress: '“જય રામદેવજી”, દલખાણીયા રોડ, મુ. લાઈનપરા, તા. ધારી, જી. અમરેલી',
+  personOne: 'ચિ. તરુણ',
+  personTwo: 'ચિ. માનસી',
+  dateLocal: '2026-11-24T11:45:00',
+  dateLabel: 'તા. ૨૪-૧૧-૨૦૨૬, મંગળવાર',
   timezone: 'Asia/Kolkata',
-  ceremonyTime: 'સાંજે ૬:૦૦ વાગ્યે',
-  venue: 'લગ્નનું સ્થળ ઉમેરો',
-  address: 'સરનામું ઉમેરો',
-  attire: 'પોશાકની સૂચના ઉમેરો',
-  invitationIntro: 'પરિવારજનોના આશીર્વાદ સાથે',
-  invitationMessage: 'અમારા લગ્ન પ્રસંગે આપની ઉપસ્થિતિનું હાર્દિક આમંત્રણ',
-  interludeText: 'સંગીત, પરિવાર અને મિત્રોની સાથે વરરાજાની આનંદમય જાનનું આગમન.',
-  noteSignoff: 'સ્નેહપૂર્વક,',
-  closingMessage: 'આનંદના આ પ્રસંગે આપની સાથે ઉજવણી કરવાની આતુરતાથી રાહ જોઈએ છીએ.',
+  ceremonyTime: 'બપોરે ૧૧:૪૫ વાગ્યે',
+  venue: 'પટેલવાડી, લાઈનપરા-ધારી, જી. અમરેલી',
+  address: 'પટેલવાડી, લાઈનપરા-ધારી, જી. અમરેલી',
+  attire: 'પોશાકની સૂચના PDFમાં દર્શાવેલ નથી',
+  invitationIntro: '॥ નિમંત્રણ ॥',
+  invitationMessage: 'લગ્ન પ્રસંગે આપને હાર્દિક આમંત્રણ',
+  interludeText: 'પરિવારજનોના આશીર્વાદ સાથે લગ્નના આ મંગલ પ્રસંગે આપનું સ્વાગત છે.',
+  noteSignoff: 'સ્નેહાધીન,',
+  closingMessage: 'આ ડિજિટલ નિમંત્રણને રૂબરૂ મળ્યા તુલ્ય સમજી અમારા આંગણે આવેલા પ્રસંગમાં પધારશો.',
   events: [
-    { name: 'મહેંદી', dateLabel: 'તારીખ ઉમેરો', time: 'સમય ઉમેરો', venue: 'સ્થળ ઉમેરો', icon: '✦', cardArt: 'mehendi' },
-    { name: 'સંગીત', dateLabel: 'તારીખ ઉમેરો', time: 'સમય ઉમેરો', venue: 'સ્થળ ઉમેરો', icon: '♫', cardArt: 'sangeet' },
-    { name: 'લગ્નવિધિ', dateLabel: '૧૪ ફેબ્રુઆરી ૨૦૨૭', time: 'સાંજે ૬:૦૦ વાગ્યે', venue: 'લગ્નનું સ્થળ ઉમેરો', icon: '❋', cardArt: 'wedding' },
-    { name: 'સ્વાગત સમારંભ', dateLabel: 'તારીખ ઉમેરો', time: 'સમય ઉમેરો', venue: 'સ્થળ ઉમેરો', icon: '◈', cardArt: 'reception' }
+    { name: 'સાંજના ગીત', dateLabel: 'કારતક સુદ-૧૩ · ૨૨-૧૧-૨૦૨૬', time: 'રાત્રે ૮:૦૦ વાગ્યે', venue: 'સ્થળ અલગથી દર્શાવેલ નથી', icon: '♫', cardArt: 'sangeet' },
+    { name: 'મંડપ મુહૂર્ત', dateLabel: 'કારતક સુદ-૧૪ · ૨૩-૧૧-૨૦૨૬', time: 'સવારે ૭:૦૦ વાગ્યે', venue: 'સ્થળ અલગથી દર્શાવેલ નથી', icon: '✦', cardArt: 'mehendi' },
+    { name: 'ભોજન સમારંભ', dateLabel: 'કારતક સુદ-૧૪ · ૨૩-૧૧-૨૦૨૬', time: 'બપોરે ૧૧:૩૦ વાગ્યે', venue: 'સ્થળ અલગથી દર્શાવેલ નથી', icon: '❦', cardArt: 'reception' },
+    { name: 'રૂડા મામેરા', dateLabel: 'કારતક સુદ-૧૪ · ૨૩-૧૧-૨૦૨૬', time: 'બપોરે ૩:૦૦ વાગ્યે', venue: 'સ્થળ અલગથી દર્શાવેલ નથી', icon: '✧', cardArt: 'mehendi' },
+    { name: 'પીઠી રસમ', dateLabel: 'કારતક સુદ-૧૪ · ૨૩-૧૧-૨૦૨૬', time: 'સાંજે ૫:૦૦ વાગ્યે', venue: 'સ્થળ અલગથી દર્શાવેલ નથી', icon: '✦', cardArt: 'mehendi' },
+    { name: 'દાંડિયારાસ', dateLabel: 'કારતક સુદ-૧૪ · ૨૩-૧૧-૨૦૨૬', time: 'રાત્રે ૮:૦૦ વાગ્યે', venue: 'સ્થળ અલગથી દર્શાવેલ નથી', icon: '♫', cardArt: 'sangeet' },
+    { name: 'જાન પ્રસ્થાન', dateLabel: 'કારતક સુદ-૧૫ · ૨૪-૧૧-૨૦૨૬', time: 'સવારે ૫:૦૦ વાગ્યે', venue: 'પટેલવાડી, લાઈનપરા-ધારી', icon: '❋', cardArt: 'wedding' },
+    { name: 'હસ્ત મેળાપ', dateLabel: '૨૪-૧૧-૨૦૨૬, મંગળવાર', time: 'બપોરે ૧૧:૪૫ વાગ્યે', venue: 'પટેલવાડી, લાઈનપરા-ધારી, જી. અમરેલી', icon: '❋', cardArt: 'wedding' }
   ],
-  note: 'અહીં મહેમાનો માટે તમારો વ્યક્તિગત સંદેશ ઉમેરો. આ દિવસ તમારા માટે કેટલો ખાસ છે અને મહેમાનોની હાજરીનું કેટલું મહત્વ છે તે લખો.',
-  blessings: ['પરિવારનું નામ ઉમેરો', 'પરિવારનું નામ ઉમેરો'],
+  note: 'આપની ઉપસ્થિતિની આતુરતાથી રાહ જોઈશું.',
+  blessings: ['શ્રી રમેશભાઈ પોપટભાઈ રૂડકિયા પરિવાર', 'શ્રી રાહુલભાઈ રમેશભાઈ રૂડકિયા પરિવાર'],
   photos: [
-    { src: '/assets/couple-portrait.webp', alt: 'નમૂના માટે બનાવેલ દંપતીનો ફોટો' },
-    { src: '/assets/couple-courtyard.webp', alt: 'જાસ્મીનની માળા નીચે ચાલતા નમૂના દંપતી' },
-    { src: '/assets/jasmine-hands.webp', alt: 'જાસ્મીનનાં ફૂલો સાથેનો નમૂનાનો ફોટો' },
-    { src: '/assets/couple-portrait.webp', alt: 'મહેલના કમાની નીચે નમૂના દંપતી' }
+    { src: `${import.meta.env.BASE_URL}assets/rudakiya-couple-reference.png`, alt: 'આમંત્રણ PDFમાં આપેલ દંપતીનો ફોટો' },
+    { src: `${import.meta.env.BASE_URL}assets/rudakiya-couple-reference.png`, alt: 'આમંત્રણ PDFમાં આપેલ દંપતીનો ફોટો' },
+    { src: `${import.meta.env.BASE_URL}assets/rudakiya-couple-reference.png`, alt: 'આમંત્રણ PDFમાં આપેલ દંપતીનો ફોટો' },
+    { src: `${import.meta.env.BASE_URL}assets/rudakiya-couple-reference.png`, alt: 'આમંત્રણ PDFમાં આપેલ દંપતીનો ફોટો' }
   ],
-  musicUrl: '/assets/vow-vine-original-wedding-loop.wav'
+  musicUrl: `${import.meta.env.BASE_URL}assets/vow-vine-original-wedding-loop.wav`
 };

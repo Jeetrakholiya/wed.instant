@@ -1,8 +1,8 @@
 export const gujaratiUi = {
-  demo: 'ડેમો વિગતો — શેર કરતાં પહેલાં બદલો',
+  demo: 'PDFની વિગતો સાથેનો રેફરન્સ પ્રીવ્યૂ',
   coverKicker: 'ઉજવણીનું હાર્દિક આમંત્રણ',
   openPrompt: 'ખોલવા માટે મહોરને સ્પર્શો',
-  skip: 'ખોલવાનું છોડો ↗',
+  skip: 'સીધું આમંત્રણ જુઓ ↗',
   invitation: 'લગ્નનું આમંત્રણ',
   playMusic: '♪ સંગીત વગાડો',
   musicOff: 'સંગીત બંધ',
@@ -20,7 +20,7 @@ export const gujaratiUi = {
   attire: 'પોશાક',
   everyMoment: 'દરેક પળે અમારી સાથે જોડાઓ',
   celebrations: 'ઉજવણીના પ્રસંગો',
-  countdown: 'ઉલટી ગણતરી',
+  countdown: 'મંગલ ઘડીની રાહ',
   countdownTitle: 'ખાસ દિવસની આતુરતા',
   countdownZone: 'સમયગણતરીનો સમય ઝોન',
   calendar: 'આ તારીખ કેલેન્ડરમાં સાચવો ↗',
@@ -29,8 +29,8 @@ export const gujaratiUi = {
   celebrationNow: 'આજથી ઉજવણી શરૂ થાય છે!',
   note: 'અમારા તરફથી એક સંદેશ',
   blessings: 'પરિવારજનોના આશીર્વાદ સાથે',
-  reopen: 'મહોર ફરી બંધ કરો ↑',
+  reopen: 'આમંત્રણ ફરી ખોલો ↑',
   map: 'નકશામાં જુઓ ↗',
-  mapMissing: 'સ્થળ ઉમેર્યા પછી નકશો ઉપલબ્ધ થશે',
+  mapMissing: 'નકશાની કડી ઉપલબ્ધ નથી',
   eventDay: 'દિવસ', eventHours: 'કલાક', eventMinutes: 'મિનિટ', eventSeconds: 'સેકન્ડ'
 } as const;

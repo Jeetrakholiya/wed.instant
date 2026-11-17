@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Noto+Serif+Gujarati:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@400;500;600;700&family=Rasa:wght@400;500;600;700&display=swap');
 
 /* Gujarati uses connected syllables; English tracking and display faces do not apply. */
 .invite[data-locale="gu"] {
-  --gu-serif: 'Noto Serif Gujarati', 'Nirmala UI', serif;
-  --gu-sans: 'Noto Sans Gujarati', 'Nirmala UI', sans-serif;
+  --gu-serif: 'Rasa', 'Nirmala UI', serif;
+  --gu-sans: 'Hind Vadodara', 'Nirmala UI', sans-serif;
   font-family: var(--gu-sans);
   line-height: 1.8;
   font-synthesis: none;
@@ -40,7 +40,7 @@
 .invite[data-locale="gu"] .demo { letter-spacing: 0; white-space: normal; }
 .invite[data-locale="gu"] .cover-prompt { font-size: .76rem; }
 
-.gu-catalog { min-height: 100vh; color: #4a2638; background:#f5ecdf; font-family:'Noto Sans Gujarati','Nirmala UI',sans-serif; }
+.gu-catalog { min-height: 100vh; color: #4a2638; background:#f5ecdf; font-family:'DM Sans',sans-serif; }
 .gu-catalog * { box-sizing:border-box; }
 .gu-catalog-nav { min-height:76px; padding:1rem clamp(1rem,5vw,4rem); display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #d9c5aa; }
 .gu-catalog-nav .brand,.gu-catalog-footer>a { color:#642940; font:500 1.5rem 'Playfair Display',serif; text-decoration:none; }
@@ -48,18 +48,19 @@
 .gu-catalog-nav>a:last-child { color:#684955; font-size:.8rem; text-decoration:none; }
 .gu-catalog-hero { padding:clamp(3.5rem,9vw,7rem) 1.25rem 3.5rem; text-align:center; background:radial-gradient(ellipse at 50% 0,#fffaf0,#f5ecdf 70%); }
 .gu-catalog-hero>span,.gu-template-tag { color:#a57843; font-size:.72rem; }
-.gu-catalog-hero h1 { margin:1.25rem 0; font:500 clamp(2.8rem,9vw,5.2rem)/1.5 'Noto Serif Gujarati','Nirmala UI',serif; }
+.gu-catalog-hero h1 { margin:1.25rem 0; font:500 clamp(2.8rem,9vw,5.2rem)/1.18 'Playfair Display',serif; }
 .gu-catalog-hero h1 em { color:#9b6e4c; font-style:normal; }
 .gu-catalog-hero p { max-width:620px; margin:0 auto 1.7rem; color:#725f60; line-height:2; }
 .gu-catalog-button { display:inline-flex; gap:.7rem; align-items:center; padding:.85rem 1.2rem; background:#672b43; color:#fff5e8; text-decoration:none; border:1px solid #c59c64; box-shadow:0 8px 20px #54233a26; }
 .gu-catalog-button span { color:#e9c582; }
 .gu-template-list { padding:1rem clamp(1rem,6vw,5rem) 6rem; }
+.gu-template-list .gu-template-card + .gu-template-card { margin-top:2rem; }
 .gu-template-card { max-width:1000px; margin:auto; display:grid; grid-template-columns:minmax(260px,.85fr) 1fr; align-items:center; gap:clamp(2rem,6vw,5rem); padding:clamp(1.25rem,4vw,3rem); background:#fbf5e9; border:1px solid #decba8; box-shadow:0 24px 70px #5535461c; }
 .gu-template-preview { min-height:490px; padding:3rem 1.2rem; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; text-align:center; color:#f8e8cb; background:linear-gradient(#4216299c,#421629a8),url('/assets/brocade.webp') center/cover; border:7px double #c6a267; box-shadow:0 20px 40px #2f112733; }
 .gu-template-preview:before { content:''; position:absolute; inset:14px; border:1px solid #e2c58a; pointer-events:none; }
 .gu-preview-ornament { color:#e6c182; font-size:2rem; }
 .gu-template-preview small { margin-top:1rem; color:#f0d5ac; }
-.gu-template-preview h2 { margin:1rem 0; font:500 clamp(1.8rem,4vw,2.4rem)/1.6 'Noto Serif Gujarati','Nirmala UI',serif; }
+.gu-template-preview h2 { margin:1rem 0; font:500 clamp(1.8rem,4vw,2.4rem)/1.6 'Rasa','Nirmala UI',serif; }
 .gu-template-preview h2 i { font:1rem 'Playfair Display',serif; color:#e4bf7e; }
 .gu-preview-date,.gu-preview-venue { color:#f1dfc7; font-size:.9rem; line-height:1.8; }
 .gu-preview-line { width:60%; height:1px; margin:1.3rem; background:#d1aa69; }
@@ -69,3 +70,320 @@
 .gu-catalog-footer { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1.5rem clamp(1rem,5vw,4rem); background:#eadbc7; color:#725b60; font-size:.8rem; }
 @media(max-width:700px) { .gu-template-card { grid-template-columns:1fr; max-width:520px; gap:1.5rem; } .gu-template-preview { min-height:410px; } .gu-template-copy { padding:.3rem .25rem 1rem; } .gu-catalog-footer { flex-wrap:wrap; } }
 @media(prefers-reduced-motion:reduce) { .gu-catalog * { scroll-behavior:auto!important; } }
+
+/* Keep Gujarati details legible on the narrow invitation card and in the editor. */
+.invite[data-locale="gu"] .letter-date { font-size: .88rem; }
+.invite[data-locale="gu"] .letter-inner > strong,
+.invite[data-locale="gu"] .letter-inner > small { font-size: .84rem; }
+.invite[data-locale="gu"] .baraat-scene { overflow: hidden; }
+.invite[data-locale="gu"] .baraat-message { line-height: 1.75; }
+.customer-shell[lang="gu"] { font-family: 'Hind Vadodara','Nirmala UI',sans-serif; }
+.customer-shell[lang="gu"] :is(h1,h2,.editor-form summary) { font-family: 'Rasa','Nirmala UI',serif; line-height: 1.55; letter-spacing: 0; }
+.customer-shell[lang="gu"] :is(.customer-kicker,.mode-pill) { letter-spacing: 0; }
+.customer-shell[lang="gu"] :is(.customer-button,.customer-quiet,.add-row,.icon-action,.event-editor legend span) { font-family: 'Hind Vadodara','Nirmala UI',sans-serif; line-height: 1.55; }
+.customer-shell[lang="gu"] .editor-form summary small { line-height: 1.5; }
+@media(max-width:420px) {
+  .invite[data-locale="gu"] .letter-inner > p { font-size: .92rem; }
+  .invite[data-locale="gu"] .letter-date { font-size: .86rem; }
+  .invite[data-locale="gu"] .letter-inner > strong,
+  .invite[data-locale="gu"] .letter-inner > small { font-size: .82rem; }
+  .customer-shell[lang="gu"] .editor-field-row { grid-template-columns: 1fr; }
+}
+
+/* Gujarati invitation direction: translate the printed family card into a layered, scroll-led heirloom. */
+.invite[data-locale="gu"] .cover-paper {
+  background: linear-gradient(145deg,#f8efd9f2,#fff9e9e8 46%,#e8d4aaed),url('/assets/paper.webp') center/cover;
+  box-shadow: inset 0 0 0 7px #f8edcf, inset 0 0 0 9px #b38b4b, 0 30px 80px #14090d99;
+}
+.invite[data-locale="gu"] .cover-paper-inner { border-color:#a7803f; }
+.invite[data-locale="gu"] .cover-paper-kicker { color:#8e1f32; }
+.invite[data-locale="gu"] .cover-paper-names { color:#155b58; }
+.invite[data-locale="gu"] .hero-content { text-shadow:0 3px 20px #160b10; }
+.invite[data-locale="gu"] .letter-section { background-color:#104d4b; }
+.invite[data-locale="gu"] .letter { background-image:linear-gradient(#fbf4e2ed,#f5e8ccee),url('/assets/paper.webp'); border-color:#b9904f; }
+.invite[data-locale="gu"] .letter-inner { border-color:#a58042; color:#3c4d42; }
+.invite[data-locale="gu"] .letter h2 { color:#075c55; }
+.invite[data-locale="gu"] .details .paper-panel,
+.invite[data-locale="gu"] .blessings .paper-panel { background-image:linear-gradient(#fff8e9e8,#f1dfc0e8),url('/assets/paper.webp'); }
+.invite[data-locale="gu"] .events { background-color:#efe3c8; }
+.invite[data-locale="gu"] .closing { background-color:#15514e; color:#fff1d1; }
+.invite[data-locale="gu"] .closing h2,
+.invite[data-locale="gu"] .closing p { color:#fff1d1; }
+.invite[data-locale="gu"] .section-join { filter:drop-shadow(0 5px 9px #160b1088); }
+.invite[data-locale="gu"] .cover-paper-inner { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:clamp(.4rem,2vw,1rem); }
+.invite[data-locale="gu"] .gujarati-ganesh { color:#a11f31; font:600 clamp(.85rem,3vw,1.25rem)/1.5 var(--gu-sans); }
+.invite[data-locale="gu"] .gujarati-family-card { position:relative; isolation:isolate; padding:clamp(3rem,9vw,7rem) 1.1rem; color:#164f4b; background:radial-gradient(ellipse at 50% 22%,#286e68 0,#124d4a 55%,#0b393a 100%); overflow:hidden; }
+.invite[data-locale="gu"] .gujarati-family-card:before { content:''; position:absolute; z-index:-1; inset:0; opacity:.15; background:url('/assets/brocade.webp') center/420px, url('/assets/paper.webp') center/cover; mix-blend-mode:screen; }
+.invite[data-locale="gu"] .gujarati-family-frame { position:relative; max-width:720px; margin:auto; padding:clamp(1.25rem,5vw,3rem); text-align:center; color:#164f4b; background:linear-gradient(#fff8e9e9,#f1dfc8eF),url('/assets/paper.webp') center/cover; border:1px solid #d0ac66; outline:1px solid #f0d89d; outline-offset:-10px; box-shadow:0 24px 70px #061c1d88,inset 0 0 50px #d2b36b33; transform:perspective(1200px) rotateX(1deg); }
+.invite[data-locale="gu"] .gujarati-family-address { color:#9a2337; font-weight:600; font-size:clamp(.94rem,3vw,1.2rem); }
+.invite[data-locale="gu"] .gujarati-family-card h2 { color:#174f4d; font-size:clamp(1.5rem,5vw,2.4rem); }
+.invite[data-locale="gu"] .gujarati-couple-portrait { display:block; width:min(70%,330px); max-height:380px; object-fit:cover; aspect-ratio:4/5; margin:1rem auto; border:8px solid #fff6e4; outline:1px solid #b78c4c; box-shadow:0 18px 38px #30201244; transform:rotateY(-2deg); }
+.invite[data-locale="gu"] .gujarati-family-names { color:#7e2738; font:500 clamp(1.3rem,5vw,2.1rem)/1.6 var(--gu-serif); }
+.invite[data-locale="gu"] .gujarati-family-contacts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; margin-top:1.5rem; }
+.invite[data-locale="gu"] .gujarati-family-contacts p { display:grid; gap:.25rem; padding:1rem .7rem; border-top:1px solid #bd985f; background:#fff7e7aa; color:#37554a; }
+.invite[data-locale="gu"] .gujarati-family-contacts a { color:#8b2433; text-decoration:none; font-weight:700; }
+@media(max-width:460px){.invite[data-locale="gu"] .gujarati-family-contacts{grid-template-columns:1fr}.invite[data-locale="gu"] .gujarati-family-frame{padding:1.5rem}.invite[data-locale="gu"] .gujarati-couple-portrait{width:min(78%,300px)}}
+.invite[data-locale="gu"] .events .event-card h3 { color:#704057; font:500 clamp(1.55rem,5.4vw,2.25rem)/1.45 var(--gu-serif); letter-spacing:0; text-shadow:0 1px 0 #fff4df; }
+.invite[data-locale="gu"] .events .event-card p { font-size:clamp(.82rem,3.2vw,.98rem); line-height:1.75; letter-spacing:0; }
+.invite[data-locale="gu"] .events .event-card small { font:500 clamp(.9rem,3.4vw,1.05rem)/1.7 var(--gu-sans); }
+.motion-ready .events .event-card { transform:translate3d(0,var(--event-scroll-y,0px),0) perspective(900px) rotateX(var(--event-scroll-tilt,0deg)) scale(var(--event-scroll-scale,1)); transform-origin:50% 16%; backface-visibility:hidden; }
+.motion-ready .events .event-card .event-art { transform:translate3d(0,var(--event-art-drift,0px),0); transform-origin:50% 18%; }
+.motion-ready .events .event-card.in-view { filter:drop-shadow(0 17px 20px #27132133); }
+.invite[data-locale="gu"] .events .event-card { width:100%; aspect-ratio:2/3; min-height:0; max-height:none; }
+.invite[data-locale="gu"] .events .event-art-sangeet h3,
+.invite[data-locale="gu"] .events .event-art-reception h3 { color:#f6dda7; text-shadow:0 2px 10px #29101b; }
+.invite[data-locale="gu"] .gujarati-reference-canvas { position:relative; padding:clamp(3rem,8vw,6rem) 1rem; background:radial-gradient(ellipse at top,#f9efdc,#e8d6b5 75%); color:#124e3c; overflow:hidden; }
+.invite[data-locale="gu"] .gujarati-reference-canvas::before { content:''; position:absolute; inset:0; opacity:.18; background:url('/assets/paper.webp') center/cover; pointer-events:none; }
+.invite[data-locale="gu"] .gujarati-reference-canvas::after { content:''; position:absolute; width:180px; height:180px; right:-35px; bottom:-30px; opacity:.55; background:url('/assets/floral-corner.webp') center/contain no-repeat; pointer-events:none; }
+.invite[data-locale="gu"] .gujarati-reference-canvas>h2 { position:relative; max-width:16ch; margin:0 auto .5rem; color:#155642; text-align:center; font:600 clamp(1.7rem,5vw,2.7rem)/1.45 var(--gu-serif); }
+.invite[data-locale="gu"] .gujarati-reference-intro { position:relative; margin:0 auto 2.5rem; color:#8f6130; text-align:center; }
+.invite[data-locale="gu"] .gujarati-reference-grid { position:relative; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.1rem; max-width:900px; margin:auto; }
+.invite[data-locale="gu"] .gujarati-reference-card { padding:1.4rem clamp(1rem,3vw,2rem); background:linear-gradient(#fff9eae8,#f7ead3e8),url('/assets/paper.webp') center/cover; border:1px solid #bf9a56; outline:1px solid #e4c98f; outline-offset:-7px; box-shadow:0 12px 28px #21433121; text-align:center; }
+.invite[data-locale="gu"] .gujarati-reference-card h3 { margin:.2rem auto 1.1rem; color:#155642; font:600 clamp(1.22rem,3vw,1.65rem)/1.5 var(--gu-serif); }
+.invite[data-locale="gu"] .gujarati-reference-card p { margin:.4rem 0; color:#315143; font:400 clamp(.88rem,2.7vw,1rem)/1.7 var(--gu-sans); overflow-wrap:anywhere; }
+.motion-ready .gujarati-reference-card { transform:translateY(20px); opacity:.65; transition:transform .55s ease,opacity .55s ease; }
+.motion-ready .gujarati-reference-card.in-view { transform:translateY(0); opacity:1; }
+@media(max-width:600px){.invite[data-locale="gu"] .gujarati-reference-grid{grid-template-columns:1fr}.invite[data-locale="gu"] .gujarati-reference-card{padding:1.35rem 1.15rem}}
+@media(prefers-reduced-motion:reduce){.motion-ready .gujarati-reference-card{transform:none;opacity:1;transition:none}}
+
+/* The PDF's long family list gets its own legible paper spread on a phone. */
+.invite[data-locale="gu"] .gujarati-reference-canvas { background:radial-gradient(ellipse at 50% 12%,#f8efdc 0,#e9dac0 68%,#d5bc8e 100%); }
+.invite[data-locale="gu"] .gujarati-reference-canvas::after { width:clamp(130px,24vw,270px); height:clamp(130px,24vw,270px); opacity:.45; }
+.invite[data-locale="gu"] .gujarati-reference-grid { gap:1.25rem; }
+.invite[data-locale="gu"] .gujarati-reference-card { position:relative; min-width:0; border-radius:2px; box-shadow:0 4px 1px #fff8eb inset,0 14px 30px #3d351b2e; }
+.invite[data-locale="gu"] .gujarati-reference-card::before { content:'❦'; display:block; margin:0 auto .15rem; color:#ad7d37; font-size:1.1rem; }
+.invite[data-locale="gu"] .gujarati-reference-card:nth-child(4) { grid-column:1/-1; }
+.invite[data-locale="gu"] .gujarati-reference-card:nth-child(4) p { display:inline-block; width:min(47%,36ch); padding:0 .5rem; vertical-align:top; }
+.invite[data-locale="gu"] .gujarati-reference-verse { grid-column:1/-1; padding:2rem; }
+.invite[data-locale="gu"] .gujarati-reference-verse p { font-family:var(--gu-serif); font-size:clamp(1rem,2.8vw,1.16rem); }
+.invite[data-locale="gu"] .events .event-card .map-disabled { display:none; }
+.invite[data-locale="gu"] .events .event-card { box-sizing:border-box; flex:0 0 auto; }
+.invite[data-locale="gu"] .events .event-card p { margin:.5rem auto .55rem; }
+.invite[data-locale="gu"] .events .event-card small { display:block; max-width:21ch; }
+.invite[data-locale="gu"] .events .event-card { height:min(126vw,615px); aspect-ratio:2/3; }
+.invite[data-locale="gu"] .events .event-art-sangeet .event-art,
+.invite[data-locale="gu"] .events .event-art-reception .event-art { box-sizing:border-box; border:1px solid transparent; border-image-slice:350 95 135 95 fill; border-image-width:25% 8.5% 10% 8.5%; border-image-repeat:stretch; }
+.invite[data-locale="gu"] .events .event-art-sangeet .event-art { border-image-source:url('/assets/event-card-sangeet.webp'); }
+.invite[data-locale="gu"] .events .event-art-reception .event-art { border-image-source:url('/assets/event-card-reception.webp'); }
+.invite[data-locale="gu"] .events .event-art-sangeet :is(p,small),
+.invite[data-locale="gu"] .events .event-art-reception :is(p,small) { color:#fff0d2; text-shadow:0 1px 4px #350c1c,0 0 12px #350c1c; }
+.invite[data-locale="gu"] .events .event-art-wedding :is(h3,p,small),
+.invite[data-locale="gu"] .events .event-art-mehendi :is(h3,p,small) { color:#54384a; text-shadow:0 1px 0 #fff6e2; }
+@media(max-width:600px){
+  .invite[data-locale="gu"] .gujarati-reference-card:nth-child(4) p { display:block; width:auto; padding:0; }
+  .invite[data-locale="gu"] .events .event-card { padding:clamp(3.8rem,18vw,5.2rem) .85rem 4.6rem; }
+  .invite[data-locale="gu"] .events .event-card h3 { font-size:clamp(1.45rem,5.2vw,1.95rem); }
+  .invite[data-locale="gu"] .events .event-card p { font-size:clamp(.94rem,3.8vw,1.08rem); line-height:1.5; }
+  .invite[data-locale="gu"] .events .event-card small { font-size:clamp(.94rem,3.8vw,1.04rem); line-height:1.45; }
+}
+
+/* Family folios: an illustrated portal, then loose pages settling into a manuscript. */
+.invite[data-locale="gu"] .gujarati-reference-canvas { isolation:isolate; padding:clamp(3.5rem,8vw,7rem) 1rem clamp(5rem,10vw,8rem); background:radial-gradient(ellipse at 50% 8%,#fbf3df 0,#ead6b6 62%,#d6bc91 100%); }
+.invite[data-locale="gu"] .gujarati-reference-canvas::before { z-index:-1; opacity:.12; background:url('/assets/brocade.webp') center/430px repeat; }
+.invite[data-locale="gu"] .gujarati-reference-canvas::after { display:none; }
+.invite[data-locale="gu"] .gujarati-reference-canvas>h2 { max-width:20ch; margin:0 auto .6rem; color:#15533e; text-shadow:0 1px 0 #fff9e7; }
+.invite[data-locale="gu"] .gujarati-reference-intro { margin-bottom:.6rem; color:#8a6034; font-size:clamp(.82rem,2.7vw,1.02rem); line-height:1.7; }
+.invite[data-locale="gu"] .gujarati-reference-portal { position:relative; z-index:2; max-width:900px; margin:0 auto -.7rem; pointer-events:none; }
+.invite[data-locale="gu"] .gujarati-reference-portal img { display:block; width:100%; max-height:360px; margin:auto; object-fit:contain; filter:drop-shadow(0 13px 14px #34291640); transform:translate3d(0,var(--portal-shift,0px),0); }
+.invite[data-locale="gu"] .gujarati-reference-grid { max-width:940px; gap:clamp(1.5rem,4vw,2.8rem); padding:1.5rem .25rem; perspective:1200px; }
+.invite[data-locale="gu"] .gujarati-reference-grid::before { content:''; position:absolute; z-index:-1; top:0; bottom:0; left:50%; width:2px; background:linear-gradient(transparent,#b28c50 8%,#c7a776 90%,transparent); box-shadow:0 0 0 4px #fff7e683; transform:translateX(-50%); }
+.invite[data-locale="gu"] .gujarati-reference-card { position:relative; padding:clamp(2.15rem,4vw,2.8rem) clamp(1.2rem,4vw,2.5rem) clamp(1.6rem,4vw,2.3rem); border:1px solid #b99559; border-radius:9px 9px 4px 4px; outline:none; background:linear-gradient(135deg,#fffaf0eb,#f2e1c9ed),url('/assets/paper.webp') center/cover; box-shadow:0 3px 0 #d2b37c,0 7px 0 #92734c,0 24px 34px #3c312444,inset 0 1px 0 #fffdf3; text-align:center; transform-style:preserve-3d; }
+.invite[data-locale="gu"] .gujarati-reference-card::before { content:attr(data-seq); position:absolute; top:-15px; left:19px; display:grid; place-items:center; width:36px; height:36px; margin:0; border:1px solid #a77e42; border-radius:50%; background:radial-gradient(circle at 35% 28%,#f8e9b8,#b38542); color:#174936; box-shadow:0 2px 7px #59391752; font:700 .8rem/1 var(--gu-sans); }
+.invite[data-locale="gu"] .gujarati-reference-card::after { content:''; position:absolute; z-index:-1; inset:7px; border:1px solid #d7bd89; border-radius:4px; pointer-events:none; }
+.invite[data-locale="gu"] .gujarati-reference-card:nth-child(even)::before { left:auto; right:19px; }
+.invite[data-locale="gu"] .gujarati-reference-card h3 { display:table; max-width:100%; margin:.05rem auto 1.25rem; padding:.35rem clamp(.9rem,3vw,1.8rem); border:1px solid #b59860; border-radius:100px; background:linear-gradient(145deg,#246344,#0f4938 60%,#0b3d35); color:#fff3d7; box-shadow:0 3px 0 #b59154,0 8px 14px #23412b35,inset 0 1px 0 #9bb48b; font:600 clamp(1.1rem,3vw,1.48rem)/1.55 var(--gu-serif); text-wrap:balance; }
+.invite[data-locale="gu"] .gujarati-reference-card p { margin:.48rem auto; color:#264b3a; font:500 clamp(.94rem,2.8vw,1.08rem)/1.7 var(--gu-sans); text-wrap:pretty; }
+.invite[data-locale="gu"] .gujarati-folio-family:nth-child(4) { grid-column:1/-1; }
+.invite[data-locale="gu"] .gujarati-folio-family:nth-child(4) p { display:inline-block; width:min(47%,36ch); padding:0 .55rem; vertical-align:top; }
+.invite[data-locale="gu"] .gujarati-reference-verse { grid-column:1/-1; }
+.invite[data-locale="gu"] .gujarati-reference-verse h3 { background:linear-gradient(145deg,#83324a,#5d233b); }
+.motion-ready .invite[data-locale="gu"] .gujarati-reference-card,
+.motion-ready .invite[data-locale="gu"] .gujarati-reference-card.in-view { opacity:var(--folio-opacity,1); transform:translate3d(var(--folio-x,0px),var(--folio-y,0px),0) rotateZ(var(--folio-rotate,0deg)) rotateY(var(--folio-yaw,0deg)); transition:none; }
+@media(max-width:600px){
+  .invite[data-locale="gu"] .gujarati-reference-canvas { padding-left:.65rem; padding-right:.65rem; }
+  .invite[data-locale="gu"] .gujarati-reference-portal { margin:0 -.55rem -.4rem; }
+  .invite[data-locale="gu"] .gujarati-reference-grid { display:flex; flex-direction:column; gap:1.8rem; padding:1.25rem .35rem; }
+  .invite[data-locale="gu"] .gujarati-reference-card { box-sizing:border-box; width:calc(100% - 16px); margin:0 auto 0 0; padding:2.05rem 1.15rem 1.6rem; }
+  .invite[data-locale="gu"] .gujarati-reference-card:nth-child(even) { margin-left:auto; margin-right:0; }
+  .invite[data-locale="gu"] .gujarati-folio-family:nth-child(4) p { display:block; width:auto; padding:0; }
+  .invite[data-locale="gu"] .gujarati-reference-card p { font-size:clamp(.96rem,3.6vw,1.05rem); line-height:1.72; }
+}
+@media(prefers-reduced-motion:reduce){
+  .invite[data-locale="gu"] .gujarati-reference-portal img { transform:none; }
+  .motion-ready .invite[data-locale="gu"] .gujarati-reference-card { transform:none; opacity:1; }
+}
+
+/* A real Three.js parchment scroll; the Gujarati lettering stays selectable HTML. */
+.invite[data-locale="gu"] .letter-section { height:max(120svh,990px); min-height:990px; padding:4rem .85rem 2rem; }
+.invite[data-locale="gu"] .gujarati-scroll-wrap { position:relative!important; width:min(100%,460px); height:clamp(650px,170vw,750px); margin:0 auto; perspective:none; isolation:isolate; overflow:visible; }
+.invite[data-locale="gu"] .gujarati-scroll-renderer { position:absolute; inset:0; z-index:1; width:100%; height:100%; pointer-events:none; }
+.invite[data-locale="gu"] .letter-section .gujarati-scroll-paper,
+.invite[data-locale="gu"] .letter-section .gujarati-scroll-paper.in-view { position:absolute; top:34px; bottom:auto; left:50%; z-index:2; box-sizing:border-box; width:90%; height:clamp(540px,145vw,680px); aspect-ratio:auto; padding:0; border:0; border-radius:1px; background:transparent; box-shadow:none; clip-path:inset(var(--roll-top-cover,0px) 0 var(--roll-bottom-cover,var(--gu-scroll-clip,100%)) 0); transform:translateX(-50%)!important; transform-origin:top center; transition:none!important; opacity:1; }
+.invite[data-locale="gu"] .gujarati-scroll-paper .letter-inner { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-start; align-items:center; height:100%; padding:clamp(5.2rem,17vw,7.2rem) 8% 4rem; border:0; outline:0; color:#365044; background:transparent; }
+.invite[data-locale="gu"] .gujarati-scroll-paper .letter-inner>p { margin:.35rem auto .65rem; color:#664651; font:500 clamp(.9rem,3.5vw,1.03rem)/1.6 var(--gu-sans); }
+.invite[data-locale="gu"] .gujarati-scroll-paper h2 { margin:.35rem auto .75rem; color:#075f56; font:600 clamp(1.85rem,8vw,2.55rem)/1.2 var(--gu-serif); letter-spacing:0; }
+.invite[data-locale="gu"] .gujarati-scroll-paper h2 span { color:#aa8147; font-size:.45em; line-height:1.8; }
+.invite[data-locale="gu"] .gujarati-scroll-paper .letter-date { margin:.8rem auto; color:#774153; font:700 clamp(.88rem,3.4vw,1.02rem)/1.65 var(--gu-sans); letter-spacing:0; }
+.invite[data-locale="gu"] .gujarati-scroll-paper strong { color:#315345; font:700 clamp(.8rem,3.2vw,.98rem)/1.5 var(--gu-sans); }
+.invite[data-locale="gu"] .gujarati-scroll-paper .map-disabled { display:none; }
+.invite[data-locale="gu"] .letter-section .letter.gujarati-scroll-paper::after { content:'✦'!important; position:absolute; z-index:2; left:50%; bottom:3.15rem; display:grid!important; place-items:center; width:70px; height:70px; border:2px solid #b7874e; border-radius:50%; background:radial-gradient(circle at 32% 25%,#b84656,#7d243b 62%,#55162c); box-shadow:0 0 0 5px #e4cc9b77,0 4px 0 #5c2533,0 12px 19px #4c273047,inset 0 2px 4px #ecb8a05e; color:#f2d898; font:2rem/1 Georgia,serif; text-shadow:0 2px 3px #3b1725; transform:translateX(-50%); }
+.invite[data-locale="gu"] .gujarati-scroll-pending .gujarati-scroll-paper { background:linear-gradient(90deg,#cda76b50,transparent 5%,transparent 95%,#b4895448),url('/assets/paper.webp') center/cover!important; box-shadow:inset 0 0 0 7px #fff7e9,inset 0 0 0 9px #b99761,0 18px 28px #16081280!important; }
+.invite[data-locale="gu"] .gujarati-scroll-fallback .gujarati-scroll-paper { background:url('/assets/paper.webp') center/cover!important; box-shadow:inset 0 0 0 7px #fff7e9,inset 0 0 0 9px #b99761,0 18px 28px #16081280!important; clip-path:none!important; }
+@media(max-width:420px){
+  .invite[data-locale="gu"] .letter-section { height:max(122svh,900px); min-height:900px; padding-top:3.4rem; }
+  .invite[data-locale="gu"] .gujarati-scroll-wrap { height:clamp(620px,170vw,700px); }
+  .invite[data-locale="gu"] .gujarati-scroll-paper .letter-inner { padding-top:clamp(4.6rem,17vw,6rem); }
+  .invite[data-locale="gu"] .gujarati-scroll-paper h2 { font-size:clamp(1.75rem,8vw,2.2rem); }
+  .invite[data-locale="gu"] .gujarati-scroll-paper .letter-inner>p { font-size:clamp(.86rem,3.45vw,.96rem); }
+}
+@media(prefers-reduced-motion:reduce){
+  .invite[data-locale="gu"] .letter-section .gujarati-scroll-paper,
+  .invite[data-locale="gu"] .letter-section .gujarati-scroll-paper.in-view { clip-path:none; transform:translateX(-50%)!important; }
+}
+
+/* Hold the scroll in view while the guest opens it. */
+.invite[data-locale="gu"] .letter-section { height:max(190svh,1450px); min-height:1450px; overflow:clip; }
+.invite[data-locale="gu"] .gujarati-scroll-wrap { position:sticky!important; top:max(56px,calc((100svh - (clamp(500px,68svh,680px) + 80px))/2))!important; height:calc(clamp(500px,68svh,680px) + 80px); flex:none; }
+.invite[data-locale="gu"] .letter-section .gujarati-scroll-paper,
+.invite[data-locale="gu"] .letter-section .gujarati-scroll-paper.in-view { height:clamp(500px,68svh,680px); width:73%; }
+.invite[data-locale="gu"] .gujarati-scroll-renderer { left:-36px; right:auto; width:calc(100% + 72px); }
+.invite[data-locale="gu"] .gujarati-scroll-paper .letter-inner { box-sizing:border-box; border:3px double #ac8449; outline:1px solid #dfc69a; outline-offset:-10px; box-shadow:inset 0 0 22px #aa825325,inset 0 0 0 6px #fff4d54d; }
+@media(prefers-reduced-motion:reduce){
+  .invite[data-locale="gu"] .letter-section { height:auto; min-height:0; }
+  .invite[data-locale="gu"] .gujarati-scroll-wrap { position:relative!important; top:auto!important; }
+}
+
+@media(prefers-reduced-motion:no-preference){
+  .invite[data-locale="gu"] .letter-section .gujarati-scroll-wrap { position:absolute!important; top:var(--scroll-seat,72px)!important; left:50%; transform:translateX(-50%)!important; width:min(calc(100% - 1.7rem),460px); }
+}
+
+.invite[data-locale="gu"] .gu-finished-roller { position:absolute; left:50%; z-index:4; transform:translate(-50%,-50%); max-width:none; height:auto; opacity:0; pointer-events:none; filter:drop-shadow(0 2px 1px #31150599) drop-shadow(1px 7px 5px #280b1266); }
+.invite[data-locale="gu"] .gujarati-scroll-paper .letter-inner { background-image:linear-gradient(to bottom, rgb(66 32 17 / var(--gu-rod-shadow,0)), transparent 7%); }
+
+.invite[data-locale="gu"] .gujarati-scroll-renderer { filter:drop-shadow(1px 5px 4px #240a10a6); }
+
+.invite[data-locale="gu"] .details { position:relative; display:block; height:max(190svh,1450px); overflow:clip; padding:0; }
+.invite[data-locale="gu"] .details .gujarati-detail-scroll-wrap { position:absolute!important; top:var(--scroll-seat,72px)!important; left:50%; transform:translateX(-50%)!important; width:min(calc(100% - 1.7rem),460px); height:calc(clamp(500px,68svh,680px) + 80px); margin:0; }
+.invite[data-locale="gu"] .details .gujarati-scroll-paper { position:absolute!important; top:34px!important; left:50%!important; width:73%!important; height:clamp(500px,68svh,680px)!important; margin:0!important; transform:translateX(-50%)!important; background:transparent!important; border:3px double #ac8449; box-shadow:inset 0 0 22px #aa825325; clip-path:inset(var(--roll-top-cover,0px) 0 var(--roll-bottom-cover,100%) 0); z-index:2; }
+.invite[data-locale="gu"] .details .gujarati-scroll-fallback .gujarati-scroll-paper { background:url('/assets/paper.webp') center/cover!important; clip-path:none; }
+@media(prefers-reduced-motion:reduce){.invite[data-locale="gu"] .details{height:auto;min-height:750px}.invite[data-locale="gu"] .details .gujarati-detail-scroll-wrap{position:relative!important;top:auto!important;left:auto;transform:none!important}.invite[data-locale="gu"] .details .gujarati-scroll-paper{clip-path:none}}
+
+.invite[data-locale="gu"] .gujarati-two-page-scroll { height:max(340svh,2800px); min-height:2800px; }
+.invite[data-locale="gu"] .gujarati-two-page-scroll .gujarati-detail-page { position:absolute!important; top:34px!important; left:50%!important; z-index:2; box-sizing:border-box; width:73%!important; height:clamp(500px,68svh,680px)!important; margin:0!important; padding:clamp(3rem,8vh,5rem) 8% 2rem!important; transform:translateX(-50%)!important; background:transparent!important; border:3px double #ac8449; outline:1px solid #dfc69a; outline-offset:-10px; box-shadow:inset 0 0 22px #aa825325; clip-path:inset(var(--roll-top-cover,0px) 0 var(--roll-bottom-cover,100%) 0); opacity:0!important; visibility:hidden; transition:none!important; }
+.invite[data-locale="gu"] .gujarati-two-page-scroll .gujarati-second-active .gujarati-detail-page { opacity:1!important; visibility:visible; }
+.invite[data-locale="gu"] .gujarati-two-page-scroll .gujarati-second-active .letter { visibility:hidden; }
+.invite[data-locale="gu"] .gujarati-detail-page h2 { font-size:clamp(1.7rem,7vw,2.5rem); line-height:1.4; }
+.invite[data-locale="gu"] .gujarati-detail-page dl { gap:.2rem; margin:1rem 0 0; }
+.invite[data-locale="gu"] .gujarati-detail-page dt { margin-top:.6rem; }
+.invite[data-locale="gu"] .gujarati-detail-page dd { font-size:clamp(.8rem,3.2vw,1rem); line-height:1.55; }
+@media(prefers-reduced-motion:reduce){.invite[data-locale="gu"] .gujarati-two-page-scroll{height:auto;min-height:1500px}.invite[data-locale="gu"] .gujarati-two-page-scroll .gujarati-detail-page{position:relative!important;top:auto!important;left:auto!important;transform:none!important;visibility:visible;opacity:1!important;clip-path:none}}
+
+.invite[data-locale="gu"] .gujarati-gold-leaves { position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+.invite[data-locale="gu"] .gujarati-gold-leaves span { position:absolute; left:var(--leaf-x); top:var(--leaf-y); width:var(--leaf-size); height:calc(var(--leaf-size) * 1.4); background:url('/assets/falling-gold-leaf.svg') center/contain no-repeat; opacity:.64; filter:drop-shadow(1px 3px 3px #1d0815a6); animation:gu-leaf-drift var(--leaf-duration) ease-in-out var(--leaf-delay) infinite alternate; }
+@keyframes gu-leaf-drift { from { transform:translate3d(-18px,-48px,0) rotate(-35deg) scale(.82); opacity:.15; } 45% { opacity:.72; } to { transform:translate3d(22px,128px,0) rotate(250deg) scale(1.06); opacity:.28; } }
+.invite[data-locale="gu"] .gujarati-two-page-scroll .gujarati-detail-page::after { content:none!important; display:none!important; }
+.invite[data-locale="gu"] .gujarati-detail-page { color:#553e40; }
+.invite[data-locale="gu"] .gujarati-detail-page>.flower { display:block; margin:0 auto .55rem; color:#bf944e; font-size:1.8rem; text-shadow:0 2px 3px #62432445; }
+.invite[data-locale="gu"] .gujarati-detail-page .section-kicker { color:#8d6841; font-size:.72rem; }
+.invite[data-locale="gu"] .gujarati-detail-page h2 { margin:.1rem auto 1.1rem; color:#773a52; text-shadow:0 1px 0 #fff8e8; }
+.invite[data-locale="gu"] .gujarati-detail-page dt { color:#9e6d35; font-weight:700; }
+.invite[data-locale="gu"] .gujarati-detail-page dd { color:#533e43; }
+@media(prefers-reduced-motion:reduce){.invite[data-locale="gu"] .gujarati-gold-leaves span{animation:none;opacity:.35}}
+
+/* The backgrounds overlap on one plane behind every invitation section. */
+.invite[data-locale="gu"] > .gu-backgrounds-ready {
+  position: relative;
+  isolation: isolate;
+  background: #3a1024 url('/assets/brocade.webp') center top/720px auto repeat;
+}
+.invite[data-locale="gu"] > .gu-backgrounds-ready > section {
+  background: none !important;
+  box-shadow: none;
+}
+.gu-backgrounds-ready > :is(.collage, .gujarati-family-card, .gujarati-reference-canvas)::before {
+  background: none !important;
+}
+.gu-backgrounds-ready > .gu-shared-portrait .hero-photo,
+.gu-backgrounds-ready > .gu-shared-portrait::before,
+.gu-backgrounds-ready > .gu-shared-portrait::after { opacity: 0; }
+.invite[data-locale="gu"] .gu-backgrounds-ready > .section-join {
+  display: none !important;
+}
+.gu-background-plane {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  height: 100lvh;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background: #3a1024;
+}
+.gu-background-material {
+  position: absolute;
+  inset: 0;
+  will-change: opacity;
+}
+.gu-background-glaze { position: absolute; inset: 0; }
+@media(prefers-reduced-motion:reduce) {
+  .gu-background-material { will-change: auto; }
+}
+.invite[data-locale="gu"] .gu-backgrounds-ready > .baraat-scene { border: 0; }
+.invite[data-locale="gu"] .gu-backgrounds-ready > .baraat-scene::before,
+.invite[data-locale="gu"] .gu-backgrounds-ready .baraat-backdrop,
+.invite[data-locale="gu"] .gu-backgrounds-ready .interlude-shade { opacity: 0; }
+
+/* The closing page is a carved jharokha, with live text in its velvet centre. */
+.invite[data-locale="gu"] .closing { position:relative; display:flex; justify-content:center; min-height:900px; padding:clamp(14rem,27svh,19rem) 1rem 5rem; overflow:clip; background:#300913 url('/assets/gujarati-closing-jharokha.webp') center center/cover no-repeat; color:#f9e7be; isolation:isolate; }
+.invite[data-locale="gu"] .gu-closing-content { position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; width:min(74%,350px); margin:0 auto; text-align:center; }
+.invite[data-locale="gu"] .gu-closing-overline { color:#e5c47d; font-size:clamp(.75rem,2.8vw,.92rem); letter-spacing:.05em; text-shadow:0 2px 5px #17020c; }
+.invite[data-locale="gu"] .gu-closing-crest { display:grid; place-items:center; width:56px; height:56px; margin:1.25rem auto 1.5rem; border:1px solid #e7bb68; border-radius:50%; box-shadow:0 0 0 5px #9e672c38,0 0 25px #ecb75e47,inset 0 0 13px #d1964655; color:#f4d896; font:2.1rem/1 Georgia,serif; animation:gu-crest-breathe 5s ease-in-out infinite; }
+.invite[data-locale="gu"] .gu-closing-message { max-width:26ch; margin:.35rem auto 1.5rem; color:#f8e7c9; font-size:clamp(.92rem,3.5vw,1.08rem); line-height:1.9; text-shadow:0 2px 6px #1a0310; }
+.invite[data-locale="gu"] .gu-closing-content h2 { max-width:100%; margin:0 auto .45rem; color:#ffe1a0; font:600 clamp(1.9rem,7vw,2.7rem)/1.45 var(--gu-serif); overflow-wrap:normal; text-wrap:balance; text-shadow:0 3px 12px #1c020c; }
+.invite[data-locale="gu"] .gu-closing-date { margin:.25rem auto 1.7rem; color:#e4c88b; font-size:.85rem; }
+.invite[data-locale="gu"] .gu-closing-content #reopen { display:inline-block; margin:.6rem auto 1.1rem; padding:.68rem 1.15rem; border:1px solid #d3a75c; border-radius:3px; background:linear-gradient(135deg,#6d2137,#3c101f); box-shadow:0 7px 17px #1906109c,inset 0 1px #f3c58350; color:#ffe7b6; font:600 .82rem/1.6 var(--gu-sans); letter-spacing:0; text-transform:none; }
+.invite[data-locale="gu"] .gu-closing-content .gu-catalog-return { display:inline-block; margin:.25rem auto 0; padding:.25rem .5rem; border:0; background:none; box-shadow:none; color:#f0d9a8; font-size:.75rem; text-decoration:underline; text-underline-offset:4px; }
+.invite[data-locale="gu"] .gu-closing-demo { margin-top:1.4rem; color:#d2b586; font-size:.64rem; opacity:.8; }
+@keyframes gu-crest-breathe { 50% { box-shadow:0 0 0 7px #9e672c32,0 0 34px #ecb75e68,inset 0 0 17px #d1964666; } }
+@media(max-width:420px){.invite[data-locale="gu"] .closing { min-height:840px; padding-top:clamp(14rem,27svh,17rem); background-position:center center; }.invite[data-locale="gu"] .gu-closing-content { width:min(76%,300px); }}
+@media(prefers-reduced-motion:reduce){.invite[data-locale="gu"] .gu-closing-crest { animation:none; }}
+
+/* Gujarati typesetting: generous vowel-mark clearance and one stationery ink palette. */
+.invite[data-locale="gu"] { --gu-ink:#542638; --gu-body:#4a3733; --gu-gold:#805b29; }
+.invite[data-locale="gu"] :is(h1,h2,h3) { word-break:normal; overflow-wrap:normal; text-wrap:balance; }
+.invite[data-locale="gu"] :is(.letter-inner,.paper-panel,.note-paper,.gujarati-family-frame,.gujarati-reference-card) { color:var(--gu-body); text-shadow:none; }
+.invite[data-locale="gu"] :is(.letter h2,.note-paper h2,.paper-panel h2,.gujarati-family-card h2,.gujarati-reference-canvas>h2,.gujarati-reference-card h3,.gujarati-family-names,.cover-paper-names) { color:var(--gu-ink); text-shadow:none; }
+.invite[data-locale="gu"] :is(.gujarati-reference-card p,.gujarati-family-contacts p,.gujarati-scroll-paper strong,.gujarati-detail-page dd) { color:var(--gu-body); }
+.invite[data-locale="gu"] .gujarati-reference-card p { font-size:1rem; line-height:1.85; overflow-wrap:break-word; }
+.invite[data-locale="gu"] .gujarati-reference-card h3 { font-size:1.8rem; line-height:1.5; }
+.invite[data-locale="gu"] .gujarati-reference-intro { color:var(--gu-ink); line-height:1.9; }
+.invite[data-locale="gu"] .gujarati-family-contacts a { display:inline-block; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.invite[data-locale="gu"] .hero h1 { font-size:clamp(3rem,12vw,5rem); line-height:1.3; }
+.invite[data-locale="gu"] .collage h2 { font-size:clamp(2rem,8vw,3.1rem); line-height:1.5; padding-inline:1rem; }
+.invite[data-locale="gu"] .gujarati-scroll-paper h2 { font-size:clamp(2rem,8.5vw,2.9rem); line-height:1.3; }
+.invite[data-locale="gu"] .gujarati-scroll-paper .letter-inner { padding:3.2rem 7% 5.4rem; }
+.invite[data-locale="gu"] .gujarati-scroll-paper .letter-inner>p { font-size:1rem; line-height:1.65; margin:.3rem 0; }
+.invite[data-locale="gu"] .gujarati-scroll-paper .letter-date { font-size:.95rem; line-height:1.65; margin:.65rem 0; }
+.invite[data-locale="gu"] .gujarati-scroll-paper .letter-inner>small { font-size:.9rem; line-height:1.65; }
+.invite[data-locale="gu"] .gujarati-detail-page dt { color:var(--gu-gold); }
+.invite[data-locale="gu"] .gujarati-detail-page dd { font-size:.98rem; line-height:1.75; }
+.invite[data-locale="gu"] .events .event-card h3 { font-size:clamp(2rem,8vw,2.8rem); line-height:1.35; text-shadow:none; }
+.invite[data-locale="gu"] .events .event-card p { font-size:clamp(.95rem,3.7vw,1.1rem); line-height:1.8; }
+.invite[data-locale="gu"] .events .event-card small { font-size:1rem; line-height:1.7; }
+.invite[data-locale="gu"] .events .event-card .map-disabled { font-size:.8rem; line-height:1.6; }
+.invite[data-locale="gu"] .note-paper p { font-size:1.08rem; line-height:1.9; }
+.invite[data-locale="gu"] .note-paper strong { font-family:var(--gu-serif); font-size:1.8rem; line-height:1.5; }
+.invite[data-locale="gu"] .gu-closing-content h2 { font-size:clamp(2rem,8vw,3rem); line-height:1.45; }
+.invite[data-locale="gu"] .gu-closing-message { font-size:1rem; line-height:1.9; }
+.invite[data-locale="gu"] .gu-closing-overline { letter-spacing:0; }
+@media(max-width:420px) {
+ .invite[data-locale="gu"] .gujarati-reference-card { padding:1.5rem 1.1rem; }
+ .invite[data-locale="gu"] .gujarati-family-frame { padding:1.5rem 1.1rem; }
+ .invite[data-locale="gu"] .events .event-card { padding-inline:1.7rem; }
+}
+
+/* Heading ink must contrast with the dark green family folio labels. */
+.invite[data-locale="gu"] .gujarati-reference-card h3 { color:#fff3d7; text-shadow:0 1px 1px #123326; }
+
+/* Let the family paper's soft shadow finish naturally across the next section. */
+.invite[data-locale="gu"] .gu-backgrounds-ready > .gujarati-family-card { overflow:visible; }
