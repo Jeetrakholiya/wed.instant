@@ -1,1287 +1,185 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@400;500;600;700&family=Rasa:wght@400;500;600;700&display=swap');
-
-:root {
-  --city-ink: #3f262f;
-  --city-rose: #8b3856;
-  --city-rose-dark: #632238;
-  --city-gold: #9f6e3c;
-  --city-gold-bright: #d4af6e;
-  --city-saffron: #cf8f42;
-  --city-paper: #fff5e6;
-  --city-wa-green: #25D366;
-  --city-wa-dark: #128C7E;
-}
-
-.city-invite {
-  color: var(--city-ink);
-  background: #b88693;
-  font-family: 'Hind Vadodara', 'Nirmala UI', sans-serif;
-  overflow-x: clip;
-  position: relative;
-}
-
-.city-invite *,
-.city-invite *::before,
-.city-invite *::after {
-  box-sizing: border-box;
-}
-
-.city-invite :is(h1, h2, h3) {
-  font-family: 'Rasa', 'Nirmala UI', serif;
-  font-weight: 600;
-  line-height: 1.2;
-  text-wrap: balance;
-}
-
-/* ── Top Navigation Bar ─────────────────────────────────────────────── */
-.city-top-bar {
-  position: fixed;
-  z-index: 50;
-  top: 0.85rem;
-  left: 0.85rem;
-  right: 0.85rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  pointer-events: none;
-}
-
-.city-home-btn,
-.city-music-btn {
-  pointer-events: auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  height: 42px;
-  border-radius: 100px;
-  border: 1px solid rgba(255, 235, 200, 0.65);
-  background: rgba(62, 33, 50, 0.78);
-  color: #fff6e8;
-  text-decoration: none;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.city-home-btn {
-  width: 42px;
-  font-size: 1.5rem;
-}
-
-.city-home-btn:active,
-.city-music-btn:active {
-  transform: scale(0.95);
-}
-
-.city-music-btn {
-  padding: 0 0.95rem;
-  font-family: inherit;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-left: 0.5rem;
-}
-
-.city-music-btn.is-playing {
-  background: rgba(124, 45, 70, 0.88);
-  border-color: #ffd899;
-  box-shadow: 0 0 16px rgba(255, 216, 153, 0.45);
-}
-
-.city-music-btn.is-playing .city-music-icon {
-  animation: city-music-spin 3s linear infinite;
-  display: inline-block;
-}
-
-@keyframes city-music-spin {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(15deg) scale(1.1); }
-  100% { transform: rotate(0deg); }
-}
-
-.city-demo-tag {
-  pointer-events: auto;
-  padding: 0.45rem 0.85rem;
-  border-radius: 100px;
-  border: 1px solid rgba(255, 235, 200, 0.5);
-  background: rgba(62, 33, 50, 0.78);
-  color: #ffeed3;
-  font-size: 0.68rem;
-  letter-spacing: 0.04em;
-  backdrop-filter: blur(8px);
-  margin-left: auto;
-}
-
-/* ── Seamless Continuous Hero & Palace Tower ───────────────────────── */
-.city-hero {
-  position: relative;
-  min-height: 200svh;
-  overflow: visible;
-  text-align: center;
-}
-
-.city-intro-stage {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 100svh;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-/* Single unbroken continuous image spanning from sky down the tower */
-.city-continuous-palace {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 200svh;
-  background: url('/assets/city/painted-fort-tower-continuous.webp') center top / auto 200svh no-repeat;
-  will-change: transform;
-  transform: translate3d(0, var(--intro-pan-y, 0), 0);
-}
-
-.city-continuous-palace::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(20, 45, 60, 0.25) 0%, rgba(0, 0, 0, 0) 45%, rgba(60, 30, 45, 0.3) 100%);
-  pointer-events: none;
-}
-
-/* Falling Rose Petals */
-.city-petals {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.city-petals i {
-  position: absolute;
-  top: -10%;
-  left: var(--x);
-  width: var(--size);
-  height: var(--size);
-  background: url('/assets/city/rose-petal.png') center/contain no-repeat;
-  opacity: var(--depth);
-  filter: drop-shadow(0 4px 6px rgba(40, 15, 30, 0.35));
-  animation: city-petal-fall calc(9s / var(--depth)) linear var(--delay) infinite;
-}
-
-@keyframes city-petal-fall {
-  to {
-    transform: translate3d(var(--drift), 115svh, 0) rotate(580deg);
-  }
-}
-
-.city-hero-floral {
-  position: absolute;
-  z-index: 2;
-  top: -1rem;
-  left: -2.5rem;
-  width: min(48vw, 260px);
-  pointer-events: none;
-}
-
-.city-birds {
-  position: absolute;
-  z-index: 2;
-  right: 4%;
-  top: 26%;
-  width: clamp(75px, 20vw, 140px);
-  opacity: 0.85;
-  pointer-events: none;
-}
-
-.city-hero-copy {
-  position: sticky;
-  top: 10svh;
-  z-index: 5;
-  width: min(calc(100% - 2rem), 32rem);
-  margin: 0 auto;
-  padding: 1.5rem 1rem;
-  color: #fff6e8;
-  text-shadow: 0 2px 14px rgba(35, 18, 30, 0.85), 0 0 35px rgba(35, 18, 30, 0.65);
-  transform: translateY(calc(-40px * var(--intro-progress, 0)));
-  opacity: calc(1 - 1.25 * var(--intro-progress, 0));
-  transition: opacity 0.1s linear;
-}
-
-.city-kicker {
-  display: block;
-  font-size: clamp(0.78rem, 3.2vw, 0.95rem);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: #ffdfa8;
-  margin-bottom: 0.3rem;
-}
-
-.city-hero-sub {
-  margin: 0.2rem 0 0.5rem;
-  font-size: clamp(1rem, 4vw, 1.2rem);
-  color: #fff2db;
-}
-
-.city-hero h1 {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin: 0.5rem 0 0.8rem;
-  font-size: clamp(3.8rem, 16.5vw, 6.2rem);
-  line-height: 0.88;
-}
-
-.city-hero h1 span {
-  font-size: 0.32em;
-  font-weight: 400;
-  color: #ffdfb3;
-  margin: 0.25rem 0;
-}
-
-.city-date {
-  display: inline-block;
-  margin: 0.4rem 0 0;
-  padding: 0.3rem 1.4rem;
-  border-top: 1px solid rgba(255, 223, 185, 0.7);
-  border-bottom: 1px solid rgba(255, 223, 185, 0.7);
-  font-size: clamp(0.95rem, 3.8vw, 1.15rem);
-  color: #fff8eb;
-}
-
-.city-scroll-hint {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.9rem;
-  border-radius: 100px;
-  background: rgba(45, 22, 38, 0.65);
-  border: 1px solid rgba(255, 235, 200, 0.4);
-  color: #fff2dd;
-  font-size: 0.82rem;
-  backdrop-filter: blur(6px);
-  animation: city-bounce 2.2s infinite;
-}
-
-@keyframes city-bounce {
-  0%, 100% { transform: translate3d(-50%, 0, 0); }
-  50% { transform: translate3d(-50%, 8px, 0); }
-}
-
-/* ── Garden Transition Section ─────────────────────────────────────── */
-.city-garden {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100svh;
-  padding: 2rem 1.5rem;
-  margin-top: -1px;
-  background: #a76846 url('/assets/city/painted-fort-tower-continuous.webp') center bottom / auto 200svh no-repeat;
-}
-
-.city-garden-caption {
-  max-width: 22rem;
-  padding: 0.65rem 1.4rem;
-  border: 1px solid rgba(255, 233, 187, 0.75);
-  border-radius: 100px;
-  background: rgba(55, 40, 35, 0.82);
-  color: #fff5e2;
-  font-size: 0.95rem;
-  text-align: center;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-}
-
-/* ── Saffron Paper Details Container ───────────────────────────────── */
-.city-details {
-  position: relative;
-  z-index: 3;
-  margin-top: -4svh;
-  background-color: #d09443;
-  background-image: linear-gradient(rgba(207, 143, 66, 0.2), rgba(207, 143, 66, 0.2)), url('/assets/city/vintage-saffron-paper.webp');
-  background-position: center top;
-  background-size: 100% auto;
-  background-repeat: repeat-y;
-  clip-path: polygon(0 14px, 5% 8px, 12% 16px, 20% 6px, 28% 13px, 37% 7px, 46% 15px, 55% 6px, 64% 14px, 73% 8px, 82% 15px, 91% 7px, 100% 13px, 100% 100%, 0 100%);
-  box-shadow: 0 -15px 35px rgba(60, 30, 20, 0.25);
-}
-
-/* ── Ceremony & Ganesh Blessing ────────────────────────────────────── */
-.city-ceremony {
-  position: relative;
-  padding: 5.5rem 1.4rem 4.5rem;
-  text-align: center;
-  color: #3b221d;
-}
-
-.city-ceremony-inner {
-  width: min(100%, 540px);
-  margin: auto;
-}
-
-.city-ceremony-prayer {
-  margin: 0;
-  font-size: clamp(0.95rem, 3.8vw, 1.15rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #8c4c23;
-}
-
-.city-ceremony-ganesh {
-  width: min(58vw, 175px);
-  height: auto;
-  margin: 1.5rem auto 1rem;
-  display: block;
-  filter: drop-shadow(0 8px 12px rgba(100, 50, 20, 0.2));
-}
-
-.city-ceremony-family {
-  margin: 0.6rem 0 0.8rem;
-  font-size: clamp(0.95rem, 3.6vw, 1.15rem);
-  font-weight: 600;
-  color: #834720;
-}
-
-.city-ceremony h2 {
-  margin: 0.2rem 0 1rem;
-  font-size: clamp(3rem, 11vw, 4.8rem);
-  color: #5e1c31;
-}
-
-.city-ceremony-message {
-  margin: 0 auto 1.4rem;
-  max-width: 32ch;
-  font-size: clamp(1.05rem, 4.2vw, 1.25rem);
-  line-height: 1.75;
-  color: #432720;
-}
-
-.city-ceremony-names {
-  margin: 1.2rem 0 0.4rem;
-  font-family: 'Rasa', serif;
-  font-size: clamp(2.4rem, 9.5vw, 3.8rem);
-  font-weight: 600;
-  color: #6d1e34;
-}
-
-.city-ceremony-names span {
-  display: inline-block;
-  margin: 0 0.4rem;
-  font-size: 0.45em;
-  color: #8d4f24;
-}
-
-.city-ceremony-date {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #7b421f;
-  margin-top: 0.4rem;
-}
-
-/* ── Live Muhurat Countdown Timer Card ─────────────────────────────── */
-.city-countdown-card {
-  margin: 2.8rem auto 1rem;
-  padding: 1.8rem 1.2rem 1.6rem;
-  border: 1.5px solid #d4af6e;
-  border-radius: 16px;
-  background: rgba(255, 248, 236, 0.85);
-  box-shadow: 0 12px 30px rgba(105, 50, 15, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
-}
-
-.city-countdown-title {
-  margin: 0 0 1.2rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: #7e3e1e;
-  text-transform: uppercase;
-}
-
-.city-countdown-grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.city-countdown-unit {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 60px;
-  padding: 0.65rem 0.45rem;
-  border-radius: 10px;
-  border: 1px solid #dfc79e;
-  background: #ffffff;
-  box-shadow: 0 4px 10px rgba(80, 40, 20, 0.08);
-}
-
-.city-countdown-val {
-  font-family: 'Rasa', serif;
-  font-size: clamp(1.8rem, 6.5vw, 2.3rem);
-  font-weight: 700;
-  color: #6f2237;
-  line-height: 1;
-}
-
-.city-countdown-lbl {
-  margin-top: 0.3rem;
-  font-size: 0.74rem;
-  font-weight: 600;
-  color: #7d593c;
-}
-
-.city-countdown-sep {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ba8c5a;
-  margin-bottom: 0.9rem;
-}
-
-/* ── Events Section & Side Filter ──────────────────────────────────── */
-.city-events {
-  padding: 4.5rem 1.2rem 6rem;
-  text-align: center;
-}
-
-.city-events > .city-kicker {
-  color: #8c4c23;
-}
-
-.city-events h2 {
-  margin: 0.2rem 0;
-  font-size: clamp(2.8rem, 11vw, 4.4rem);
-  color: #632238;
-}
-
-.city-events-intro {
-  margin: 0.2rem 0 2.2rem;
-  font-size: 1rem;
-  color: #55332c;
-}
-
-/* Side Switcher Filter Tabs */
-.city-side-filter {
-  display: flex;
-  justify-content: center;
-  gap: 0.45rem;
-  max-width: 380px;
-  margin: 0 auto 2.8rem;
-  padding: 5px;
-  border-radius: 100px;
-  background: rgba(115, 55, 75, 0.12);
-  border: 1px solid rgba(180, 110, 80, 0.35);
-}
-
-.city-filter-btn {
-  flex: 1;
-  padding: 0.55rem 0.85rem;
-  border: none;
-  border-radius: 100px;
-  background: transparent;
-  color: #522837;
-  font-family: inherit;
-  font-size: 0.92rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.city-filter-btn.is-active {
-  background: #6a243a;
-  color: #fff6e8;
-  box-shadow: 0 4px 14px rgba(106, 36, 58, 0.35);
-}
-
-.city-event-list {
-  display: grid;
-  gap: 2.5rem;
-  width: min(100%, 640px);
-  margin: auto;
-}
-
-.city-function {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 2.2rem 1.4rem 1.8rem;
-  border-radius: 18px;
-  border: 1.5px solid #d4af6e;
-  background: #fffdf9 url('/assets/city/vintage-saffron-paper.webp') center/cover;
-  box-shadow: 0 14px 30px rgba(90, 45, 20, 0.14), 0 4px 0 #b3834a;
-  text-align: left;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.city-function.is-hidden {
-  display: none !important;
-}
-
-.city-function-index {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.4rem;
-  font-family: 'Rasa', serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #b58348;
-}
-
-.city-function-art {
-  width: 100%;
-  max-width: 320px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #ebd3a8;
-  box-shadow: 0 10px 24px rgba(80, 40, 20, 0.22);
-  margin: 0.5rem auto 1.6rem;
-  display: block;
-}
-
-.city-function-copy {
-  display: flex;
-  flex-direction: column;
-}
-
-.city-function-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.8rem;
-  margin-bottom: 0.4rem;
-}
-
-.city-function-copy h3 {
-  margin: 0;
-  font-size: clamp(2.2rem, 8vw, 3rem);
-  color: #632238;
-}
-
-.city-side-badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  border-radius: 100px;
-  background: #faead0;
-  border: 1px solid #dfc093;
-  color: #7b4520;
-  font-size: 0.78rem;
-  font-weight: 600;
-}
-
-.city-function-desc {
-  margin: 0.2rem 0 1.2rem;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #4b2d26;
-}
-
-.city-function-meta {
-  display: grid;
-  gap: 0.55rem;
-  margin: 0 0 1.2rem;
-  padding: 1rem;
-  border-radius: 10px;
-  background: rgba(255, 245, 230, 0.8);
-  border: 1px solid rgba(220, 180, 130, 0.4);
-}
-
-.city-function-meta div {
-  display: flex;
-  gap: 0.6rem;
-}
-
-.city-function-meta dt {
-  font-weight: 700;
-  color: #8c4c23;
-  min-width: 48px;
-}
-
-.city-function-meta dt::after {
-  content: ' :';
-}
-
-.city-function-meta dd {
-  margin: 0;
-  color: #3b221d;
-  font-weight: 500;
-}
-
-/* Dress code tag */
-.city-dresscode-box {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.55rem;
-  margin-bottom: 1.4rem;
-  padding: 0.75rem 0.95rem;
-  border-radius: 10px;
-  background: #fff8ed;
-  border: 1px dashed #d5af74;
-  color: #55342a;
-  font-size: 0.88rem;
-  line-height: 1.5;
-}
-
-.city-dresscode-icon {
-  color: #b5813f;
-  font-size: 0.95rem;
-}
-
-/* Event logistics action buttons */
-.city-event-actions {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.city-action-link,
-.city-action-btn {
-  flex: 1;
-  min-width: 145px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  border-radius: 10px;
-  font-family: inherit;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.city-action-link {
-  background: #5a2233;
-  color: #fff6e8;
-  border: 1px solid #7c354c;
-  box-shadow: 0 4px 12px rgba(90, 34, 51, 0.25);
-}
-
-.city-action-btn {
-  background: #ffffff;
-  color: #5c3527;
-  border: 1.5px solid #c99c67;
-  box-shadow: 0 3px 8px rgba(100, 50, 20, 0.08);
-}
-
-.city-action-link:active,
-.city-action-btn:active {
-  transform: scale(0.97);
-}
-
-/* ── Ocean & Sailing Ship Section ──────────────────────────────────── */
-.city-ocean {
-  position: relative;
-  background: #08212e url('/assets/city/deep-sea-seamless.png') center top/100% auto repeat-y;
-  color: #fff6e5;
-  overflow: clip;
-}
-
-.city-voyage {
-  position: relative;
-  min-height: 180svh;
-}
-
-.city-voyage-stage {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  overflow: hidden;
-  text-align: center;
-}
-
-.city-voyage-kicker {
-  position: relative;
-  z-index: 2;
-  margin: 0;
-  padding-top: 10svh;
-  color: #ffd99e;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-}
-
-.city-voyage h2 {
-  position: relative;
-  z-index: 2;
-  margin: 0.2rem 0;
-  color: #ffffff;
-  font-size: clamp(3.2rem, 13vw, 5.4rem);
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
-}
-
-.city-voyage-line {
-  position: relative;
-  z-index: 2;
-  margin: 0 auto;
-  color: #ffe6bd;
-  font-size: 1.05rem;
-}
-
-.city-voyage-approach {
-  position: absolute;
-  z-index: 3;
-  left: 50%;
-  bottom: 8svh;
-  width: min(136vw, 840px);
-  transform: translate3d(calc(-50% + 94vw - 94vw * var(--voyage-progress, 0)), 0, 0) scale(calc(0.66 + 0.68 * var(--voyage-progress, 0)));
-  transform-origin: 50% 100%;
-  will-change: transform;
-}
-
-.city-voyage-ship {
-  display: block;
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 18px 20px rgba(5, 20, 30, 0.65));
-  animation: city-ship-float 5.5s ease-in-out infinite;
-}
-
-@keyframes city-ship-float {
-  50% { transform: rotate(-0.8deg) scale(1.01); }
-}
-
-.city-voyage-water {
-  display: none;
-}
-
-/* ── Family Introduction ───────────────────────────────────────────── */
-.city-family {
-  position: relative;
-  padding: 0 1.2rem 7rem;
-  text-align: center;
-}
-
-.city-family-heading {
-  position: relative;
-  z-index: 1;
-  padding-top: 4.5rem;
-}
-
-.city-family-kicker {
-  margin: 0;
-  color: #fed89a;
-  font-size: 0.85rem;
-  letter-spacing: 0.14em;
-}
-
-.city-family h2 {
-  margin: 0.2rem 0;
-  font-size: clamp(3rem, 12vw, 5.2rem);
-  color: #ffffff;
-}
-
-.city-family-intro {
-  margin: 0.2rem 0 2.8rem;
-  color: #ffe5bf;
-  font-size: 1.05rem;
-}
-
-.city-family-grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 2.2rem;
-  width: min(100%, 580px);
-  margin: auto;
-  perspective: 1000px;
-}
-
-.city-family-card {
-  position: relative;
-  padding: 2.6rem 1.4rem 2.2rem;
-  border: 1.5px solid #d4af6e;
-  border-radius: 16px;
-  background: #fffcf6 url('/assets/city/vintage-saffron-paper.webp') center/cover;
-  color: #3e241c;
-  box-shadow: 0 20px 35px rgba(4, 18, 25, 0.65), 0 5px 0 #b3834a;
-  opacity: calc(0.16 + var(--family-card-progress, 0) * 0.84);
-  transform: translate3d(0, calc(4rem - var(--family-card-progress, 0) * 4rem), 0) scale(calc(0.95 + var(--family-card-progress, 0) * 0.05));
-  will-change: transform, opacity;
-}
-
-.city-family-number {
-  position: relative;
-  font-family: 'Rasa', serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #935a2d;
-}
-
-.city-family-card h3 {
-  position: relative;
-  margin: 0.2rem 0 0.5rem;
-  color: #632238;
-  font-size: clamp(2.4rem, 9vw, 3.4rem);
-}
-
-.city-family-rule {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.7rem;
-  margin: 0 auto 0.9rem;
-  color: #b5813f;
-}
-
-.city-family-rule::before,
-.city-family-rule::after {
-  content: '';
-  width: 2.5rem;
-  border-top: 1px solid rgba(181, 129, 63, 0.45);
-}
-
-.city-family-card p {
-  margin: 0.55rem 0;
-  font-family: 'Rasa', serif;
-  font-size: clamp(1.2rem, 5vw, 1.45rem);
-  font-weight: 500;
-  line-height: 1.45;
-  color: #3b221a;
-}
-
-.city-family-card--verse h3 {
-  color: #7b2a45;
-}
-
-/* ── Farewell & Moving Car Section ─────────────────────────────────── */
-.city-farewell {
-  position: relative;
-  min-height: 250svh;
-  background: #3b172a url('/assets/city/farewell-palace.png') center top/cover no-repeat;
-  text-align: center;
-  color: #fff6e8;
-}
-
-.city-farewell-stage {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  overflow: hidden;
-}
-
-.city-note {
-  position: absolute;
-  top: 6svh;
-  left: 50%;
-  transform: translate(-50%, var(--farewell-note-rise, 0));
-  opacity: var(--farewell-note-opacity, 1);
-  width: min(calc(100% - 2rem), 32rem);
-  padding: 1.5rem 1.2rem;
-  color: #fff6e8;
-  text-shadow: 0 3px 15px rgba(25, 10, 20, 0.85);
-  pointer-events: none;
-}
-
-.city-note h2 {
-  margin: 0.2rem 0 0.6rem;
-  font-size: clamp(2.8rem, 11vw, 4.4rem);
-}
-
-.city-note p:not(.city-kicker) {
-  margin: 0 auto 0.8rem;
-  max-width: 30ch;
-  font-size: clamp(1rem, 3.8vw, 1.15rem);
-  line-height: 1.7;
-}
-
-.city-note strong {
-  font-family: 'Rasa', serif;
-  font-size: 1.8rem;
-  color: #fedea8;
-}
-
-.city-farewell-car {
-  position: absolute;
-  z-index: 3;
-  left: 50%;
-  top: 54%;
-  width: min(108vw, 560px);
-  height: auto;
-  filter: drop-shadow(0 var(--farewell-shadow-y, 5px) var(--farewell-shadow-blur, 4px) rgba(25, 12, 20, 0.65));
-  transform: translate3d(-50%, var(--farewell-car-y, -50%), 0) scale(var(--farewell-car-scale, 0.13));
-  transform-origin: 50% 88%;
-  will-change: transform, filter;
-}
-
-.city-closing {
-  position: absolute;
-  top: 6svh;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(calc(100% - 2rem), 32rem);
-  padding: 1.5rem 1.2rem;
-  opacity: calc((var(--farewell-progress, 0) - 0.45) / 0.35);
-  color: #fff6e8;
-  text-shadow: 0 3px 15px rgba(25, 10, 20, 0.95);
-  pointer-events: auto;
-}
-
-.city-closing h2 {
-  margin: 0.2rem 0;
-  font-size: clamp(3rem, 11.5vw, 4.8rem);
-  color: #ffffff;
-}
-
-.city-closing p {
-  margin: 0.3rem auto;
-  font-size: 1.05rem;
-}
-
-.city-families {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-  color: #ffdca4;
-}
-
-.city-closing-actions {
-  display: flex;
-  gap: 0.75rem;
-  justify-content: center;
-  margin: 1.8rem auto 1.2rem;
-  flex-wrap: wrap;
-}
-
-.city-share-btn,
-.city-closing-rsvp-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.35rem;
-  border-radius: 100px;
-  font-family: inherit;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.city-share-btn {
-  background: var(--city-wa-green);
-  color: #ffffff;
-  border: 1.5px solid #85f2ae;
-  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
-}
-
-.city-closing-rsvp-btn {
-  background: #7a2b44;
-  color: #fff6e8;
-  border: 1.5px solid #c87691;
-  box-shadow: 0 6px 18px rgba(122, 43, 68, 0.4);
-}
-
-.city-share-btn:active,
-.city-closing-rsvp-btn:active {
-  transform: scale(0.96);
-}
-
-.city-closing small {
-  display: block;
-  margin-top: 1rem;
-  font-size: 0.75rem;
-  opacity: 0.85;
-}
-
-/* ── Floating WhatsApp RSVP Trigger Button (FAB) ───────────────────── */
-.city-rsvp-bar {
-  position: fixed;
-  z-index: 80;
-  bottom: 1.25rem;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.city-rsvp-fab {
-  pointer-events: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.85rem 1.8rem;
-  border-radius: 100px;
-  border: 1.5px solid #ffe3ab;
-  background: linear-gradient(135deg, var(--city-wa-green), var(--city-wa-dark));
-  color: #ffffff;
-  font-family: inherit;
-  font-size: 1.05rem;
-  font-weight: 700;
-  box-shadow: 0 8px 25px rgba(18, 140, 126, 0.5), 0 3px 8px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.city-rsvp-fab:active {
-  transform: scale(0.96);
-}
-
-.city-rsvp-fab-icon {
-  font-size: 1.15rem;
-}
-
-/* ── Royal WhatsApp RSVP Modal Dialog ──────────────────────────────── */
-.city-rsvp-modal {
-  position: fixed;
-  z-index: 100;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-
-.city-rsvp-modal[hidden] {
-  display: none;
-}
-
-.city-rsvp-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(35, 15, 25, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.city-rsvp-card {
-  position: relative;
-  z-index: 2;
-  width: min(100%, 460px);
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 2.2rem 1.5rem 1.8rem;
-  border: 1.5px solid #d4af6e;
-  border-radius: 20px;
-  background: #fffcf7 url('/assets/city/vintage-saffron-paper.webp') center/cover;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
-  text-align: left;
-}
-
-.city-rsvp-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid #c8a374;
-  background: #fdf5e7;
-  color: #552a39;
-  font-size: 1rem;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  transition: background 0.2s ease;
-}
-
-.city-rsvp-close:hover {
-  background: #f5e4cd;
-}
-
-.city-rsvp-header {
-  text-align: center;
-  margin-bottom: 1.6rem;
-}
-
-.city-rsvp-header .city-kicker {
-  color: #8c4c23;
-}
-
-.city-rsvp-header h3 {
-  margin: 0.2rem 0 0.4rem;
-  font-size: clamp(2rem, 7.5vw, 2.6rem);
-  color: #632238;
-}
-
-.city-rsvp-header p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #53332c;
-}
-
-.city-rsvp-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.city-form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.city-form-group label {
-  margin-bottom: 0.45rem;
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: #4b2b23;
-}
-
-.city-form-group input[type="text"] {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  border: 1.5px solid #d4af6e;
-  border-radius: 10px;
-  background: #ffffff;
-  font-family: inherit;
-  font-size: 1rem;
-  color: #3b201a;
-  outline: none;
-  transition: border-color 0.2s ease;
-}
-
-.city-form-group input[type="text"]:focus {
-  border-color: #7a2b44;
-  box-shadow: 0 0 0 3px rgba(122, 43, 68, 0.15);
-}
-
-.city-pill-options {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.city-pill-label {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.75rem 1rem;
-  border: 1.5px solid #dfc49e;
-  border-radius: 10px;
-  background: #ffffff;
-  cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #4c2c24;
-  transition: all 0.2s ease;
-}
-
-.city-pill-label input[type="radio"] {
-  accent-color: #7a2b44;
-}
-
-.city-pill-label.is-checked {
-  border-color: #7a2b44;
-  background: #faeaef;
-  color: #6a1f35;
-  font-weight: 600;
-}
-
-.city-headcount-selector {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.city-count-btn {
-  flex: 1;
-  padding: 0.65rem 0.35rem;
-  border: 1.5px solid #dfc49e;
-  border-radius: 10px;
-  background: #ffffff;
-  color: #553127;
-  font-family: inherit;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.city-count-btn.is-active {
-  background: #7a2b44;
-  color: #fff6e8;
-  border-color: #7a2b44;
-  box-shadow: 0 4px 10px rgba(122, 43, 68, 0.25);
-}
-
-.city-whatsapp-send-btn {
-  margin-top: 0.5rem;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.95rem 1rem;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--city-wa-green), var(--city-wa-dark));
-  color: #ffffff;
-  font-family: inherit;
-  font-size: 1.05rem;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(18, 140, 126, 0.4);
-  transition: transform 0.15s ease;
-}
-
-.city-whatsapp-send-btn:active {
-  transform: scale(0.98);
-}
-
-/* ── Mobile Viewport Optimizations ─────────────────────────────────── */
-@media (max-width: 600px) {
-  .city-hero {
-    min-height: 185svh;
-  }
-
-  .city-hero-copy {
-    top: 8.5svh;
-    width: min(calc(100% - 1.6rem), 28rem);
-  }
-
-  .city-hero h1 {
-    font-size: clamp(3.2rem, 15vw, 4.4rem);
-  }
-
-  .city-countdown-unit {
-    min-width: 52px;
-    padding: 0.55rem 0.35rem;
-  }
-
-  .city-countdown-val {
-    font-size: 1.65rem;
-  }
-
-  .city-function {
-    padding: 1.8rem 1.1rem 1.5rem;
-  }
-
-  .city-event-actions {
-    flex-direction: column;
-  }
-
-  .city-action-link,
-  .city-action-btn {
-    width: 100%;
-  }
-
-  .city-top-bar {
-    top: 0.65rem;
-    left: 0.65rem;
-    right: 0.65rem;
-  }
-
-  .city-demo-tag {
-    font-size: 0.62rem;
-    padding: 0.4rem 0.65rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .city-petals i {
-    animation: none;
-    display: none;
-  }
-  .city-voyage-ship {
-    animation: none;
-  }
+.city-invite { --ink:#482938; --rose:#8b4158; --gold:#98683e; --paper:#fff2dc; color:var(--ink); background:#bd8c98; font-family:'Hind Vadodara','Nirmala UI',sans-serif; overflow:hidden; }
+.city-invite *, .city-invite *::before, .city-invite *::after { box-sizing:border-box; }
+.city-invite :is(h1,h2,h3) { font-family:'Rasa','Nirmala UI',serif; font-weight:500; line-height:1.22; text-wrap:balance; }
+.city-home { position:fixed; z-index:20; top:1rem; left:1rem; display:grid; place-items:center; width:43px; height:43px; border:1px solid #fff3d8ab; border-radius:50%; background:#4f2d48b9; color:#fff4e4; font-size:1.65rem; text-decoration:none; backdrop-filter:blur(8px); }
+.city-demo { position:absolute; z-index:20; top:1rem; right:1rem; max-width:190px; margin:0; padding:.55rem .75rem; border-radius:30px; background:#4f2d48c9; color:#fff4e4; font-size:.7rem; line-height:1.3; text-align:center; backdrop-filter:blur(8px); }
+.city-hero { position:relative; display:flex; align-items:flex-start; justify-content:center; min-height:100svh; padding:clamp(6.5rem,17svh,11rem) 1.5rem 5rem; background:#b98caa url('/assets/city/mobile-city-impasto-background.webp') center bottom/cover no-repeat; text-align:center; isolation:isolate; }
+.city-hero::after { content:''; position:absolute; z-index:-1; inset:0; background:linear-gradient(180deg,#3d23421c 0,#3d234200 50%,#54334328 100%); }
+.city-hero { min-height:190svh; overflow:clip; background-position:center bottom; }
+.city-intro-scene { position:sticky; top:0; align-self:flex-start; flex:none; width:100%; height:100svh; margin:-6.5rem -1.5rem -100svh; overflow:hidden; pointer-events:none; transform:scale(calc(1.28 - .28 * var(--intro-progress,0))); transform-origin:50% 72%; }
+.city-intro-sky { position:absolute; inset:0; background:linear-gradient(#426d85aa,#dcb39735 67%,#a0607555),url('/assets/city/mobile-city-impasto-background.webp') center/cover; }
+.city-intro-painting { position:absolute; left:50%; bottom:-2%; width:min(115vw,760px); max-width:none; height:auto; transform:translateX(-50%); object-fit:contain; filter:drop-shadow(0 12px 10px #46334366); }
+.city-hero { display:block; min-height:175svh; padding:0; }
+.city-intro-scene { display:block; position:sticky; top:0; width:100%; height:100svh; margin:0; }
+.city-intro-painting { width:min(125vw,760px); bottom:0; }
+.city-hero-copy { position:absolute!important; top:12svh; left:1rem; right:1rem; width:auto; margin:auto; }
+.city-petals { position:absolute; top:0; left:0; width:100%; height:175svh; margin:0; }
+.city-scroll-hint { position:absolute; top:93svh; bottom:auto; margin:0; }
+.city-intro-fort { position:absolute; left:50%; bottom:5%; width:min(92vw,620px); height:38%; transform:translateX(-50%) translateY(calc(8% * var(--intro-progress,0))); filter:drop-shadow(0 15px 12px #372b3977); }
+.city-fort-left,.city-fort-right { position:absolute; bottom:0; width:38%; height:72%; border:2px solid #9c764b; background:repeating-linear-gradient(90deg,#b88d63 0 8px,#cba67a 8px 19px,#a87b56 19px 23px); box-shadow:inset 0 16px 22px #f4d5a077; }
+.city-fort-left { left:0; }.city-fort-right { right:0; }
+.city-fort-left::before,.city-fort-right::before { content:''; position:absolute; left:-3%; right:-3%; top:-14%; height:19%; background:repeating-linear-gradient(90deg,#cba679 0 14px,#9c744f 14px 17px,transparent 17px 24px); }
+.city-fort-bridge { position:absolute; left:25%; right:25%; bottom:0; height:55%; border:10px solid #a98056; border-radius:50% 50% 0 0; background:linear-gradient(110deg,#d4b084,#af835f); box-shadow:inset 0 9px 15px #f4d4a777; }
+.city-couple { position:absolute; z-index:2; left:50%; bottom:52%; width:25%; height:53%; transform:translateX(-50%); }
+.city-couple i,.city-couple b { position:absolute; bottom:0; width:35%; height:72%; border-radius:45% 45% 12% 12%; background:linear-gradient(90deg,#b89b70,#f9dfad,#a78361); box-shadow:0 4px 5px #553e4588; }
+.city-couple i { left:12%; }.city-couple b { right:12%; width:43%; border-radius:40% 40% 45% 45%; background:linear-gradient(90deg,#a8526a,#e6a4a2,#793b60); }
+.city-couple i::before,.city-couple b::before { content:''; position:absolute; left:29%; top:-24%; width:45%; height:26%; border-radius:50%; background:#ab775b; box-shadow:0 -4px 0 #342a31; }
+.city-petals { position:sticky; z-index:4; top:0; align-self:flex-start; flex:none; width:100%; height:100svh; margin:-6.5rem -100% -100svh 0; overflow:hidden; pointer-events:none; }
+.city-petals i { position:absolute; top:-12%; left:var(--x); width:18px; height:26px; border-radius:85% 8% 80% 25%; background:radial-gradient(circle at 75% 80%,#f6d6ae 0,#d7899b 38%,#913b63 75%); box-shadow:inset -2px 2px 3px #fff7,0 3px 5px #553b4b55; animation:city-petal-fall calc(7s + var(--n) * .22s) linear var(--delay) infinite; }
+@keyframes city-petal-fall { to { transform:translate3d(85px,115svh,0) rotate(600deg); } }
+.city-hero-copy { position:sticky!important; top:15svh; align-self:flex-start; margin:0 auto; transform:translateY(calc(-35px * var(--intro-progress,0))); opacity:calc(1 - .82 * var(--intro-progress,0)); }
+.city-scroll-hint { position:sticky; top:92svh; align-self:flex-start; margin-top:77svh; }
+@media(prefers-reduced-motion:reduce) { .city-intro-scene,.city-hero-copy { transform:none; }.city-petals i { animation:none; display:none; } }
+.city-hero-copy { position:relative; z-index:2; width:min(100%,28rem); padding:1rem 0; color:#fff0d5; text-shadow:0 2px 12px #42223f8c; }
+.city-hero-copy p { margin:.45rem 0; font-size:1rem; }
+.city-kicker { font-size:.78rem; font-weight:700; letter-spacing:.03em; }
+.city-hero h1 { display:flex; flex-direction:column; gap:0; margin:1.2rem 0 .7rem; font-size:clamp(4.5rem,20vw,7.2rem); line-height:.95; }
+.city-hero h1 span { color:#ffe0b6; font-size:.34em; line-height:1.15; }
+.city-hero .city-date { display:inline-block; padding:.28rem 1.2rem; border-top:1px solid #ffdfb999; border-bottom:1px solid #ffdfb999; font-size:1.12rem; }
+.city-hero-floral { position:absolute; z-index:1; top:-1rem; left:-2.5rem; width:min(47vw,260px); pointer-events:none; }
+.city-birds { position:absolute; right:3%; top:31%; width:clamp(80px,22vw,150px); opacity:.76; pointer-events:none; }
+.city-scroll-hint { position:absolute; bottom:1.25rem; left:50%; transform:translateX(-50%); color:#fff1db; font-size:.85rem; text-shadow:0 1px 8px #452234; }
+.city-invitation { padding:5rem 1rem; background:linear-gradient(#e2b6a7,#d79896 45%,#b77c88); }
+.city-invitation-art { position:relative; width:min(100%,450px); min-height:670px; margin:auto; }
+.city-invitation-art>img { position:absolute; inset:0; width:100%; height:100%; object-fit:fill; filter:drop-shadow(0 16px 25px #4b2d3980); }
+.city-invitation-copy { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; width:72%; min-height:610px; margin:auto; padding:8rem .35rem 4rem; text-align:center; color:#fff3dc; text-shadow:0 2px 10px #472734bd; }
+.city-invitation-copy>span { font-size:.76rem; }
+.city-invitation h2 { margin:1rem 0; font-size:clamp(2.8rem,10vw,4rem); }
+.city-invitation p { margin:.25rem 0 1rem; font-size:clamp(.95rem,3.5vw,1.08rem); line-height:1.75; }
+.city-invitation strong { font:500 clamp(1.8rem,7vw,2.6rem)/1.2 'Rasa',serif; }
+.city-invitation strong i { font-size:.55em; font-style:normal; }
+.city-invitation small { margin-top:.8rem; font-size:.85rem; }
+.city-events { padding:5rem 1rem 6rem; background:linear-gradient(#f2d3be,#edbfab 48%,#d697a0); text-align:center; }
+.city-events>.city-kicker { color:var(--rose); }
+.city-events h2 { margin:.35rem auto 0; color:#71354f; font-size:clamp(2.8rem,10vw,4.5rem); }
+.city-events-intro { margin:.2rem auto 2.4rem; color:#6f4551; }
+.city-event-list { display:grid; gap:1.8rem; width:min(100%,650px); margin:auto; }
+.city-event { position:relative; display:flex; align-items:center; min-height:390px; padding:2.1rem 1.3rem 1.4rem; overflow:hidden; border:1px solid #c9946f; border-radius:160px 160px 10px 10px; background:linear-gradient(145deg,#fff6e9f5,#f5ded2f0),url('/assets/city/mobile-city-impasto-background.webp') center/cover; box-shadow:0 5px 0 #bd8c7180,0 20px 35px #713f5140,inset 0 0 0 7px #fff7e880; }
+.city-event::after { content:''; position:absolute; inset:13px; border:1px solid #c49b79; border-radius:145px 145px 5px 5px; pointer-events:none; }
+.city-event-index { position:absolute; top:1.45rem; left:50%; transform:translateX(-50%); color:#9b6871; font-size:.8rem; }
+.city-event>img { position:absolute; width:47%; max-height:170px; object-fit:contain; pointer-events:none; }
+.city-event-flowers>img { left:-8%; bottom:-4%; transform:rotate(13deg); }
+.city-event-lanterns>img { right:-8%; top:0; width:50%; opacity:.85; }
+.city-event-car>img { left:-4%; bottom:0; width:54%; }
+.city-event-arch>img { right:-7%; bottom:-5%; width:42%; max-height:240px; }
+.city-event-copy { position:relative; z-index:1; width:100%; padding:2rem 0 1rem; }
+.city-event h3 { margin:.2rem 0; color:#773951; font-size:clamp(2.8rem,11vw,4.2rem); }
+.city-event-copy>p { max-width:23ch; margin:0 auto 1.2rem; color:#60444b; font-size:.93rem; line-height:1.6; }
+.city-event dl { display:grid; gap:.38rem; margin:0 auto; }
+.city-event dl>div { display:flex; flex-wrap:wrap; justify-content:center; gap:.3rem; }
+.city-event dt { color:#956044; font-size:.8rem; font-weight:700; }
+.city-event dt::after { content:' ·'; }
+.city-event dd { margin:0; color:#543947; font-size:.9rem; font-weight:600; }
+.city-farewell { position:relative; height:230svh; margin-top:-1px; background:#0b444b; --farewell-progress:0; }
+.city-farewell-stage { position:sticky; top:0; height:100svh; overflow:hidden; background:transparent; isolation:isolate; }
+.city-farewell-stage::before { content:''; position:absolute; z-index:0; inset:0; background:url('/assets/city/farewell-palace.png') center center/cover no-repeat; pointer-events:none; }
+.city-farewell-stage::after { content:''; position:absolute; z-index:1; inset:0; background:linear-gradient(180deg,transparent 0 72%,#2d152451 100%); pointer-events:none; }
+.city-note,.city-closing { position:absolute; z-index:4; left:50%; width:min(calc(100% - 2.2rem),30rem); padding:1.2rem 1.1rem 1.35rem; border:1px solid #d6ac6a99; border-radius:.5rem; background:linear-gradient(145deg,#3f2039d9,#55283cd1); color:#fff4df; text-align:center; text-shadow:0 2px 8px #231019; box-shadow:0 15px 32px #2a172b70,inset 0 0 0 5px #f2c98514; backdrop-filter:blur(4px); }
+.city-note { top:8svh; padding:0 1.15rem; border:0; border-radius:0; background:none; box-shadow:none; backdrop-filter:none; opacity:var(--farewell-note-opacity,1); transform:translate3d(-50%,var(--farewell-note-rise,0),0); filter:none; }
+.city-note::before { content:'✦'; display:block; margin-bottom:.45rem; color:#f2cf8f; font-size:1rem; text-shadow:0 2px 9px #2c111c; opacity:clamp(0,calc((var(--farewell-progress) - .01) * 11),1); transform:scale(clamp(.7,calc(.7 + var(--farewell-progress) * 2),1)); }
+.city-note > * { --note-delay:0; opacity:clamp(0,calc((var(--farewell-progress) - var(--note-delay)) * 10),1); transform:translate3d(0,calc(clamp(0,calc(.13 + var(--note-delay) - var(--farewell-progress)),.13) * 9rem),0); transition:text-shadow .2s linear; }
+.city-note > :nth-child(1) { --note-delay:.015; }
+.city-note > :nth-child(2) { --note-delay:.055; }
+.city-note > :nth-child(3) { --note-delay:.095; }
+.city-note > :nth-child(4) { --note-delay:.135; }
+.city-note .city-kicker { color:#f1d29a; text-shadow:0 2px 10px #2b1119,0 0 22px #1f0d16; }
+.city-note h2 { color:#fff4df; text-shadow:0 3px 12px #260f17,0 0 30px #35141f; }
+.city-note p:not(.city-kicker),.city-note strong { color:#fff7e9; text-shadow:0 2px 9px #1e0d13,0 0 22px #281019; }
+.city-closing { top:9svh; padding:0 1.15rem; border:0; border-radius:0; background:none; box-shadow:none; backdrop-filter:none; opacity:clamp(0,calc((var(--farewell-progress) - .72) * 5.5),1); transform:translate3d(-50%,calc(4rem - var(--farewell-progress) * 4rem),0); }
+.city-closing::before { content:'✦'; display:block; margin-bottom:.45rem; color:#f2cf8f; text-shadow:0 2px 9px #2c111c; }
+.city-closing .city-kicker,.city-closing h2,.city-closing p,.city-closing small { color:#fff4df; text-shadow:0 3px 12px #260f17,0 0 30px #35141f; }
+.city-note h2,.city-closing h2 { margin:.1rem 0 .65rem; font-size:clamp(2.7rem,10.5vw,4.2rem); }
+.city-note p:not(.city-kicker) { margin:.3rem auto .7rem; font-size:1rem; line-height:1.65; }
+.city-note strong { font:500 1.8rem 'Rasa',serif; }
+.city-farewell-car { position:absolute; z-index:3; left:50%; top:54%; width:min(108vw,560px); height:auto; opacity:1; visibility:visible; filter:drop-shadow(0 var(--farewell-shadow-y,5px) var(--farewell-shadow-blur,4px) #291921a3); transform:translate3d(-50%,var(--farewell-car-y,-50%),0) scale(var(--farewell-car-scale,.13)); transform-origin:50% 88%; will-change:transform,filter; }
+.city-closing p { margin:.35rem auto; }
+.city-families { font-size:.9rem; }
+.city-closing small { display:block; margin-top:.9rem; font-size:.68rem; opacity:.82; }
+@media(max-width:420px) { .city-hero { background-position:center bottom; } .city-invitation-art { min-height:590px; } .city-invitation-copy { min-height:550px; padding-top:7rem; } .city-event { min-height:370px; } .city-event>img { opacity:.68; } }
+@media(prefers-reduced-motion:reduce) { .city-invite *, .city-invite *::before, .city-invite *::after { scroll-behavior:auto!important; } }
+.city-invite { overflow:clip; }
+.city-hero { display:block; min-height:210svh; padding:0; overflow:visible; }
+.city-hero .city-intro-scene { display:block; position:sticky; top:0; width:100%; height:100svh; margin:0; }
+.city-hero .city-hero-copy { position:absolute!important; top:12svh; left:1rem; right:1rem; width:auto; margin:auto; padding:0; }
+.city-hero .city-petals { position:absolute; top:0; left:0; width:100%; height:210svh; margin:0; }
+.city-hero .city-scroll-hint { position:absolute; top:93svh; bottom:auto; margin:0; }
+.city-hero .city-intro-scene .city-petals { position:absolute; z-index:3; inset:0; width:100%; height:100%; margin:0; overflow:hidden; }
+.city-hero .city-intro-sky::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,#075e7c36 0%,transparent 68%),url('/assets/city/painted-cloud-sky.webp') center center/cover no-repeat; opacity:calc(1.5 * var(--intro-progress,0)); }
+.city-garden { position:relative; z-index:2; display:flex; align-items:flex-end; justify-content:center; min-height:145svh; margin-top:-52svh; padding:0 1.5rem 9svh; background:#b78e79 url('/assets/city/painted-fort-garden.webp') center top/cover no-repeat; -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 24svh,#000 94%,transparent 100%); mask-image:linear-gradient(to bottom,transparent 0,#000 24svh,#000 94%,transparent 100%); }
+.city-garden-caption { max-width:18rem; padding:.6rem 1rem; border:1px solid #ffe9bb77; border-radius:100px; background:#3f5d56b8; color:#fff5df; font-size:.95rem; text-align:center; text-shadow:0 1px 5px #263e38; backdrop-filter:blur(5px); }
+.city-ceremony { position:relative; z-index:3; margin-top:-5svh; padding:5rem 1.3rem 5.5rem; background:#d08d39 url('/assets/city/vintage-saffron-paper.webp') center/cover; color:#3d2822; text-align:center; box-shadow:0 -12px 26px #57371930; clip-path:polygon(0 13px,6% 9px,13% 15px,21% 5px,30% 11px,39% 7px,47% 13px,56% 6px,64% 12px,73% 8px,82% 14px,91% 6px,100% 12px,100% 100%,0 100%); }
+.city-ceremony::before { content:''; position:absolute; inset:0; pointer-events:none; border-top:1px solid #f4db9f99; box-shadow:inset 0 14px 30px #66331220; }
+.city-ceremony-inner { position:relative; max-width:35rem; margin:auto; }
+.city-ceremony-prayer { margin:0 auto 1rem; font-size:1rem; letter-spacing:.04em; }
+.city-ceremony-ganesh { display:block; width:min(48vw,180px); height:auto; margin:0 auto 1.4rem; filter:drop-shadow(0 4px 3px #71492466); }
+.city-ceremony-family { max-width:26ch; margin:0 auto 2rem; font-size:1.03rem; line-height:1.7; }
+.city-ceremony h2 { margin:0 0 .7rem; color:#4b2c28; font-size:clamp(2.8rem,12vw,4.6rem); }
+.city-ceremony-message { max-width:30ch; margin:0 auto 1.5rem; font-size:1.07rem; line-height:1.8; }
+.city-ceremony-names { display:flex; flex-direction:column; gap:.15rem; margin:0 auto; color:#482829; font:500 clamp(3.7rem,16vw,6rem)/.95 'Rasa','Nirmala UI',serif; }
+.city-ceremony-names span { color:#764b35; font-size:.4em; }
+.city-ceremony-date { margin:1.6rem auto 0; padding-top:.8rem; width:max-content; max-width:100%; border-top:1px solid #69402e7a; font-size:1rem; }
+.city-invitation { background:#d09443 url('/assets/city/vintage-saffron-paper.webp') center/cover; }
+.city-events { position:relative; padding:4rem 1rem 7rem; background:#d09443 url('/assets/city/vintage-saffron-paper.webp') center top/100% 1100px repeat-y; color:#3c2927; }
+.city-events>.city-kicker { color:#70422a; }
+.city-events h2 { color:#422820; }
+.city-events-intro { color:#624333; }
+.city-event-list { width:min(100%,720px); gap:0; }
+.city-function { position:relative; padding:2.5rem 0 5rem; text-align:center; }
+.city-function + .city-function::before { content:'✦'; display:block; width:70%; margin:0 auto 3rem; border-top:1px solid #77503676; color:#775036; font-size:1.25rem; line-height:0; }
+.city-function-index { display:block; margin:0 auto .6rem; color:#74482b; font-size:.82rem; letter-spacing:.2em; }
+.city-function-art { display:block; width:min(92%,440px); height:auto; margin:0 auto 1rem; filter:drop-shadow(0 18px 18px #57371973); }
+.city-function-copy { position:relative; max-width:32rem; margin:auto; }
+.city-function h3 { margin:.5rem 0 .15rem; color:#3e2621; font-size:clamp(3.8rem,16vw,5.7rem); font-weight:500; line-height:1; }
+.city-function-copy>p { max-width:28ch; margin:.5rem auto 1.3rem; color:#55362d; font-size:1.04rem; line-height:1.65; }
+.city-function dl { display:grid; gap:.5rem; margin:0 auto; font-size:1.06rem; }
+.city-function dl>div { display:flex; flex-wrap:wrap; justify-content:center; gap:.35rem; }
+.city-function dt { color:#724729; font-weight:700; }
+.city-function dt::after { content:' ·'; }
+.city-function dd { margin:0; color:#3c2927; }
+.city-details { position:relative; z-index:3; margin-top:-5svh; background-color:#d09443; background-image:linear-gradient(#cf8f4233,#cf8f4233),url('/assets/city/vintage-saffron-paper.webp'); background-position:center top; background-size:100% 100%; background-repeat:no-repeat; clip-path:polygon(0 13px,6% 9px,13% 15px,21% 5px,30% 11px,39% 7px,47% 13px,56% 6px,64% 12px,73% 8px,82% 14px,91% 6px,100% 12px,100% 100%,0 100%); }
+.city-details .city-ceremony { margin:0; padding-bottom:2rem; background:none; box-shadow:none; clip-path:none; }
+.city-details .city-ceremony::before { display:none; }
+.city-details .city-events { padding-top:1.5rem; background:none; }
+.city-ocean { position:relative; background:#0b444b url('/assets/city/deep-sea-seamless.png') center top/100% auto repeat-y; }
+.city-voyage { position:relative; height:165svh; background:transparent; overflow:clip; }
+.city-voyage::before { content:''; position:absolute; z-index:0; inset:0; background:url('/assets/city/city-sea-family-background.png') center top/cover no-repeat; -webkit-mask-image:linear-gradient(#000 0 68%,transparent 100%); mask-image:linear-gradient(#000 0 68%,transparent 100%); pointer-events:none; }
+.city-voyage-stage { position:sticky; z-index:1; top:0; height:100svh; overflow:hidden; text-align:center; }
+.city-voyage-kicker { position:relative; z-index:2; margin:0; padding-top:10svh; color:#513120; font-size:.85rem; letter-spacing:.07em; }
+.city-voyage h2 { position:relative; z-index:2; margin:.2rem 0; color:#3f2a25; font-size:clamp(3.5rem,14vw,5.6rem); text-shadow:0 2px 8px #edbf775e; }
+.city-voyage-line { position:relative; z-index:2; margin:0 auto; color:#543426; font-size:1rem; }
+.city-voyage-approach { position:absolute; z-index:3; left:50%; bottom:7svh; width:min(136vw,840px); transform:translate3d(calc(-50% + 94vw - 94vw * var(--voyage-progress,0)),0,0) scale(calc(.66 + .68 * var(--voyage-progress,0))); transform-origin:50% 100%; will-change:transform; }
+.city-voyage-ship { display:block; width:100%; height:auto; filter:drop-shadow(0 17px 15px #183f4177); animation:city-ship-float 5.5s ease-in-out infinite; transform-origin:50% 70%; }
+@keyframes city-ship-float { 50% { transform:rotate(-.65deg) scale(1.006); } }
+.city-voyage-water { display:none; }
+.city-family { position:relative; margin-top:0; padding:0 1rem 7rem; background:transparent; color:#fff0d4; text-align:center; overflow:clip; }
+.city-family::before { content:none; }
+.city-family-heading { position:relative; z-index:1; padding-top:5.5rem; }
+.city-family-kicker { margin:0; color:#f6d99e; font-size:.8rem; letter-spacing:.14em; }
+.city-family h2 { margin:.25rem 0 0; font-size:clamp(3.3rem,14vw,5.5rem); }
+.city-family-intro { margin:.2rem 0 2.3rem; color:#f8e7c8; }
+.city-family-grid { position:relative; z-index:1; display:grid; gap:2.4rem; width:min(100%,580px); margin:auto; perspective:1000px; }
+.city-family-grid::before { content:''; position:absolute; z-index:-1; top:-1rem; bottom:0; left:50%; width:2px; background:linear-gradient(#d6b06b00,#d6b06b99 3%,#d6b06b66 97%,#d6b06b00); transform:translateX(-50%); }
+.city-family-card { position:relative; padding:2.7rem 1.35rem 2.45rem; border:1px solid #c49a5f; border-radius:.45rem; background:#f5ead4 url('/assets/city/vintage-saffron-paper.webp') center/cover; color:#3e2b25; box-shadow:0 22px 34px #092b308c,0 7px 0 #b88b4e,inset 0 0 0 8px #fff7e47a; opacity:calc(.16 + var(--family-card-progress,0) * .84); transform:translate3d(0,calc(5.5rem - var(--family-card-progress,0) * 5.5rem),0) rotateX(calc(7deg - var(--family-card-progress,0) * 7deg)) scale(calc(.94 + var(--family-card-progress,0) * .06)); transform-origin:50% 100%; will-change:transform,opacity; }
+.city-family-card::before { content:''; position:absolute; inset:15px; border:1px solid #a87640a1; pointer-events:none; }
+.city-family-number { position:relative; color:#865a31; font-size:.78rem; letter-spacing:.2em; }
+.city-family-card h3 { position:relative; margin:.3rem 0 .6rem; color:#4b3029; font-size:clamp(2.7rem,10vw,3.8rem); }
+.city-family-rule { position:relative; display:flex; align-items:center; justify-content:center; gap:.7rem; margin:0 auto 1rem; color:#9b6d3c; }
+.city-family-rule::before,.city-family-rule::after { content:''; width:2.4rem; border-top:1px solid #a97944a3; }
+.city-family-lines { position:relative; }
+.city-family-card p { position:relative; margin:.72rem 0; font-family:'Rasa','Nirmala UI',serif; font-size:clamp(1.18rem,5.2vw,1.48rem); font-weight:500; line-height:1.42; }
+.city-family-card--verse h3 { color:#7c304a; }
+.city-family-card--verse p { font-size:clamp(1.28rem,5.5vw,1.55rem); }
+@media(min-width:660px) { .city-voyage-approach { width:min(106vw,880px); } }
+@media(prefers-reduced-motion:reduce) { .city-voyage-approach,.city-family-card { will-change:auto; }.city-voyage-ship { animation:none; } }
+.city-hero .city-hero-copy { top:5svh; transform:translateY(calc(-54svh * var(--intro-progress,0))); opacity:calc(1 - 3 * var(--intro-progress,0)); }
+.city-hero h1 { margin:.4rem 0; font-size:clamp(3.4rem,16vw,5.5rem); line-height:.83; }
+.city-hero .city-hero-copy p { margin:.2rem 0; }
+.city-hero .city-date { font-size:.95rem; }
+.city-hero .city-petals i { width:var(--size); height:var(--size); border:0; border-radius:0; background:url('/assets/city/rose-petal.png') center/contain no-repeat; box-shadow:none; opacity:var(--depth); filter:drop-shadow(0 3px 4px #4b294255); animation-duration:calc(10s / var(--depth)); }
+@keyframes city-petal-fall { to { transform:translate3d(var(--drift),115svh,0) rotate(600deg); } }
+@media(max-width:600px) {
+  .city-hero .city-intro-scene { transform:none; }
+  .city-hero .city-intro-painting { width:230vw; max-width:none; bottom:calc(-25svh + 25svh * var(--intro-progress,0)); transform:translateX(-50%) scale(calc(1.6 - .65 * var(--intro-progress,0))); transform-origin:50% 100%; }
+  .city-hero .city-hero-copy { top:8svh; text-shadow:0 2px 12px #39233c,0 0 28px #39233c; }
 }
