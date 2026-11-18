@@ -137,7 +137,7 @@
   inset: 0;
   width: 100%;
   height: 200svh;
-  background: url('../assets/city/painted-fort-tower-continuous.webp') center top / auto 200svh no-repeat;
+  background: url('/assets/city/painted-fort-tower-continuous.webp') center top / auto 200svh no-repeat;
   will-change: transform;
   transform: translate3d(0, var(--intro-pan-y, 0), 0);
 }
@@ -164,7 +164,7 @@
   left: var(--x);
   width: var(--size);
   height: var(--size);
-  background: url('../assets/city/rose-petal.png') center/contain no-repeat;
+  background: url('/assets/city/rose-petal.png') center/contain no-repeat;
   opacity: var(--depth);
   filter: drop-shadow(0 4px 6px rgba(40, 15, 30, 0.35));
   animation: city-petal-fall calc(9s / var(--depth)) linear var(--delay) infinite;
@@ -283,7 +283,7 @@
   min-height: 100svh;
   padding: 2rem 1.5rem;
   margin-top: -1px;
-  background: #a76846 url('../assets/city/painted-fort-tower-continuous.webp') center bottom / auto 200svh no-repeat;
+  background: #a76846 url('/assets/city/painted-fort-tower-continuous.webp') center bottom / auto 200svh no-repeat;
 }
 
 .city-garden-caption {
@@ -306,7 +306,7 @@
   z-index: 3;
   margin-top: -4svh;
   background-color: #d09443;
-  background-image: linear-gradient(rgba(207, 143, 66, 0.2), rgba(207, 143, 66, 0.2)), url('../assets/city/vintage-saffron-paper.webp');
+  background-image: linear-gradient(rgba(207, 143, 66, 0.2), rgba(207, 143, 66, 0.2)), url('/assets/city/vintage-saffron-paper.webp');
   background-position: center top;
   background-size: 100% auto;
   background-repeat: repeat-y;
@@ -515,7 +515,7 @@
   padding: 2.2rem 1.4rem 1.8rem;
   border-radius: 18px;
   border: 1.5px solid #d4af6e;
-  background: #fffdf9 url('../assets/city/vintage-saffron-paper.webp') center/cover;
+  background: #fffdf9 url('/assets/city/vintage-saffron-paper.webp') center/cover;
   box-shadow: 0 14px 30px rgba(90, 45, 20, 0.14), 0 4px 0 #b3834a;
   text-align: left;
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -682,7 +682,7 @@
 /* ── Ocean & Sailing Ship Section ──────────────────────────────────── */
 .city-ocean {
   position: relative;
-  background: #08212e url('../assets/city/deep-sea-seamless.png') center top/100% auto repeat-y;
+  background: #08212e url('/assets/city/deep-sea-seamless.png') center top/100% auto repeat-y;
   color: #fff6e5;
   overflow: clip;
 }
@@ -801,7 +801,7 @@
   padding: 2.6rem 1.4rem 2.2rem;
   border: 1.5px solid #d4af6e;
   border-radius: 16px;
-  background: #fffcf6 url('../assets/city/vintage-saffron-paper.webp') center/cover;
+  background: #fffcf6 url('/assets/city/vintage-saffron-paper.webp') center/cover;
   color: #3e241c;
   box-shadow: 0 20px 35px rgba(4, 18, 25, 0.65), 0 5px 0 #b3834a;
   opacity: calc(0.16 + var(--family-card-progress, 0) * 0.84);
@@ -858,7 +858,7 @@
 .city-farewell {
   position: relative;
   min-height: 250svh;
-  background: #3b172a url('../assets/city/farewell-palace.png') center top/cover no-repeat;
+  background: #3b172a url('/assets/city/farewell-palace.png') center top/cover no-repeat;
   text-align: center;
   color: #fff6e8;
 }
@@ -1062,7 +1062,7 @@
   padding: 2.2rem 1.5rem 1.8rem;
   border: 1.5px solid #d4af6e;
   border-radius: 20px;
-  background: #fffcf7 url('../assets/city/vintage-saffron-paper.webp') center/cover;
+  background: #fffcf7 url('/assets/city/vintage-saffron-paper.webp') center/cover;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
   text-align: left;
 }
