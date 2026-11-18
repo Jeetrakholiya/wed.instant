@@ -1,6 +1,6 @@
 export interface Event { name: string; dateLabel: string; time: string; venue: string; mapUrl?: string; icon: string; cardArt?: 'mehendi' | 'sangeet' | 'wedding' | 'reception' }
 export interface Photo { src: string; alt: string; srcSet?: string }
-export interface Wedding { schemaVersion: 1; templateId: 'heirloom'; isDemo: boolean; locale?: string; personOne: string; personTwo: string; dateLocal: string; dateLabel: string; timezone: string; ceremonyTime: string; venue: string; address: string; mapUrl?: string; attire: string; invitationIntro: string; invitationMessage: string; interludeText: string; noteSignoff: string; closingMessage: string; events: Event[]; note: string; blessings: string[]; photos: Photo[]; musicUrl?: string }
+export interface Wedding { schemaVersion: 1; templateId: 'heirloom'; isDemo: boolean; locale?: string; personOne: string; personTwo: string; dateLocal: string; dateLabel: string; timezone: string; ceremonyTime: string; venue: string; address: string; mapUrl?: string; attire: string; invitationIntro: string; invitationMessage: string; interludeText: string; noteSignoff: string; closingMessage: string; events: Event[]; note: string; blessings: string[]; photos: Photo[]; musicUrl?: string; ganeshInvocation?: string; familyContacts?: { name: string; phone: string; relation?: string }[]; invitationAddress?: string; portraitPhoto?: Photo }
 export let wedding: Wedding = {
   schemaVersion: 1,
   templateId: 'heirloom',
