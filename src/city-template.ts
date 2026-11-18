@@ -37,7 +37,7 @@ export function renderCityTemplate(app: HTMLElement) {
       <section class="city-farewell" aria-labelledby="city-close-title">
       <div class="city-farewell-stage">
         <div class="city-note"><p class="city-kicker">આપના માટે</p><h2 id="city-note-title">અમારો સંદેશ</h2><p>${escapeText(wedding.note)}</p><strong>${first} અને ${second}</strong></div>
-        <img class="city-farewell-car" src="${cityAsset('farewell-couple-car-front.png')}" alt="મહેલના મુખ્ય દ્વારથી સીધી આગળ આવતી નવદંપતીની વિન્ટેજ કાર" loading="lazy">
+        <img class="city-farewell-car" src="${cityAsset('farewell-couple-car-front.png')}" alt="મહેલના મુખ્ય દ્વારથી સીધી આગળ આવતી નવદંપતીની વિન્ટેજ કાર" loading="eager" decoding="async" fetchpriority="high">
         <div class="city-closing"><p class="city-kicker">${escapeText(wedding.date)}</p><h2 id="city-close-title">મળીએ જલ્દી!</h2><p>${escapeText(wedding.closing)}</p><p class="city-families">${wedding.families.map(escapeText).join(' · ')}</p><small>આ નમૂનાની તારીખ, સમય અને સ્થળ કલ્પિત છે.</small></div>
       </div>
       </section>
@@ -67,6 +67,11 @@ export function renderCityTemplate(app: HTMLElement) {
         (innerHeight * .92 - farewellRect.top) / Math.max(1, innerHeight * 1.55),
       ));
       farewell.style.setProperty('--farewell-progress', String(reducedMotion.matches ? .78 : farewellProgress));
+      const carProgress = reducedMotion.matches ? .78 : farewellProgress;
+      farewell.style.setProperty('--farewell-car-y', `calc(-50% + ${carProgress * 26}svh)`);
+      farewell.style.setProperty('--farewell-car-scale', String(.13 + carProgress * .99));
+      farewell.style.setProperty('--farewell-shadow-y', `${5 + carProgress * 22}px`);
+      farewell.style.setProperty('--farewell-shadow-blur', `${4 + carProgress * 16}px`);
       const noteExit = Math.min(1, Math.max(0, (farewellProgress - .5) / .22));
       farewell.style.setProperty('--farewell-note-opacity', String(reducedMotion.matches ? 0 : 1 - noteExit));
       farewell.style.setProperty('--farewell-note-rise', `${noteExit * -5}rem`);

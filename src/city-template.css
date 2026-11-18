@@ -92,7 +92,7 @@
 .city-note h2,.city-closing h2 { margin:.1rem 0 .65rem; font-size:clamp(2.7rem,10.5vw,4.2rem); }
 .city-note p:not(.city-kicker) { margin:.3rem auto .7rem; font-size:1rem; line-height:1.65; }
 .city-note strong { font:500 1.8rem 'Rasa',serif; }
-.city-farewell-car { position:absolute; z-index:3; left:50%; top:54%; width:min(108vw,560px); height:auto; filter:drop-shadow(0 calc(5px + var(--farewell-progress) * 22px) calc(4px + var(--farewell-progress) * 16px) #291921a3); transform:translate3d(-50%,calc(-50% + var(--farewell-progress) * 26svh),0) scale(calc(.13 + var(--farewell-progress) * .99)); transform-origin:50% 88%; will-change:transform,filter; }
+.city-farewell-car { position:absolute; z-index:3; left:50%; top:54%; width:min(108vw,560px); height:auto; opacity:1; visibility:visible; filter:drop-shadow(0 var(--farewell-shadow-y,5px) var(--farewell-shadow-blur,4px) #291921a3); transform:translate3d(-50%,var(--farewell-car-y,-50%),0) scale(var(--farewell-car-scale,.13)); transform-origin:50% 88%; will-change:transform,filter; }
 .city-closing p { margin:.35rem auto; }
 .city-families { font-size:.9rem; }
 .city-closing small { display:block; margin-top:.9rem; font-size:.68rem; opacity:.82; }
@@ -106,7 +106,7 @@
 .city-hero .city-scroll-hint { position:absolute; top:93svh; bottom:auto; margin:0; }
 .city-hero .city-intro-scene .city-petals { position:absolute; z-index:3; inset:0; width:100%; height:100%; margin:0; overflow:hidden; }
 .city-hero .city-intro-sky::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,#075e7c36 0%,transparent 68%),url('/assets/city/painted-cloud-sky.webp') center center/cover no-repeat; opacity:calc(1.5 * var(--intro-progress,0)); }
-.city-garden { position:relative; z-index:2; display:flex; align-items:flex-end; justify-content:center; min-height:130svh; margin-top:-14svh; padding:0 1.5rem 9svh; background:#b78e79 url('/assets/city/painted-fort-garden.webp') center top/cover no-repeat; -webkit-mask-image:linear-gradient(to bottom,transparent,#000 14svh,#000 93%,transparent); mask-image:linear-gradient(to bottom,transparent,#000 14svh,#000 93%,transparent); }
+.city-garden { position:relative; z-index:2; display:flex; align-items:flex-end; justify-content:center; min-height:145svh; margin-top:-52svh; padding:0 1.5rem 9svh; background:#b78e79 url('/assets/city/painted-fort-garden.webp') center top/cover no-repeat; -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 24svh,#000 94%,transparent 100%); mask-image:linear-gradient(to bottom,transparent 0,#000 24svh,#000 94%,transparent 100%); }
 .city-garden-caption { max-width:18rem; padding:.6rem 1rem; border:1px solid #ffe9bb77; border-radius:100px; background:#3f5d56b8; color:#fff5df; font-size:.95rem; text-align:center; text-shadow:0 1px 5px #263e38; backdrop-filter:blur(5px); }
 .city-ceremony { position:relative; z-index:3; margin-top:-5svh; padding:5rem 1.3rem 5.5rem; background:#d08d39 url('/assets/city/vintage-saffron-paper.webp') center/cover; color:#3d2822; text-align:center; box-shadow:0 -12px 26px #57371930; clip-path:polygon(0 13px,6% 9px,13% 15px,21% 5px,30% 11px,39% 7px,47% 13px,56% 6px,64% 12px,73% 8px,82% 14px,91% 6px,100% 12px,100% 100%,0 100%); }
 .city-ceremony::before { content:''; position:absolute; inset:0; pointer-events:none; border-top:1px solid #f4db9f99; box-shadow:inset 0 14px 30px #66331220; }
@@ -137,7 +137,7 @@
 .city-function dt { color:#724729; font-weight:700; }
 .city-function dt::after { content:' ·'; }
 .city-function dd { margin:0; color:#3c2927; }
-.city-details { position:relative; z-index:3; margin-top:-5svh; background-color:#d09443; background-image:linear-gradient(#cf8f4233,#cf8f4233),url('/assets/city/vintage-saffron-paper.webp'); background-position:center top; background-size:100% 1100px; background-repeat:repeat-y; clip-path:polygon(0 13px,6% 9px,13% 15px,21% 5px,30% 11px,39% 7px,47% 13px,56% 6px,64% 12px,73% 8px,82% 14px,91% 6px,100% 12px,100% 100%,0 100%); }
+.city-details { position:relative; z-index:3; margin-top:-5svh; background-color:#d09443; background-image:linear-gradient(#cf8f4233,#cf8f4233),url('/assets/city/vintage-saffron-paper.webp'); background-position:center top; background-size:100% 100%; background-repeat:no-repeat; clip-path:polygon(0 13px,6% 9px,13% 15px,21% 5px,30% 11px,39% 7px,47% 13px,56% 6px,64% 12px,73% 8px,82% 14px,91% 6px,100% 12px,100% 100%,0 100%); }
 .city-details .city-ceremony { margin:0; padding-bottom:2rem; background:none; box-shadow:none; clip-path:none; }
 .city-details .city-ceremony::before { display:none; }
 .city-details .city-events { padding-top:1.5rem; background:none; }
