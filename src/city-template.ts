@@ -2,7 +2,8 @@ import './city-template.css';
 import { cityWedding as wedding } from './city-wedding';
 import { referenceFamilyGroups, referenceTahuko, referenceVenueDetails } from './gujarati-reference-details';
 
-const asset = (name: string) => `/assets/city/${name}.webp`;
+const cityAsset = (file: string) => `${import.meta.env.BASE_URL}assets/city/${file}`;
+const asset = (name: string) => cityAsset(`${name}.webp`);
 const escapeText = (value: string) => value.replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]!);
 
 export function renderCityTemplate(app: HTMLElement) {
@@ -16,10 +17,10 @@ export function renderCityTemplate(app: HTMLElement) {
     { title: 'ટહુકો', lines: referenceTahuko },
   ];
   app.innerHTML = `<main class="city-invite" lang="gu">
-    <a class="city-home" href="/gujarati/" aria-label="ગુજરાતી નમૂનાઓ પર પાછા જાઓ">⌂</a>
+    <a class="city-home" href="${import.meta.env.BASE_URL}gujarati/" aria-label="ગુજરાતી નમૂનાઓ પર પાછા જાઓ">⌂</a>
     <p class="city-demo">નમૂના આમંત્રણ · બધી વિગતો કલ્પિત છે</p>
     <section class="city-hero" aria-labelledby="city-title">
-      <div class="city-intro-scene" aria-hidden="true"><div class="city-intro-sky"></div><img class="city-intro-painting" src="/assets/city/painted-fort-couple.png" alt=""><div class="city-petals">${Array.from({ length: 16 }, (_, index) => `<i style="--n:${index};--x:${(index * 37) % 100}%;--delay:-${(index * 1.7) % 11}s;--size:${[18, 27, 37, 24, 48, 31][index % 6]}px;--depth:${[.55, .8, 1, .68, 1.18, .9][index % 6]};--drift:${[28, -45, 76, -20, 105, 48][index % 6]}px"></i>`).join('')}</div></div>
+      <div class="city-intro-scene" aria-hidden="true"><div class="city-intro-sky"></div><img class="city-intro-painting" src="${cityAsset('painted-fort-couple.png')}" alt=""><div class="city-petals">${Array.from({ length: 16 }, (_, index) => `<i style="--n:${index};--x:${(index * 37) % 100}%;--delay:-${(index * 1.7) % 11}s;--size:${[18, 27, 37, 24, 48, 31][index % 6]}px;--depth:${[.55, .8, 1, .68, 1.18, .9][index % 6]};--drift:${[28, -45, 76, -20, 105, 48][index % 6]}px"></i>`).join('')}</div></div>
       <img class="city-hero-floral" src="${asset('bougainvillea-jasmine-corner')}" alt="" aria-hidden="true">
       <img class="city-birds" src="${asset('parakeet-pair')}" alt="" aria-hidden="true">
       <div class="city-hero-copy"><span class="city-kicker">${escapeText(wedding.greeting)}</span><p>સ્નેહભર્યું લગ્ન આમંત્રણ</p><h1 id="city-title">${first}<span>અને</span>${second}</h1><p class="city-date">${escapeText(wedding.date)}</p></div>
@@ -36,7 +37,7 @@ export function renderCityTemplate(app: HTMLElement) {
       <section class="city-farewell" aria-labelledby="city-close-title">
       <div class="city-farewell-stage">
         <div class="city-note"><p class="city-kicker">આપના માટે</p><h2 id="city-note-title">અમારો સંદેશ</h2><p>${escapeText(wedding.note)}</p><strong>${first} અને ${second}</strong></div>
-        <img class="city-farewell-car" src="/assets/city/farewell-couple-car-front.png" alt="મહેલના મુખ્ય દ્વારથી સીધી આગળ આવતી નવદંપતીની વિન્ટેજ કાર" loading="lazy">
+        <img class="city-farewell-car" src="${cityAsset('farewell-couple-car-front.png')}" alt="મહેલના મુખ્ય દ્વારથી સીધી આગળ આવતી નવદંપતીની વિન્ટેજ કાર" loading="lazy">
         <div class="city-closing"><p class="city-kicker">${escapeText(wedding.date)}</p><h2 id="city-close-title">મળીએ જલ્દી!</h2><p>${escapeText(wedding.closing)}</p><p class="city-families">${wedding.families.map(escapeText).join(' · ')}</p><small>આ નમૂનાની તારીખ, સમય અને સ્થળ કલ્પિત છે.</small></div>
       </div>
       </section>

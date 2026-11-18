@@ -24,7 +24,11 @@ import { weddingGujarati } from './wedding-gu';
 import { referenceFamilyGroups, referenceTahuko, referenceVenueDetails } from './gujarati-reference-details';
 import { gujaratiUi } from './gujarati-ui';
 import { bootCustomerRoute } from './customer';
-let isGujarati = location.pathname.startsWith('/gujarati');
+const siteBase = import.meta.env.BASE_URL;
+const routePath = location.pathname.startsWith(siteBase)
+  ? `/${location.pathname.slice(siteBase.length)}`
+  : location.pathname;
+let isGujarati = routePath.startsWith('/gujarati');
 let wedding = isGujarati ? weddingGujarati : weddingEnglish;
 const englishUi = {
   demo: 'DEMO CONTENT — REPLACE BEFORE SHARING', coverKicker: 'AN INVITATION TO CELEBRATE',
@@ -511,7 +515,7 @@ window.addEventListener('message', event => {
   const payload = event.data as { type?: string; wedding?: Wedding };
   if (payload?.type === 'customer-invitation-preview' && payload.wedding) invite(payload.wedding);
 });
-void bootCustomerRoute((data)=>{invite(data)}).then(async handled=>{if(!handled){if(location.pathname.startsWith('/gujarati/city')) { const { renderCityTemplate } = await import('./city-template'); renderCityTemplate(app); } else if(location.pathname.startsWith('/gujarati/invitation')) invite(); else if(location.pathname === '/gujarati' || location.pathname === '/gujarati/') gujaratiCatalog(); else if(location.pathname.startsWith('/invitation')) invite(); else { home(); addGujaratiLinks(); }}});
+void bootCustomerRoute((data)=>{invite(data)}).then(async handled=>{if(!handled){if(routePath.startsWith('/gujarati/city')) { const { renderCityTemplate } = await import('./city-template'); renderCityTemplate(app); } else if(routePath.startsWith('/gujarati/invitation')) invite(); else if(routePath === '/gujarati' || routePath === '/gujarati/') gujaratiCatalog(); else if(routePath.startsWith('/invitation')) invite(); else { home(); addGujaratiLinks(); }}});
 
 
 
